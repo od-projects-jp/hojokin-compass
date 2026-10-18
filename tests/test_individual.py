@@ -8,6 +8,7 @@ from unittest.mock import patch
 import collect_individual as collector
 from individual_coverage import build_coverage
 from collect_aichi import convert, decode_csv
+from collect_municipal import normalize, parse_csv, validate_source, collect_one
 
 
 class IndividualDataTests(unittest.TestCase):
@@ -36,6 +37,30 @@ class IndividualDataTests(unittest.TestCase):
         self.verified.write_text(
             json.dumps({"subsidies": records}, ensure_ascii=False), encoding="utf-8"
         )
+
+    def test_municipal_registry_csv_normalization(self):
+        source = {"id": "koganei", "name": "小金井市", "area": "東京都 小金井市",
+                  "dataset_url": "https://www.opendata.metro.tokyo.lg.jp/koganei/22_support_system.csv",
+                  "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045"}
+        rows = parse_csv("制度名,対象者,概要,URL\n住宅支援,市民,家賃補助,https://example.go.jp/program\n".encode("utf-8-sig"))
+        items = normalize(rows, source)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["review_status"], "要確認")
+        self.assertEqual(items[0]["area"], "東京都 小金井市")
+        self.assertEqual(items[0]["source_id"], "koganei")
+        self.assertEqual(items[0]["source"], "https://example.go.jp/program")
+
+    def test_municipal_csv_schema_mismatch_fails_safely(self):
+        source = {"id": "koganei", "area": "東京都 小金井市",
+                  "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045"}
+        with self.assertRaises(ValueError):
+            normalize([{"無関係な列": "value"}], source)
+
+    def test_municipal_rejects_unapproved_download_host(self):
+        source = {"id": "bad", "dataset_url": "https://example.com/feed.csv",
+                  "landing_url": "https://example.com/"}
+        with self.assertRaises(ValueError):
+            validate_source(source)
 
     def test_aichi_candidates_are_review_only(self):
         rows = decode_csv("制度名,対象者,概要\n家賃支援,住民,住まいの支援\n".encode("utf-8-sig"))

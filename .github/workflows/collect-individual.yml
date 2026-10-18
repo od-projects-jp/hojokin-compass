@@ -3,6 +3,12 @@ name: Collect Individual Support Data
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'collect_municipal.py'
+      - 'sources/individual_datasets.json'
+      - '.github/workflows/collect-individual.yml'
   schedule:
     - cron: "20 20 * * *"
 
@@ -28,17 +34,20 @@ jobs:
           python collect_individual.py
           python individual_coverage.py
 
-      - name: Collect Aichi candidates (non-blocking)
+      - name: Collect municipal candidates (non-blocking)
         continue-on-error: true
-        run: python collect_aichi.py
+        run: python collect_municipal.py
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/data/individual.json public/data/individual_review.json public/data/individual_coverage.json
-          if [ -f public/data/individual_review_aichi.json ]; then
-            git add public/data/individual_review_aichi.json
+          if [ -f public/data/individual_collection_status.json ]; then
+            git add public/data/individual_collection_status.json
+          fi
+          if [ -d public/data/individual_candidates ]; then
+            git add -A public/data/individual_candidates
           fi
           if ! git diff --cached --quiet; then
             git commit -m "Update individual support data"
