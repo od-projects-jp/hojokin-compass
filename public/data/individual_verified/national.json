@@ -82,6 +82,123 @@
       "source": "https://www.gov-online.go.jp/article/201504/entry-7806.html",
       "review_status": "公式情報確認済み",
       "verified_at": "2026-10-19"
+    },
+    {
+      "title": "教育訓練給付金",
+      "description": "雇用保険の加入歴などの条件を満たす方が、厚生労働大臣指定の教育訓練講座を受講・修了した場合に、費用の一部を支給する制度。一般・特定一般・専門実践の区分によって給付率や条件が異なります。",
+      "area": "全国",
+      "agency": "厚生労働省・ハローワーク",
+      "target": "雇用保険の被保険者または離職者で、支給要件期間、対象講座、受講・申請時期などの条件を満たす方。",
+      "categories": [
+        "教育",
+        "仕事"
+      ],
+      "source": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/jinzaikaihatsu/kyouiku.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "給付"
+    },
+    {
+      "title": "自立支援医療（精神通院医療）",
+      "description": "継続的な精神科通院医療を必要とする方について、対象となる通院医療費の自己負担を軽減する公費負担制度。所得に応じた負担上限などがあります。",
+      "area": "全国",
+      "agency": "厚生労働省・都道府県・指定都市",
+      "target": "精神疾患があり、通院による精神医療を継続的に必要とする方。対象医療機関・所得区分・認定手続きなどの条件あり。",
+      "categories": [
+        "医療"
+      ],
+      "source": "https://www.mhlw.go.jp/bunya/shougaihoken/jiritsu/seishin.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "医療費助成"
+    },
+    {
+      "title": "自立支援医療（更生医療）",
+      "description": "身体障害者が障害の除去・軽減を目的とする対象治療を受ける場合に、医療費の自己負担を軽減する制度。所得や対象医療に応じて条件が異なります。",
+      "area": "全国",
+      "agency": "厚生労働省・市区町村",
+      "target": "18歳以上で身体障害者手帳の交付を受け、障害の除去・軽減に確実な効果が期待される対象治療を必要とする方。",
+      "categories": [
+        "医療"
+      ],
+      "source": "https://www.mhlw.go.jp/bunya/shougaihoken/jiritsu/kousei.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "医療費助成"
+    },
+    {
+      "title": "自立支援医療（育成医療）",
+      "description": "身体に障害のある子どもが、障害の除去・軽減に効果が期待される対象治療を受ける際の医療費負担を軽減する制度。所得区分などにより負担額が異なります。",
+      "area": "全国",
+      "agency": "厚生労働省・市区町村",
+      "target": "18歳未満で身体に障害があり、対象となる治療によって障害の除去・軽減が期待できる児童とその保護者。",
+      "categories": [
+        "医療",
+        "子育て"
+      ],
+      "source": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/shougaishahukushi/jiritsu/gaiyo.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "医療費助成"
+    },
+    {
+      "title": "障害基礎年金",
+      "description": "病気やけがによって一定の障害状態になった方に支給される公的年金。初診日、保険料納付、障害等級などの受給要件があります。",
+      "area": "全国",
+      "agency": "日本年金機構",
+      "target": "国民年金加入中、20歳前などの対象期間に初診日があり、原則として障害等級1級・2級に該当する方。保険料納付要件等あり。",
+      "categories": [
+        "医療",
+        "仕事"
+      ],
+      "source": "https://www.nenkin.go.jp/service/jukyu/seido/shougainenkin/jukyu-yoken/20150514.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "年金給付"
+    },
+    {
+      "title": "遺族基礎年金",
+      "description": "国民年金加入者などが亡くなった際に、一定の条件を満たす子のある配偶者または子に支給される公的年金。保険料納付状況等により要件が異なります。",
+      "area": "全国",
+      "agency": "日本年金機構",
+      "target": "亡くなった方に生計を維持されていた子のある配偶者または子。子の年齢や障害の状態、死亡した方の納付状況等の要件あり。",
+      "categories": [
+        "子育て",
+        "仕事"
+      ],
+      "source": "https://www.nenkin.go.jp/service/jukyu/seido/izokunenkin/jukyu-yoken/20150401-04.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "年金給付"
+    },
+    {
+      "title": "妊婦のための支援給付",
+      "description": "妊娠期からの相談支援とあわせて、妊婦に経済的支援を行う全国共通の制度。申請や支給方法、自治体独自の上乗せ支援は居住する自治体で確認してください。",
+      "area": "全国",
+      "agency": "こども家庭庁・市区町村",
+      "target": "妊娠の認定等の制度上の要件を満たす妊婦。申請方法や手続き時期は居住する市区町村の案内を確認。",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.cfa.go.jp/policies/shussan-kosodate",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "給付"
+    },
+    {
+      "title": "遺族年金生活者支援給付金",
+      "description": "遺族基礎年金を受給する方で、前年所得が一定基準以下の場合に支給される給付金。2026年10月分以降の月額は5,620円で、複数の子が受給する場合は按分されます。",
+      "area": "全国",
+      "agency": "日本年金機構",
+      "target": "遺族基礎年金を受給し、前年所得が所定の基準以下である方。",
+      "categories": [
+        "子育て",
+        "仕事"
+      ],
+      "source": "https://www.nenkin.go.jp/service/jukyu/seido/sonota-kyufu/shienkyufukin/izoku.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "給付"
     }
   ]
 }
