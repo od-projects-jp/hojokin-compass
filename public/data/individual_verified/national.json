@@ -199,6 +199,35 @@
       "review_status": "公式情報確認済み",
       "verified_at": "2026-10-19",
       "support_type": "給付"
+    },
+    {
+      "title": "老齢（補足的老齢）年金生活者支援給付金",
+      "description": "所得が一定基準以下の老齢基礎年金受給者に年金に上乗せして支給する給付金。世帯の住民税課税状況、前年所得、保険料納付期間等によって受給要件・金額が異なります。",
+      "target": "原則65歳以上の老齢基礎年金受給者で、世帯全員が市町村民税非課税であり、前年の年金収入・所得が所定基準以下の方。",
+      "categories": [
+        "仕事"
+      ],
+      "source": "https://www.nenkin.go.jp/service/jukyu/seido/sonota-kyufu/shienkyufukin/rourei.html",
+      "area": "全国",
+      "agency": "日本年金機構",
+      "support_type": "給付",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19"
+    },
+    {
+      "title": "障害年金生活者支援給付金",
+      "description": "障害基礎年金の受給者で前年所得が基準以下の方に、年金に上乗せして支給される給付金。2026年度は障害等級1級で月額7,025円、2級で月額5,620円。",
+      "target": "障害基礎年金を受給し、前年所得が所定の基準以下である方。扶養親族等による所得基準の加算あり。",
+      "categories": [
+        "医療",
+        "仕事"
+      ],
+      "source": "https://www.nenkin.go.jp/section/faq/jukyu/seido/sonota-kyufu/shienkyufukin/shikyuyouken/shikyuyouken01.html",
+      "area": "全国",
+      "agency": "日本年金機構",
+      "support_type": "給付",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19"
     }
   ]
 }
