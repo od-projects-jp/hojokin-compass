@@ -81,6 +81,8 @@ jobs:
           assert len(records) == html.count('<article class="item">'), "Directory count mismatch"
           print(f"Static directory validated: {len(records)} records")
           PY
+      - name: Guard against tracking scripts and personal-data collection
+        run: node tests/privacy-guardrails.test.js
       - name: Test browser-only storage and privacy controls
         run: node tests/browser-local-storage.test.js
       - name: Check privacy storage JavaScript syntax
