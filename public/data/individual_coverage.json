@@ -11,7 +11,7 @@
     "茨城県": 0,
     "栃木県": 0,
     "群馬県": 0,
-    "埼玉県": 0,
+    "埼玉県": 2,
     "千葉県": 0,
     "東京都": 21,
     "神奈川県": 8,
@@ -50,7 +50,7 @@
     "沖縄県": 0
   },
   "nationwide": 6,
-  "prefectures_with_records": 2,
+  "prefectures_with_records": 3,
   "total_prefectures": 47,
   "generated_at": "2026-10-18T22:54:08.286002+00:00"
 }
