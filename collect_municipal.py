@@ -135,7 +135,10 @@ def run():
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             results.append({"source_id": source["id"], "status": "ok",
-                            "candidate_count": payload["total"], "output": str(target)})
+                            "candidate_count": payload["total"],
+                            "high_priority_count": sum(x["review_priority"] == "高" for x in payload["subsidies"]),
+                            "possible_business_only_count": sum(x["possible_business_only"] for x in payload["subsidies"]),
+                            "output": str(target)})
             print(source["id"], "candidates:", payload["total"])
         except Exception as exc:
             # Keep the last good candidate snapshot, if one exists.
@@ -144,6 +147,7 @@ def run():
     status = {"checked_at": datetime.now(timezone.utc).isoformat(),
               "source_count": len(sources), "success_count": sum(x["status"] == "ok" for x in results),
               "candidate_count_this_run": sum(x.get("candidate_count", 0) for x in results),
+              "high_priority_count_this_run": sum(x.get("high_priority_count", 0) for x in results),
               "sources": results, "notice": "候補数であり、公開済み・申請可能な制度数ではありません。"}
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
