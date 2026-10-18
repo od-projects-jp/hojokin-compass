@@ -83,6 +83,10 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 <select id="region"><option value="">全国・地域未指定</option></select>
 </div>
 <div>
+<label for="municipality">市区町村（該当する場合）</label>
+<select id="municipality" disabled><option value="">都道府県を選択してください</option></select>
+</div>
+<div>
 <label for="keyword">キーワード</label>
 <input id="keyword" placeholder="例：リフォーム、奨学金">
 </div>
@@ -112,11 +116,27 @@ const o=document.createElement("option");
 o.value=p;o.textContent=p;region.appendChild(o);
 });
 let data=[],topic="";
+const municipality=document.getElementById("municipality");
+function localCity(area,pref){
+ if(!pref||!area.startsWith(pref+" "))return "";
+ return area.slice(pref.length+1).trim();
+}
+function refreshMunicipalities(){
+ const pref=region.value;
+ municipality.replaceChildren();
+ const option=(value,label)=>{const o=document.createElement("option");o.value=value;o.textContent=label;municipality.append(o)};
+ if(!pref){option("","都道府県を選択してください");municipality.disabled=true;return;}
+ option("","市区町村を指定しない（自治体限定制度も表示）");
+ option("__other__","上記以外の市区町村（都道府県・全国制度のみ）");
+ [...new Set(data.map(x=>localCity(field(x.area),pref)).filter(Boolean))].sort().forEach(city=>option(city,city));
+ municipality.disabled=false;
+}
 const results=document.getElementById("results");
 const count=document.getElementById("count");
 function field(v){return String(v??"")}
 function render(){
 const r=region.value;
+const city=municipality.value;
 const q=document.getElementById("keyword").value.trim().toLowerCase();
 const filtered=data.filter(x=>{
 const categories=Array.isArray(x.categories)?x.categories.join(" "):field(x.category);
@@ -124,6 +144,7 @@ const area=field(x.area);
 const hay=[x.title,x.description,x.agency,x.target,categories].map(field).join(" ").toLowerCase();
 return (!topic||categories.includes(topic))
 &&(!r||area.includes(r)||area.includes("全国"))
+&&(!city||area==="全国"||area===r||(city!=="__other__"&&area===r+" "+city))
 &&(!q||hay.includes(q));
 });
 count.textContent=filtered.length+"件の支援制度";
@@ -163,7 +184,8 @@ document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dat
 render();
 });
 });
-region.addEventListener("change",()=>{render();showCoverage()});
+region.addEventListener("change",()=>{refreshMunicipalities();render();showCoverage()});
+municipality.addEventListener("change",render);
 let coverage=null;
 const coverageElement=document.getElementById("coverage");
 function showCoverage(){
@@ -181,7 +203,7 @@ fetch("./public/data/individual_coverage.json",{cache:"no-store"})
 document.getElementById("keyword").addEventListener("input",render);
 fetch("./public/data/individual.json",{cache:"no-store"})
 .then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()})
-.then(j=>{data=Array.isArray(j)?j:Array.isArray(j.subsidies)?j.subsidies:[];render()})
+.then(j=>{data=Array.isArray(j)?j:Array.isArray(j.subsidies)?j.subsidies:[];refreshMunicipalities();render()})
 .catch(err=>{count.textContent="データを読み込めませんでした";results.textContent="通信またはデータの読み込みに失敗しました。ページを再読み込みしてください。";console.error("Individual data load failed:",err)});
 </script>
 </body>
