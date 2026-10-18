@@ -79,7 +79,7 @@ jobs:
                 python build_individual_directory.py
                 python collect_municipal.py || true
                 python build_individual_review_queue.py
-                git add public/data/individual.json public/data/individual_review.json public/data/individual_coverage.json public/data/individual_review_queue.json public/data/individual_deadlines.json
+                git add public/data/individual.json public/data/individual_review.json public/data/individual_coverage.json public/data/individual_review_queue.json public/data/individual_deadlines.json individual-directory.html
                 if [ -f public/data/individual_collection_status.json ]; then git add public/data/individual_collection_status.json; fi
                 if [ -d public/data/individual_candidates ]; then git add -A public/data/individual_candidates; fi
                 if git diff --cached --quiet; then echo "Already up to date"; exit 0; fi
