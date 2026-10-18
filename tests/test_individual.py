@@ -25,7 +25,8 @@ class IndividualDataTests(unittest.TestCase):
         }
         self.paths = patch.multiple(
             collector, VERIFIED_FILE=self.verified,
-            PUBLIC_FILE=self.public, REVIEW_FILE=self.review
+            PUBLIC_FILE=self.public, REVIEW_FILE=self.review,
+            VERIFIED_DIR=self.root / "regions"
         )
         self.paths.start()
         self.addCleanup(self.paths.stop)
@@ -34,6 +35,18 @@ class IndividualDataTests(unittest.TestCase):
         self.verified.write_text(
             json.dumps({"subsidies": records}, ensure_ascii=False), encoding="utf-8"
         )
+
+    def test_regional_verified_files_are_combined(self):
+        self.write_verified([self.record])
+        regional_dir = self.root / "regions"
+        regional_dir.mkdir()
+        osaka = dict(self.record, title="大阪の制度", area="大阪府")
+        (regional_dir / "osaka.json").write_text(
+            json.dumps({"subsidies": [osaka]}, ensure_ascii=False), encoding="utf-8"
+        )
+        records = collector.load_verified()
+        self.assertEqual(len(records), 2)
+        self.assertEqual({r["area"] for r in records}, {"東京都", "大阪府"})
 
     def test_prefecture_coverage_counts(self):
         report = build_coverage([self.record, dict(self.record, area="全国")])
