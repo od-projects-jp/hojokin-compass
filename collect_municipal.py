@@ -82,6 +82,9 @@ def normalize(rows, source):
         old_year_in_title = bool(re.search(r"(?:令和[1-7]年度|202[0-5]年度|202[0-5]年)", title))
         if old_year_in_title:
             priority = "要更新確認"
+        ended_in_title = any(word in title for word in ("受付は終了", "受付終了", "募集終了", "事業終了", "申請受付を終了"))
+        if ended_in_title:
+            priority = "終了要確認"
         key = (title, target)
         if key in seen:
             continue
@@ -100,6 +103,7 @@ def normalize(rows, source):
             "review_status": "要確認",
             "review_priority": priority,
             "past_year_in_title": old_year_in_title,
+            "ended_in_title": ended_in_title,
             "possible_business_only": business and not personal,
             "review_reason": "申請資格・公式制度ページ・募集状況の確認が必要",
             "source_note": source.get("source_note", ""),

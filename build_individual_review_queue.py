@@ -3,6 +3,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
+import re
 
 from collect_individual import load_verified
 
@@ -17,9 +18,16 @@ def canonical_url(url):
     return (parsed.scheme.lower(), parsed.netloc.lower(), parsed.path.rstrip("/"))
 
 
+def normalized_title(title):
+    """Compare official CSV labels with curated city-qualified titles."""
+    title = re.sub(r"（[^）]*小金井市[^）]*）", "", str(title or ""))
+    title = re.sub(r"[\\s　・･（）()「」]", "", title)
+    return title
+
+
 def build_queue(candidate_sets, verified):
     verified_urls = {canonical_url(x.get("source")) for x in verified if x.get("source")}
-    verified_names = {(x.get("area", ""), x.get("title", "")) for x in verified}
+    verified_names = {(x.get("area", ""), normalized_title(x.get("title"))) for x in verified}
     queue = []
     seen = set()
     for dataset in candidate_sets:
@@ -29,7 +37,7 @@ def build_queue(candidate_sets, verified):
             if key in seen:
                 continue
             seen.add(key)
-            if (item.get("area", ""), item.get("title", "")) in verified_names:
+            if (item.get("area", ""), normalized_title(item.get("title"))) in verified_names:
                 continue
             # Same official program page may list multiple distinct benefits.
             # Mark as potentially covered; don't automatically discard.
@@ -39,6 +47,7 @@ def build_queue(candidate_sets, verified):
                 "review_priority", "past_year_in_title", "possible_business_only"
             )}
             candidate["potentially_covered"] = already_covered_url
+            candidate["review_note"] = "同じ公式ページで確認済みの別制度が存在。内容を照合してください。" if already_covered_url else ""
             queue.append(candidate)
     queue.sort(key=lambda x: (
         x["review_priority"] != "高",

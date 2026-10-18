@@ -32,7 +32,15 @@ jobs:
           published = json.loads(Path("public/data/individual.json").read_text(encoding="utf-8"))
           records = published["subsidies"]
           verified = load_verified()
-          assert records == verified, "Published data differs from verified sources"
+          if records != verified:
+              print("Mismatch lengths", len(records), len(verified))
+              for i, (a, b) in enumerate(zip(records, verified)):
+                  if a != b:
+                      print("First mismatch", i, a.get("title"), b.get("title"))
+                      print("Published", a)
+                      print("Verified", b)
+                      break
+              raise AssertionError("Published data differs from verified sources")
           assert published["total"] == len(verified), "Incorrect published count"
           coverage = json.loads(Path("public/data/individual_coverage.json").read_text(encoding="utf-8"))
           expected = build_coverage(records)

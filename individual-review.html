@@ -16,7 +16,7 @@ p{line-height:1.65;font-size:14px}a{color:#145b9c;overflow-wrap:anywhere}footer{
 <body><header><h1>制度確認キュー</h1><p>Hojokin Compass — 収集候補の確認作業用ビュー</p></header>
 <main><div class="notice"><strong>掲載候補は未確認です。</strong> ここにある制度は現在募集中・申請可能・個人向けであることを保証しません。一般利用者向けの検索結果には含まれません。</div>
 <div class="controls"><input id="search" type="search" placeholder="制度名・地域・対象者で検索" aria-label="制度候補を検索">
-<select id="priority" aria-label="優先度"><option value="">すべての優先度</option><option value="高">優先確認</option><option value="要更新確認">年度の再確認</option><option value="通常">通常</option></select>
+<select id="priority" aria-label="優先度"><option value="">すべての優先度</option><option value="高">優先確認</option><option value="要更新確認">年度の再確認</option><option value="終了要確認">終了制度の再確認</option><option value="通常">通常</option></select>
 <select id="source" aria-label="収集元"><option value="">すべての収集元</option></select>
 <select id="business" aria-label="対象"><option value="personal">個人向け候補を優先</option><option value="all">すべて</option><option value="business">事業者向けの可能性</option></select>
 </div><div id="stats" role="status">読み込み中…</div><div id="cards" class="cards"></div>
@@ -33,7 +33,7 @@ function render(){
  const root=byId("cards");root.replaceChildren();
  for(const x of selected.slice(0,300)){
   const card=node("article"),meta=node("div",(x.area||"")+" · "+(x.source_id||""),"meta");card.append(meta);
-  const tags=node("div");tags.append(node("span",x.review_priority||"通常","tag "+(x.review_priority==="高"?"high":x.review_priority==="要更新確認"?"old":"")));
+  const tags=node("div");tags.append(node("span",x.review_priority||"通常","tag "+(x.review_priority==="高"?"high":["要更新確認","終了要確認"].includes(x.review_priority)?"old":"")));
   if(x.potentially_covered)tags.append(node("span","同じ公式ページの掲載済み制度あり","tag dup"));
   if(x.possible_business_only)tags.append(node("span","事業者向けの可能性","tag old"));
   card.append(tags,node("h2",x.title||"名称未設定"),node("p",x.target||"対象者未記載"));
