@@ -18,11 +18,11 @@ REPORT = Path("public/data/individual_collection_status.json")
 MAX_BYTES = 5_000_000
 ALLOWED_HOSTS = {"www.pref.aichi.jp", "www.opendata.metro.tokyo.lg.jp"}
 
-TITLE_FIELDS = ("制度名", "支援制度名", "名称", "給付金名", "事業名", "タイトル", "支援制度名称", "支援制度名（正式名称）")
+TITLE_FIELDS = ("制度名", "支援制度名", "名称", "給付金名", "事業名", "タイトル", "支援制度名称", "支援制度名（正式名称）", "タイトル（制度名）")
 TARGET_FIELDS = ("対象者", "支援対象者", "給付対象者", "補助対象者", "対象")
 DESCRIPTION_FIELDS = ("制度概要", "概要", "内容", "支援内容", "説明", "制度内容")
-LINK_FIELDS = ("URL", "関連URL", "詳細URL", "制度URL", "リンク", "詳細情報URL", "参照URL")
-AGENCY_FIELDS = ("担当課", "所管課", "実施機関", "担当部署", "実施主体", "担当部局")
+LINK_FIELDS = ("URL", "関連URL", "詳細URL", "制度URL", "リンク", "詳細情報URL", "参照URL", "制度詳細URL", "参照先URL")
+AGENCY_FIELDS = ("担当課", "所管課", "実施機関", "担当部署", "実施主体", "担当部局", "制度所管組織")
 PERSON_HINTS = ("個人", "住民", "市民", "県民", "世帯", "保護者", "子ども", "児童", "妊婦", "学生", "高齢者", "ひとり親")
 BUSINESS_HINTS = ("法人", "事業者", "企業", "事業所", "組合", "団体")
 
