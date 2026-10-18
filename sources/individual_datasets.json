@@ -29,6 +29,16 @@
       "format": "csv",
       "enabled": false,
       "source_note": "公式カタログ掲載URLがHTTP 404。新しい公式CSV URLの確認まで停止"
+    },
+    {
+      "id": "noshiro",
+      "name": "秋田県能代市 支援制度（給付金）情報",
+      "area": "秋田県 能代市",
+      "dataset_url": "https://www.city.noshiro.lg.jp/up/files/www/city/opendata/oopun/052027_support_system_information.csv",
+      "landing_url": "https://www.city.noshiro.lg.jp/city/opendata/oopun/25108",
+      "format": "csv",
+      "enabled": true,
+      "source_note": "能代市公式オープンデータ。候補のみ取り込み、個別の受付状況を確認するまで公開しない。"
     }
   ]
 }

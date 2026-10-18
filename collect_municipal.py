@@ -16,11 +16,11 @@ REGISTRY = Path("sources/individual_datasets.json")
 OUTPUT_DIR = Path("public/data/individual_candidates")
 REPORT = Path("public/data/individual_collection_status.json")
 MAX_BYTES = 5_000_000
-ALLOWED_HOSTS = {"www.pref.aichi.jp", "www.opendata.metro.tokyo.lg.jp", "www2.wagmap.jp"}
+ALLOWED_HOSTS = {"www.pref.aichi.jp", "www.opendata.metro.tokyo.lg.jp", "www2.wagmap.jp", "www.city.noshiro.lg.jp"}
 
-TITLE_FIELDS = ("制度名", "支援制度名", "名称", "給付金名", "事業名", "タイトル", "支援制度名称", "支援制度名（正式名称）", "タイトル（制度名）")
-TARGET_FIELDS = ("対象者", "支援対象者", "給付対象者", "補助対象者", "対象")
-DESCRIPTION_FIELDS = ("制度概要", "概要", "内容", "支援内容", "説明", "制度内容")
+TITLE_FIELDS = ("制度名", "支援制度名", "名称", "給付金名", "事業名", "タイトル", "支援制度名称", "支援制度名（正式名称）", "タイトル（制度名）", "支援名称")
+TARGET_FIELDS = ("対象者", "支援対象者", "給付対象者", "補助対象者", "対象", "対象者詳細")
+DESCRIPTION_FIELDS = ("制度概要", "概要", "内容", "支援内容", "説明", "制度内容", "支援内容詳細")
 LINK_FIELDS = ("URL", "関連URL", "詳細URL", "制度URL", "リンク", "詳細情報URL", "参照URL", "制度詳細URL", "参照先URL")
 AGENCY_FIELDS = ("担当課", "所管課", "実施機関", "担当部署", "実施主体", "担当部局", "制度所管組織")
 PERSON_HINTS = ("個人", "住民", "市民", "県民", "世帯", "保護者", "子ども", "児童", "妊婦", "学生", "高齢者", "ひとり親")
@@ -76,8 +76,9 @@ def normalize(rows, source):
         url = get_field(row, LINK_FIELDS)
         if not url.startswith("https://"):
             url = source["landing_url"]
-        personal = any(word in target for word in PERSON_HINTS)
-        business = any(word in target for word in BUSINESS_HINTS)
+        recipient_type = get_field(row, ("対象者種別_個人_事業者_自治体", "対象者種別"))
+        personal = any(word in target for word in PERSON_HINTS) or ("個人" in recipient_type and "事業者" not in recipient_type and "自治体" not in recipient_type)
+        business = any(word in target for word in BUSINESS_HINTS) or ("事業者" in recipient_type or "自治体" in recipient_type)
         priority = "高" if personal and not business and url != source["landing_url"] else "通常"
         old_year_in_title = bool(re.search(r"(?:令和[1-7]年度|202[0-5]年度|202[0-5]年)", title))
         if old_year_in_title:
@@ -99,6 +100,7 @@ def normalize(rows, source):
             "source_dataset": source["landing_url"],
             "source_id": source["id"],
             "source_row": index,
+            "recipient_type": recipient_type,
             "categories": [],
             "review_status": "要確認",
             "review_priority": priority,

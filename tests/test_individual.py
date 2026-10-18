@@ -172,6 +172,27 @@ class IndividualDataTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             normalize([{"無関係な列": "value"}], source)
 
+    def test_noshiro_official_schema_recognizes_explicit_individual_recipient(self):
+        source = {"id": "noshiro", "area": "秋田県 能代市",
+                  "landing_url": "https://www.city.noshiro.lg.jp/city/opendata/oopun/25108"}
+        rows = [{"支援名称": "住まい支援", "支援内容": "住宅改修の助成",
+                 "対象者種別_個人_事業者_自治体": "個人",
+                 "対象者詳細": "市内居住の方",
+                 "詳細URL": "https://www.city.noshiro.lg.jp/example"},
+                {"支援名称": "事業者支援", "対象者種別_個人_事業者_自治体": "事業者",
+                 "対象者詳細": "市内事業者"}]
+        items = normalize(rows, source)
+        by_title = {x["title"]: x for x in items}
+        self.assertEqual(by_title["住まい支援"]["review_priority"], "高")
+        self.assertEqual(by_title["住まい支援"]["recipient_type"], "個人")
+        self.assertTrue(by_title["事業者支援"]["possible_business_only"])
+        self.assertEqual(by_title["住まい支援"]["review_status"], "要確認")
+
+    def test_noshiro_official_download_host_allowed(self):
+        validate_source({"id": "noshiro",
+                         "dataset_url": "https://www.city.noshiro.lg.jp/up/files/www/city/opendata/oopun/052027_support_system_information.csv",
+                         "landing_url": "https://www.city.noshiro.lg.jp/city/opendata/oopun/25108"})
+
     def test_nakano_official_source_allowed(self):
         validate_source({"id": "nakano",
                          "dataset_url": "https://www2.wagmap.jp/nakanodatamap/nakanodatamap/opendatafile/map_1/CSV/opendata_5000776.csv",
