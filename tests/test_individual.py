@@ -12,6 +12,7 @@ from collect_municipal import normalize, parse_csv, validate_source, collect_one
 from build_individual_review_queue import build_queue, normalized_title
 from individual_deadlines import build_deadline_report, deadline_status
 from build_individual_directory import build_directory
+from audit_individual_links import build_report, probe
 from datetime import date
 
 
@@ -74,6 +75,25 @@ class IndividualDataTests(unittest.TestCase):
         self.assertIn("説明 &amp; 詳細", html)
         self.assertIn("2026-11-27", html)
         self.assertIn('rel="noopener noreferrer"', html)
+
+    def test_official_link_audit_deduplicates_urls_without_deleting_programs(self):
+        items = [{"title": "A", "source": "https://example.org/a"},
+                 {"title": "B", "source": "https://example.org/a"},
+                 {"title": "C", "source": "https://example.org/b"}]
+        calls = []
+        def fake_probe(url):
+            calls.append(url)
+            return {"status": "ok" if url.endswith("/a") else "needs_review",
+                    "http_status": 200 if url.endswith("/a") else 404, "reason": ""}
+        report = build_report(items, fake_probe)
+        self.assertEqual(report["total_unique_urls"], 2)
+        self.assertEqual(report["ok"], 1)
+        self.assertEqual(report["needs_review"], 1)
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(len(report["results"][0]["titles"]), 2)
+
+    def test_official_link_audit_rejects_non_https(self):
+        self.assertEqual(probe("http://example.org")["status"], "invalid")
 
     def test_fixed_deadline_status_boundaries(self):
         today = date(2026, 10, 19)

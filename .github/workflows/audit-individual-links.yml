@@ -1,0 +1,26 @@
+name: Audit Official Individual Support Links
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 22 * * 0"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Audit official program URLs
+        run: python audit_individual_links.py
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: individual-official-link-audit
+          path: public/data/individual_link_health.json
+          retention-days: 30
