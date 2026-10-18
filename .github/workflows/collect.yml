@@ -3,14 +3,20 @@ name: Collect Subsidy Data
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 22 * * *'
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: subsidy-collection
+  cancel-in-progress: false
 
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
@@ -30,15 +36,25 @@ jobs:
       - name: Export search data
         run: python export_search.py
 
+      - name: Commit updated search data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/subsidies.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update subsidy search data"
+            git push
+          fi
+
       - name: Upload collection results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: hojokin-collection-results
           path: |
-            hojokin.sqlite
             hojokin.report.json
             public/data/subsidies.json
-        
           if-no-files-found: warn
           retention-days: 7
