@@ -2,21 +2,9 @@
   "generated_at": "2026-10-18T21:27:29.209962+00:00",
   "total": 111,
   "high_priority": 27,
-  "potentially_covered": 111,
+  "potentially_covered": 1,
   "notice": "内部確認用候補。申請可能な制度や公開件数ではありません。",
   "candidates": [
-    {
-      "title": "おたふくかぜワクチンの予防接種費用の一部を助成します",
-      "area": "東京都 小金井市",
-      "source_id": "koganei",
-      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/yobousesyujigyo/kodomo_koureisha/otafuku.html",
-      "target": "接種日当日に1歳以上2歳未満の市民 注釈：接種日現在、小金井市に住民登録のない方は受診できません。",
-      "review_priority": "高",
-      "past_year_in_title": false,
-      "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
-    },
     {
       "title": "がん検診自己負担金",
       "area": "東京都 小金井市",
@@ -26,8 +14,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "ひとり親家庭高等学校卒業程度認定試験合格支援給付金",
@@ -38,8 +26,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "ひとり親家庭支援制度 児童育成手当",
@@ -50,8 +38,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "ホームヘルプサービス",
@@ -62,8 +50,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "高校生等医療費助成制度（マル青（あお））",
@@ -74,8 +62,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "高齢者自立支援住宅改修（浴槽・流し・洗面台の取替、便器の洋式化）",
@@ -86,8 +74,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "産後ケア事業（日帰り型・宿泊型）",
@@ -98,8 +86,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "子どもの医療費助成（乳幼児医療費助成・義務教育就学児医療費助成）制度",
@@ -110,8 +98,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "住居確保給付金（家賃補助）のご案内",
@@ -122,8 +110,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "助産院や東京都外の医療機関で妊婦健康診査",
@@ -134,8 +122,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市介護保険訪問介護等利用者負担助成制度",
@@ -146,8 +134,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市定額減税補足給付金（調整給付）",
@@ -158,8 +146,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市定額減税補足給付金（不足額給付）",
@@ -170,8 +158,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市物価高騰対策給付金（子ども加算）（2万円/18 歳以下の子1人あたり）のご案内",
@@ -182,8 +170,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "多胎児家庭移動支援事業",
@@ -194,8 +182,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "帯状疱疹予防接種（定期接種）",
@@ -206,8 +194,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "帯状疱疹予防接種費用の一部助成をします",
@@ -218,8 +206,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "電力・ガス・食料品等価格高騰重点支援給付金（追加分）（1世帯あたり7万円）の受付は令和6年5月15日で終了しました",
@@ -230,8 +218,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "特別児童扶養手当",
@@ -242,8 +230,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "難病者福祉手当",
@@ -254,8 +242,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "妊婦面談",
@@ -266,8 +254,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "風しん抗体検査・予防接種の費用を助成します",
@@ -278,8 +266,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "母子家庭及び父子家庭高等職業訓練促進給付金",
@@ -290,8 +278,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "母子家庭及び父子家庭自立支援給付金",
@@ -302,8 +290,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "木造住宅耐震改修等助成金",
@@ -314,8 +302,8 @@
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "木造住宅耐震診断助成金",
@@ -323,6 +311,18 @@
       "source_id": "koganei",
       "source": "https://www.city.koganei.lg.jp/smph/shisei/seisakukeikaku/machitoshi/jutaku_shien/mokuzousindanjyosei.html",
       "target": "1.対象住宅を所有する個人（その住宅が共有の場合は、共有者全員の合意に基づく代表者とする。） 2.市町村民税（特別区民税）を滞納していないこと",
+      "review_priority": "高",
+      "past_year_in_title": false,
+      "possible_business_only": false,
+      "potentially_covered": false,
+      "review_note": ""
+    },
+    {
+      "title": "おたふくかぜワクチンの予防接種費用の一部を助成します",
+      "area": "東京都 小金井市",
+      "source_id": "koganei",
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/yobousesyujigyo/kodomo_koureisha/otafuku.html",
+      "target": "接種日当日に1歳以上2歳未満の市民 注釈：接種日現在、小金井市に住民登録のない方は受診できません。",
       "review_priority": "高",
       "past_year_in_title": false,
       "possible_business_only": false,
@@ -338,8 +338,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "(受付終了)令和6年度小金井市物価高騰対策給付金（1世帯あたり3万円）",
@@ -350,8 +350,8 @@
       "review_priority": "要更新確認",
       "past_year_in_title": true,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "（小規模事業者向け支援）小金井市小規模事業者持続化サポート補助金の申請を受付中です",
@@ -362,8 +362,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "MR（麻しん・風しん）予防接種",
@@ -374,8 +374,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "イベント事業（東京都商店街チャレンジ戦略支援事業）",
@@ -386,8 +386,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "ガソリン費の助成",
@@ -398,8 +398,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "タクシー料金の助成",
@@ -410,8 +410,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "バリアフリー改修工事に伴う固定資産税の減額",
@@ -422,8 +422,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "マンモグラフィによる乳がん検診",
@@ -434,8 +434,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "愛育手当",
@@ -446,8 +446,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "医療機関等で医療証を利用できなかった（しなかった）場合",
@@ -458,8 +458,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "雨水貯留施設（雨水タンク）設置費補助金について",
@@ -470,8 +470,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "家庭用生ごみ減量化処理機器購入費補助制度をご利用ください",
@@ -482,8 +482,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "活性化事業（東京都商店街チャレンジ戦略支援事業）",
@@ -494,8 +494,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "既存家屋への設置工事費を助成",
@@ -506,8 +506,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "原爆被爆者の方が受けられる制度（被爆者見舞金、医療費助成）",
@@ -518,8 +518,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "後期高齢者医療制度の療養費について",
@@ -530,8 +530,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "高額介護（介護予防）サービス費",
@@ -542,8 +542,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "高額障害福祉サービス等給付費・新高額障害福祉サービス等給付費について",
@@ -554,8 +554,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "高額療養費（国民健康保険）",
@@ -566,8 +566,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "高齢者インフルエンザ予防接種費用を一部助成します",
@@ -578,8 +578,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "高齢者新型コロナウイルス感染症予防接種費用を一部助成します",
@@ -590,8 +590,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "高齢者肺炎球菌予防接種",
@@ -602,8 +602,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "骨髄移植ドナー等支援奨励金",
@@ -614,8 +614,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "子宮がん検診について",
@@ -626,8 +626,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "子宮頸がんワクチン予防接種について",
@@ -638,8 +638,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "児童手当制度",
@@ -650,8 +650,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "自立支援医療（精神通院）制度",
@@ -662,8 +662,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "自立支援日常生活用具の給付（シルバーカー・一本杖等）",
@@ -674,8 +674,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "住宅用新エネルギー機器等普及促進補助金（令和7年度）",
@@ -686,8 +686,8 @@
       "review_priority": "要更新確認",
       "past_year_in_title": true,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "重度心身障害者手当",
@@ -698,8 +698,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "出産・子育て応援事業",
@@ -710,8 +710,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小学校就学前の子どもを対象とした多様な集団活動事業の利用支援事業",
@@ -722,8 +722,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市の幼児教育・保育の無償化（施設等利用給付）",
@@ -734,8 +734,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市原油価格等高騰対策事業者支援事業補助金の補助対象者、補助金額を拡大します(終了しました）",
@@ -746,8 +746,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市子どもの居場所づくり事業補助金",
@@ -758,8 +758,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市小規模事業者持続化サポート補助金（小規模事業者向け支援）",
@@ -770,8 +770,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市小口事業資金融資",
@@ -782,8 +782,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市障害福祉事業所等物価高騰対策事業継続支援金の実施について",
@@ -794,8 +794,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市防犯設備整備事業補助金",
@@ -806,8 +806,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "障害児福祉手当",
@@ -818,8 +818,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "心身障害者医療費助成制度（マル障）",
@@ -830,8 +830,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "心身障害者福祉手当",
@@ -842,8 +842,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "新たな住民税非課税世帯等に対する小金井市物価高騰対策給付金",
@@ -854,8 +854,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "新たに生け垣を造成する方へ奨励金のご案内",
@@ -866,8 +866,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "新生児聴覚検査",
@@ -878,8 +878,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "生活保護",
@@ -890,8 +890,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "葬祭費",
@@ -902,8 +902,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "大型生ごみ減量化処理機器購入費補助制度をご利用ください",
@@ -914,8 +914,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "男性に対するHPV任意予防接種費用の助成",
@@ -926,8 +926,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "地域連携型商店街事業（東京都商店街チャレンジ戦略支援事業）",
@@ -938,8 +938,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "都クイック融資を利用している商工業者の皆さんへ",
@@ -950,8 +950,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "特別障害者手当",
@@ -962,8 +962,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "難病医療費等助成制度（人工透析を必要とする腎不全）",
@@ -974,8 +974,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "日常生活用具費給付事業",
@@ -986,8 +986,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "乳幼児健診",
@@ -998,8 +998,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "妊婦のための支援給付事業",
@@ -1010,8 +1010,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "妊婦健康診査",
@@ -1022,8 +1022,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "妊婦健康診査",
@@ -1034,8 +1034,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "保全緑地制度のご案内",
@@ -1046,8 +1046,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "補聴器の購入費用の一部を助成します（令和5年10月2日申請受付開始）",
@@ -1058,8 +1058,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "母子及び父子福祉資金",
@@ -1070,8 +1070,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "免疫喪失した方の予防接種再接種費用を助成します",
@@ -1082,8 +1082,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "養育医療の給付",
@@ -1094,8 +1094,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "療養費（国民健康保険）",
@@ -1106,8 +1106,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "令和6年度小金井市物価高騰対策給付金（子ども加算）（18歳以下の子1人あたり2万円）について",
@@ -1118,8 +1118,8 @@
       "review_priority": "要更新確認",
       "past_year_in_title": true,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "令和7年度 就学援助制度のお知らせ",
@@ -1130,8 +1130,8 @@
       "review_priority": "要更新確認",
       "past_year_in_title": true,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "令和7年度 防犯機器等購入補助事業",
@@ -1142,8 +1142,8 @@
       "review_priority": "要更新確認",
       "past_year_in_title": true,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "令和7年度実施協働事業提案制度",
@@ -1154,8 +1154,8 @@
       "review_priority": "要更新確認",
       "past_year_in_title": true,
       "possible_business_only": false,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "NPO法人を対象にした利子補給制度",
@@ -1166,8 +1166,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "ブロック塀等撤去助成金制度のご案内",
@@ -1178,8 +1178,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "介護資格取得費の補助 介護職員初任者研修課程等受講料支援",
@@ -1190,8 +1190,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "介護資格取得費の補助 介護福祉士資格取得費支援",
@@ -1202,8 +1202,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "介護資格取得費の補助 介護福祉士実務者研修受講料支援",
@@ -1214,8 +1214,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "介護職員初任者研修課程等受講料支援",
@@ -1226,8 +1226,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "介護福祉士資格取得費支援",
@@ -1238,8 +1238,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "介護福祉士実務者研修受講料支援",
@@ -1250,8 +1250,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "事業用生ごみ減量化処理機器購入費補助制度について",
@@ -1262,8 +1262,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小規模事業者持続化サポート補助金をご活用ください",
@@ -1274,8 +1274,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市合理的な配慮の提供支援に係る助成金",
@@ -1286,8 +1286,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "小金井市障害福祉事業所等における新型コロナウイルス感染拡大防止対策推進事業の実施について（PCR検査費等補助事業）",
@@ -1298,8 +1298,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "省エネ改修工事に伴う固定資産税の減額",
@@ -1310,8 +1310,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "特定緊急輸送道路沿道建築物の耐震助成制度",
@@ -1322,8 +1322,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     },
     {
       "title": "福祉サービス第三者評価受審費の一部を補助します",
@@ -1334,8 +1334,8 @@
       "review_priority": "通常",
       "past_year_in_title": false,
       "possible_business_only": true,
-      "potentially_covered": true,
-      "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
+      "potentially_covered": false,
+      "review_note": ""
     }
   ]
 }
