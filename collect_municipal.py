@@ -23,6 +23,8 @@ TARGET_FIELDS = ("対象者", "支援対象者", "給付対象者", "補助対�
 DESCRIPTION_FIELDS = ("制度概要", "概要", "内容", "支援内容", "説明", "制度内容")
 LINK_FIELDS = ("URL", "関連URL", "詳細URL", "制度URL", "リンク", "詳細情報URL", "参照URL")
 AGENCY_FIELDS = ("担当課", "所管課", "実施機関", "担当部署", "実施主体", "担当部局")
+PERSON_HINTS = ("個人", "住民", "市民", "県民", "世帯", "保護者", "子ども", "児童", "妊婦", "学生", "高齢者", "ひとり親")
+BUSINESS_HINTS = ("法人", "事業者", "企業", "事業所", "組合", "団体")
 
 
 def clean(value):
@@ -74,6 +76,9 @@ def normalize(rows, source):
         url = get_field(row, LINK_FIELDS)
         if not url.startswith("https://"):
             url = source["landing_url"]
+        personal = any(word in target for word in PERSON_HINTS)
+        business = any(word in target for word in BUSINESS_HINTS)
+        priority = "高" if personal and not business and url != source["landing_url"] else "通常"
         key = (title, target)
         if key in seen:
             continue
@@ -90,11 +95,13 @@ def normalize(rows, source):
             "source_row": index,
             "categories": [],
             "review_status": "要確認",
+            "review_priority": priority,
+            "possible_business_only": business and not personal,
             "review_reason": "申請資格・公式制度ページ・募集状況の確認が必要",
         })
     if not candidates:
         raise ValueError("No matching title field; columns: " + ", ".join(str(x) for x in rows[0]))
-    return candidates
+    return sorted(candidates, key=lambda item: (item["review_priority"] != "高", item["title"]))
 
 
 def collect_one(source, opener=urllib.request.urlopen):
