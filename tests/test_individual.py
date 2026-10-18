@@ -50,6 +50,15 @@ class IndividualDataTests(unittest.TestCase):
         self.assertEqual(published["subsidies"][0]["title"], "確認済み制度")
         self.assertEqual(json.loads(self.review.read_text(encoding="utf-8")), existing_review)
 
+    def test_ended_municipal_program_is_not_high_priority(self):
+        source = {"id": "koganei", "area": "東京都 小金井市",
+                  "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045"}
+        items = normalize([{"タイトル（制度名）": "給付金の受付は終了しました",
+                            "対象者": "小金井市民",
+                            "URL": "https://www.city.koganei.lg.jp/closed"}], source)
+        self.assertEqual(items[0]["review_priority"], "終了要確認")
+        self.assertTrue(items[0]["ended_in_title"])
+
     def test_city_qualified_titles_are_matched_in_review_queue(self):
         self.assertEqual(normalized_title("児童育成手当（小金井市）"), normalized_title("児童育成手当"))
         dataset = {"subsidies": [{"title": "児童育成手当", "area": "東京都 小金井市",
