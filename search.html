@@ -365,8 +365,10 @@ footer{border-top:1px solid var(--line);background:white;padding:30px 0}
       </div>
       <div class="toolbar">
         <button id="savedToggle" type="button">♡ 保存した補助金を見る</button>
+        <button id="clearLocal" type="button">この端末の保存データを削除</button>
       </div>
       <p class="note">
+        登録不要・無料。検索条件と保存した補助金は、このブラウザ内だけに保持します。共用端末では保存内容にご注意ください。<a href="privacy.html">保存とプライバシーについて</a><br>
         募集状況・期限は公開データの日付に基づく参考表示です。
         申請前に必ず公式情報で最新の要件をご確認ください。
       </p>
@@ -416,8 +418,28 @@ footer{border-top:1px solid var(--line);background:white;padding:30px 0}
   </div>
 </div>
 
+<script src="./privacy-storage.js"></script>
 <script>
 "use strict";
+const localPrefs=window.HojokinLocalStore;
+const initialBusinessFilters=localPrefs.read(localPrefs.KEYS.businessFilters,{});
+function persistBusinessFilters(){
+ const state={};
+ for(const id of ["query","area","purpose","status","sort"])state[id]=$(id).value.slice(0,120);
+ state.amount=$("amount").checked;
+ state.savedOnly=savedOnly;
+ localPrefs.write(localPrefs.KEYS.businessFilters,state);
+}
+function restoreBusinessFilters(){
+ const state=initialBusinessFilters;
+ if(!state||typeof state!=="object"||Array.isArray(state))return;
+ for(const id of ["query","area","purpose","status","sort"]){
+  if(typeof state[id]==="string"&&[...($(id).options||[])].some(x=>x.value===state[id])&&id!=="query")$(id).value=state[id];
+  else if(id==="query"&&typeof state[id]==="string")$(id).value=state[id].slice(0,120);
+ }
+ $("amount").checked=state.amount===true;
+ savedOnly=state.savedOnly===true;
+}
 
 const $ = id => document.getElementById(id);
 const STORAGE = "hojokin-compass-saved-v1";
@@ -557,6 +579,7 @@ function apply() {
   });
 
   visible = 20;
+  persistBusinessFilters();
   render();
 }
 
@@ -792,6 +815,16 @@ $("reset").addEventListener("click",() => {
   apply();
 });
 
+$("clearLocal").addEventListener("click",()=>{
+ if(!window.confirm("このブラウザに保存した検索条件とお気に入りを削除しますか？"))return;
+ localPrefs.clear();
+ saved=[];savedOnly=false;comparing=[];
+ ["query","area","purpose","status"].forEach(id=>$(id).value="");
+ $("amount").checked=false;$("sort").value="deadline";
+ updateDock();apply();
+ // apply() persists current defaults, so delete the empty filter record again.
+ localPrefs.remove(localPrefs.KEYS.businessFilters);
+});
 $("savedToggle").addEventListener("click",() => {
   savedOnly = !savedOnly;
   apply();
@@ -849,6 +882,7 @@ async function init() {
 
     fill("area",areas);
     fill("purpose",purposes);
+    restoreBusinessFilters();
     apply();
   } catch(e) {
     console.error(e);
