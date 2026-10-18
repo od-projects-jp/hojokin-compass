@@ -3,6 +3,8 @@ name: Collect Individual Support Data
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "20 20 * * *"
 
 permissions:
   contents: write
