@@ -442,7 +442,7 @@ function restoreBusinessFilters(){
 }
 
 const $ = id => document.getElementById(id);
-const STORAGE = "hojokin-compass-saved-v1";
+const STORAGE = localPrefs.KEYS.businessFavorites;
 
 let records = [];
 let filtered = [];
@@ -451,13 +451,9 @@ let saved = [];
 let comparing = [];
 let savedOnly = false;
 
-try {
-  const data = JSON.parse(localStorage.getItem(STORAGE) || "[]");
-  if (Array.isArray(data)) {
-    saved = data.filter(x => typeof x === "string");
-  }
-} catch(e) {
-  saved = [];
+const existingFavorites=localPrefs.read(STORAGE,[]);
+if(Array.isArray(existingFavorites)){
+ saved=[...new Set(existingFavorites.filter(x=>typeof x==="string"&&x.length<300))].slice(0,500);
 }
 
 function node(tag, cls, value) {
@@ -703,11 +699,7 @@ function render() {
 }
 
 function persist() {
-  try {
-    localStorage.setItem(STORAGE,JSON.stringify(saved));
-  } catch(e) {
-    console.warn("保存に失敗しました",e);
-  }
+  localPrefs.write(STORAGE,saved);
 }
 
 function updateDock() {
