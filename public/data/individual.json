@@ -2,7 +2,7 @@
   "generated_at": "2026-10-19T00:00:00+00:00",
   "source_name": "公式情報確認済みの個人向け支援制度",
   "source_url": null,
-  "total": 8,
+  "total": 10,
   "subsidies": [
     {
       "title": "018サポート",
@@ -108,6 +108,35 @@
         "医療"
       ],
       "source": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/juuyou/kougakuiryou/index.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19"
+    },
+    {
+      "title": "生活福祉資金貸付制度",
+      "description": "低所得世帯、障害者世帯、高齢者世帯などに必要な資金を貸し付ける制度。給付金ではなく返済を要する貸付で、審査・資金使途などの条件があります。",
+      "area": "全国",
+      "agency": "厚生労働省・都道府県社会福祉協議会",
+      "target": "他からの借入れが困難な低所得世帯、障害者世帯、所定の要件を満たす高齢者世帯など。窓口は市区町村社会福祉協議会。",
+      "categories": [
+        "仕事"
+      ],
+      "support_type": "貸付（返済が必要）",
+      "source": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/seikatsuhogo/seikatsu-fukushi-shikin1/index.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19"
+    },
+    {
+      "title": "住居確保給付金（家賃補助）",
+      "description": "離職・廃業や収入減少などで住居を失うおそれがある方に、要件を満たす場合、一定期間の家賃相当額を支給する制度。支給額は自治体・世帯人数等により異なります。",
+      "area": "全国",
+      "agency": "厚生労働省・自治体の自立相談支援機関",
+      "target": "離職・廃業または本人の責めによらない減収等により住居の確保が難しく、収入・資産・求職活動などの要件を満たす方。",
+      "categories": [
+        "住宅",
+        "仕事"
+      ],
+      "support_type": "給付",
+      "source": "https://www.gov-online.go.jp/article/201504/entry-7806.html",
       "review_status": "公式情報確認済み",
       "verified_at": "2026-10-19"
     }
