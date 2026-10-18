@@ -38,7 +38,7 @@ class IndividualDataTests(unittest.TestCase):
         )
 
     def test_aichi_candidates_are_review_only(self):
-        rows = decode_csv("制度名,対象者,概要\\n家賃支援,住民,住まいの支援\\n".encode("utf-8-sig"))
+        rows = decode_csv("制度名,対象者,概要\n家賃支援,住民,住まいの支援\n".encode("utf-8-sig"))
         candidates = convert(rows)
         self.assertEqual(len(candidates), 1)
         self.assertEqual(candidates[0]["title"], "家賃支援")
