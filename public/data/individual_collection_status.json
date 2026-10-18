@@ -1,8 +1,9 @@
 {
-  "checked_at": "2026-10-18T20:00:49.830301+00:00",
+  "checked_at": "2026-10-18T20:01:18.054308+00:00",
   "source_count": 3,
   "success_count": 1,
   "candidate_count_this_run": 119,
+  "high_priority_count_this_run": 35,
   "sources": [
     {
       "source_id": "aichi",
@@ -13,12 +14,14 @@
       "source_id": "koganei",
       "status": "ok",
       "candidate_count": 119,
+      "high_priority_count": 35,
+      "possible_business_only_count": 15,
       "output": "public/data/individual_candidates/koganei.json"
     },
     {
       "source_id": "nakano",
       "status": "error",
-      "error": "Unapproved dataset URL: dataset_url"
+      "error": "HTTP Error 404: Not Found"
     }
   ],
   "notice": "候補数であり、公開済み・申請可能な制度数ではありません。"
