@@ -4,6 +4,7 @@ import io
 import json
 import re
 import urllib.request
+from urllib.parse import urlparse
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -12,6 +13,7 @@ URL = "https://www.opendata.metro.tokyo.lg.jp/zaimu/hojokin2026.csv"
 PUBLIC_FILE = Path("public/data/individual.json")
 REVIEW_FILE = Path("public/data/individual_review.json")
 VERIFIED_FILE = Path("public/data/individual_verified.json")
+VERIFIED_DIR = Path("public/data/individual_verified")
 
 # 個人・世帯が対象である可能性を示す表現
 PERSON_TERMS = [
@@ -121,8 +123,8 @@ def save_json(path, items, generated_at):
 
     data = {
         "generated_at": generated_at,
-        "source_name": "東京都 2026年補助金一覧",
-        "source_url": URL,
+        "source_name": "東京都 2026年補助金一覧" if path == REVIEW_FILE else "公式情報確認済みの個人向け支援制度",
+        "source_url": URL if path == REVIEW_FILE else None,
         "total": len(items),
         "subsidies": items
     }
@@ -132,56 +134,66 @@ def save_json(path, items, generated_at):
         encoding="utf-8"
     )
 
+def load_verified():
+    """Publish only manually verified records with essential metadata."""
+    paths = ([VERIFIED_FILE] if VERIFIED_FILE.exists() else [])
+    if VERIFIED_DIR.exists():
+        paths.extend(sorted(VERIFIED_DIR.glob("*.json")))
+    if not paths:
+        raise FileNotFoundError("No verified subsidy sources found")
+    records = []
+    for path in paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        batch = payload.get("subsidies")
+        if not isinstance(batch, list):
+            raise ValueError(f"Verified subsidies must be a list in {path}")
+        records.extend(batch)
+
+    verified, seen = [], set()
+    required = ("title", "description", "area", "agency", "target", "source", "verified_at")
+    for index, record in enumerate(records, 1):
+        if not isinstance(record, dict):
+            raise ValueError(f"Verified record {index} must be an object")
+        missing = [key for key in required if not clean(record.get(key))]
+        if missing:
+            raise ValueError(f"Verified record {index} missing: {', '.join(missing)}")
+        url = urlparse(record["source"])
+        if url.scheme != "https" or not url.netloc:
+            raise ValueError(f"Verified record {index} needs an HTTPS official URL")
+        if record.get("review_status") != "公式情報確認済み":
+            raise ValueError(f"Verified record {index} has not been approved")
+        if not isinstance(record.get("categories"), list) or not record["categories"]:
+            raise ValueError(f"Verified record {index} needs categories")
+        key = (clean(record["title"]), clean(record["area"]))
+        if key in seen:
+            continue
+        seen.add(key)
+        verified.append(record)
+    return verified
+
+
 def main():
+    # Validate curated data before touching either generated output file.
+    verified = load_verified()
     rows = fetch_rows()
     print(f"東京都の取得件数: {len(rows)}")
-
-    public = []
-    review = []
-    seen = set()
-
+    review, seen = [], set()
     for row in rows:
         status, item = classify(row)
         if status is None:
             continue
-
         key = (item["title"], item["agency"])
         if key in seen:
             continue
         seen.add(key)
-
-        if status == "public":
-            public.append(item)
-        else:
-            review.append(item)
-
+        review.append(item)
 
     generated_at = datetime.now(timezone.utc).isoformat()
-
-    # 確認済みデータは別ファイルで管理し、
-    # 自動収集によって上書きしない
-    verified = []
-
-    if VERIFIED_FILE.exists():
-        verified_data = json.loads(
-            VERIFIED_FILE.read_text(encoding="utf-8")
-        )
-        verified = verified_data.get("subsidies", [])
-
-    # 確認済み制度だけを公開
     save_json(PUBLIC_FILE, verified, generated_at)
-
-    # 未確認の候補は別ファイルに保存
     save_json(REVIEW_FILE, review, generated_at)
-
     print(f"確認済み公開対象: {len(verified)}件")
-
-
-    print(f"公開対象: {len(public)}件")
     print(f"確認待ち: {len(review)}件")
 
-    for item in review[:10]:
-        print("確認候補:", item["title"])
 
 if __name__ == "__main__":
     main()
