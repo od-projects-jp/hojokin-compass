@@ -13,6 +13,7 @@ URL = "https://www.opendata.metro.tokyo.lg.jp/zaimu/hojokin2026.csv"
 PUBLIC_FILE = Path("public/data/individual.json")
 REVIEW_FILE = Path("public/data/individual_review.json")
 VERIFIED_FILE = Path("public/data/individual_verified.json")
+VERIFIED_DIR = Path("public/data/individual_verified")
 
 # 個人・世帯が対象である可能性を示す表現
 PERSON_TERMS = [
@@ -135,12 +136,18 @@ def save_json(path, items, generated_at):
 
 def load_verified():
     """Publish only manually verified records with essential metadata."""
-    if not VERIFIED_FILE.exists():
-        raise FileNotFoundError(f"Verified source is missing: {VERIFIED_FILE}")
-    payload = json.loads(VERIFIED_FILE.read_text(encoding="utf-8"))
-    records = payload.get("subsidies")
-    if not isinstance(records, list):
-        raise ValueError("Verified subsidies must be a list")
+    paths = ([VERIFIED_FILE] if VERIFIED_FILE.exists() else [])
+    if VERIFIED_DIR.exists():
+        paths.extend(sorted(VERIFIED_DIR.glob("*.json")))
+    if not paths:
+        raise FileNotFoundError("No verified subsidy sources found")
+    records = []
+    for path in paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        batch = payload.get("subsidies")
+        if not isinstance(batch, list):
+            raise ValueError(f"Verified subsidies must be a list in {path}")
+        records.extend(batch)
 
     verified, seen = [], set()
     required = ("title", "description", "area", "agency", "target", "source", "verified_at")
