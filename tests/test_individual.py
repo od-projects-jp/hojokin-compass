@@ -11,6 +11,7 @@ from collect_aichi import convert, decode_csv
 from collect_municipal import normalize, parse_csv, validate_source, collect_one
 from build_individual_review_queue import build_queue, normalized_title
 from individual_deadlines import build_deadline_report, deadline_status
+from build_individual_directory import build_directory
 from datetime import date
 
 
@@ -63,6 +64,16 @@ class IndividualDataTests(unittest.TestCase):
 
     def test_title_normalization_removes_ascii_and_full_width_spaces(self):
         self.assertEqual(normalized_title(" 児童　育成 手当（小金井市） "), "児童育成手当")
+
+    def test_static_directory_contains_only_verified_programs_and_escapes_text(self):
+        record = dict(self.record, title="<dangerous>", description="説明 & 詳細",
+                      application_deadline="2026-11-27")
+        html = build_directory([record])
+        self.assertIn("&lt;dangerous&gt;", html)
+        self.assertNotIn("<dangerous>", html)
+        self.assertIn("説明 &amp; 詳細", html)
+        self.assertIn("2026-11-27", html)
+        self.assertIn('rel="noopener noreferrer"', html)
 
     def test_fixed_deadline_status_boundaries(self):
         today = date(2026, 10, 19)

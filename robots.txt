@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://od-projects-jp.github.io/hojokin-compass/sitemap.xml
