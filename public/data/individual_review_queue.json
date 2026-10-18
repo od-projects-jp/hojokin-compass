@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T22:39:51.974480+00:00",
+  "generated_at": "2026-10-18T22:52:10.396335+00:00",
   "total": 111,
   "high_priority": 27,
   "potentially_covered": 1,
@@ -15,6 +15,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -27,6 +28,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -39,6 +41,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -51,6 +54,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -63,6 +67,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -75,6 +80,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -87,6 +93,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -99,6 +106,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -111,6 +119,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -123,6 +132,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -135,6 +145,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -147,6 +158,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -159,6 +171,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -171,6 +184,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -183,6 +197,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -195,6 +210,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -207,6 +223,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -219,6 +236,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -231,6 +249,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -243,6 +262,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -255,6 +275,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -267,6 +288,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -279,6 +301,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -291,6 +314,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -303,6 +327,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -315,6 +340,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -327,19 +353,8 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": true,
+      "ended_in_title": false,
       "review_note": "同じ公式ページで確認済みの別制度が存在。内容を照合してください。"
-    },
-    {
-      "title": "(受付終了)令和6年度小金井市物価高騰対策給付金（1世帯あたり3万円）",
-      "area": "東京都 小金井市",
-      "source_id": "koganei",
-      "source": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045",
-      "target": "支給対象世帯 1.住民税均等割非課税世帯：基準日（令和6年12月13日）時点で小金井市に住民登録があり、世帯全員が、令和6年度の住民税均等割が非課税である世帯 2.住民税均等割のみ課税世帯（定額減税前住民税所得割非課税世帯）：基準日（令和6年12月13日）時点で小金井市に住民登録があり、世帯全員が、令和6年度の住民税均等割が非課税または均等割のみ課税である世帯 3.家計急変世帯：1及び2を除く世帯のうち、申請時点かつ基準日（令和6年12月13日）時点で小金井市に住民登録があり、令和6年1月から令和6年12月までの間に家計が予期せず急変し、世帯員全員のそれぞれの収入見込額（令和6年1月から令和6年12月までの任意の1カ月の収入または所得を12倍した額）が、住民税均等割のみ課税水準（所得割非課税水準）以下に相当する額となった世帯 ・1、2、3いずれの場合も、世帯全員が、住民税所得割が課税されている他の親族等の扶養を受けている場合は対象となりません。 ・租税条約に基づく令和6年度住民税の免除を届け出ている方がいる世帯は対象となりません。 ・「世帯」とは、主として家計と住居を同じくする人々からなる集団のことです。一人暮らしの場合は、一人世帯になります。 住民税所得割非課税世帯相当額早見表 【扶養している親族の状況】単身又は扶養親族がいない場合【所得割非課税相当収入限度額（収入額ベース）】100.0万円【所得割非課税相当所得限度額（所得額ベース）】45.0万円 【扶養している親族の状況】配偶者・扶養親族（1人）を扶養している場合（2人世帯）【所得割非課税相当収入限度額（収入額ベース）】170.0万円【所得割非課税相当所得限度額（所得額ベース）】112.0万円 【扶養している親族の状況】配偶者・扶養親族（計2人）を扶養している場合（3人世帯）【所得割非課税相当収入限度額（収入額ベース）】221.5万円【所得割非課税相当所得限度額（所得額ベース）】147.0万円 【扶養している親族の状況】配偶者・扶養親族（計3人）を扶養している場合（4人世帯）【所得割非課税相当収入限度額（収入額ベース）】271.5万円【所得割非課税相当所得限度額（所得額ベース）】182.0万円 【扶養している親族の状況】配偶者・扶養親族（計4名）を扶養している場合（5人世帯）【所得割非課税相当収入限度額（収入額ベース）】321.5万円【所得割非課税相当所得限度額（所得額ベース）】217.0万円 【扶養している親族の状況】障害者、未成年者、寡婦、ひとり親の場合【所得割非課税相当収入限度額（収入額ベース）】204.3万円【所得割非課税相当所得限度額（所得額ベース）】135.0万円",
-      "review_priority": "終了要確認",
-      "past_year_in_title": true,
-      "possible_business_only": false,
-      "potentially_covered": false,
-      "review_note": ""
     },
     {
       "title": "MR（麻しん・風しん）予防接種",
@@ -351,6 +366,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -363,6 +379,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -375,6 +392,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -387,6 +405,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -399,6 +418,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -411,6 +431,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -423,66 +444,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
-      "review_note": ""
-    },
-    {
-      "title": "令和6年度小金井市物価高騰対策給付金（子ども加算）（18歳以下の子1人あたり2万円）について",
-      "area": "東京都 小金井市",
-      "source_id": "koganei",
-      "source": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045",
-      "target": "「令和6年度小金井市物価高騰対策給付金（1世帯あたり3万円）」の支給対象世帯のうち、18歳以下の児童（平成18年4月2日以降生まれ）（以下「対象児童」という。） を扶養している子育て世帯",
-      "review_priority": "要更新確認",
-      "past_year_in_title": true,
-      "possible_business_only": false,
-      "potentially_covered": false,
-      "review_note": ""
-    },
-    {
-      "title": "令和7年度 就学援助制度のお知らせ",
-      "area": "東京都 小金井市",
-      "source_id": "koganei",
-      "source": "https://www.city.koganei.lg.jp/kosodatekyoiku/gakkou-kyouiku/syuugakuenjoseido/R7syuugakuenjo.html",
-      "target": "市内に住所を有し、市立及び国公立の小中学校に在籍する児童生徒がいる世帯で、次に掲げる（1）から（9）の要件のうちいずれか1つに該当する世帯。 （1）世帯全員の年間（前年）の総収入額が基準以下である ・世帯収入の例：【世帯人数】2人【家族構成の例】親（32歳）、子（8歳）【年間総収入（持家の場合）】約272万円以下【年間総収入（賃貸の場合）】約350万円以下 ・世帯収入の例：【世帯人数】3人 【家族構成の例】父（40歳）、母（35歳）、子（10歳）【年間総収入（持家の場合）】約356万円以下【年間総収入（賃貸の場合）】約434万円以下 ・世帯収入の例：【世帯人数】4人【家族構成の例】父（43歳）、母（39歳）、子（14歳）、子（11歳）【年間総収入（持家の場合）】 約434万円以下【年間総収入（賃貸の場合）】約513万円以下 ・世帯収入の例：【世帯人数】5人【家族構成の例】 父（40歳）、母（37歳）、子（13歳）、子（8歳）、子（5歳）【年間総収入（持家の場合）】約468万円以下【年間総収入（賃貸の場合）】547万円以下 （2）児童扶養手当を受給している（ひとり親世帯など） （3）生活保護を受給している（令和6年度中に停止・廃止を受けた場合も含む） （4）市民税の非課税または減免を保護者全員が受けている （5）固定資産税または個人事業税の減免を受けている （6）国民年金掛金の減免を保護者全員が受けている （7）国民健康保険税の減免または徴収猶予を保護者全員が受けている （8）生活福祉資金の貸し付けを受けている （9）日雇労働被保険者手帳を所持している",
-      "review_priority": "要更新確認",
-      "past_year_in_title": true,
-      "possible_business_only": false,
-      "potentially_covered": false,
-      "review_note": ""
-    },
-    {
-      "title": "令和7年度 防犯機器等購入補助事業",
-      "area": "東京都 小金井市",
-      "source_id": "koganei",
-      "source": "https://www.city.koganei.lg.jp/smph/kurashi/472/bohan/anshinmachi/r7bouhannkiki.html",
-      "target": "市内の住宅等の所有者・使用者・管理組合 住宅等とは、戸建て・共同住宅・店舗・事務所のこととなります。 なお、補助対象者は以下の全てを満たす必要があります。 ・補助金の申請日において市内に住民登録があり、その住所に居住している個人であること。ただし、市内の住宅等の所有者であって、市以外の住民基本台帳に記録されている方に関してはその限りでない。 ・小金井市暴力団排除条例（平成24年条例第47号）第2条第2号に規定する暴力団員及び同条第2号に規定する暴力団員及び同条第3号に規定する暴力団関係者でないこと。 ・住宅等の売買を目的として補助対象事業を行う者ではないこと。 ・国、地方公共団体その他これらに準ずる団体ではないもの。",
-      "review_priority": "要更新確認",
-      "past_year_in_title": true,
-      "possible_business_only": false,
-      "potentially_covered": false,
-      "review_note": ""
-    },
-    {
-      "title": "令和7年度実施協働事業提案制度",
-      "area": "東京都 小金井市",
-      "source_id": "koganei",
-      "source": "https://www.city.koganei.lg.jp/kurashi/462/shiminkyodo/E05/E09/R7kyodoboshu.html",
-      "target": "応募できる団体：市内に活動拠点をもつ5人以上で構成された市民活動団体等 対象となる事業：令和7年4月頃に行われる協定書締結から令和8年3月31日までに実施する公共的な課題を解決する事業（市の補助は50万円まで希望できます。）本事業は最大2ヵ年分の提案が可能です。",
-      "review_priority": "要更新確認",
-      "past_year_in_title": true,
-      "possible_business_only": false,
-      "potentially_covered": false,
-      "review_note": ""
-    },
-    {
-      "title": "住宅用新エネルギー機器等普及促進補助金（令和7年度）",
-      "area": "東京都 小金井市",
-      "source_id": "koganei",
-      "source": "https://www.city.koganei.lg.jp/smph/kurashi/473/hozyokin/06sinnene.html",
-      "target": "（1）小金井市民である方 （2）市民税や国民健康保険税等の滞納がない方 （3）対象設備を自ら購入・所有し、使用する方（中古品、リース及び自己負担なしなどでの設置は補助対象外） （4）補助対象期間内に設置が完了し、必要書類が提出できる方（設置後申請）",
-      "review_priority": "要更新確認",
-      "past_year_in_title": true,
-      "possible_business_only": false,
-      "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -495,6 +457,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -507,6 +470,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -519,6 +483,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -531,6 +496,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -543,6 +509,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -555,6 +522,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -567,6 +535,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -579,6 +548,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -591,6 +561,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -603,6 +574,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -615,6 +587,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -627,6 +600,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -639,6 +613,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -651,6 +626,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -663,6 +639,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -675,6 +652,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -687,6 +665,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -699,6 +678,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -711,6 +691,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -723,6 +704,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -735,6 +717,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -747,6 +730,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -759,6 +743,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -771,6 +756,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -783,6 +769,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -795,6 +782,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -807,6 +795,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -819,6 +808,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -831,6 +821,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -843,6 +834,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -855,6 +847,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -867,6 +860,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -879,6 +873,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -891,6 +886,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -903,6 +899,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -915,6 +912,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -927,6 +925,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -939,6 +938,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -951,6 +951,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -963,6 +964,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -975,6 +977,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -987,6 +990,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -999,6 +1003,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1011,6 +1016,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1023,6 +1029,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1035,6 +1042,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1047,6 +1055,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1059,6 +1068,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1071,6 +1081,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1083,6 +1094,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1095,6 +1107,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1107,6 +1120,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1119,6 +1133,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1131,6 +1146,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1143,6 +1159,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1155,6 +1172,7 @@
       "past_year_in_title": false,
       "possible_business_only": false,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1167,6 +1185,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1179,6 +1198,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1191,6 +1211,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1203,6 +1224,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1215,6 +1237,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1227,6 +1250,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1239,6 +1263,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1251,6 +1276,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1263,6 +1289,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1275,6 +1302,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1287,6 +1315,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1299,6 +1328,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1311,6 +1341,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1323,6 +1354,7 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
       "review_note": ""
     },
     {
@@ -1335,6 +1367,85 @@
       "past_year_in_title": false,
       "possible_business_only": true,
       "potentially_covered": false,
+      "ended_in_title": false,
+      "review_note": ""
+    },
+    {
+      "title": "令和6年度小金井市物価高騰対策給付金（子ども加算）（18歳以下の子1人あたり2万円）について",
+      "area": "東京都 小金井市",
+      "source_id": "koganei",
+      "source": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045",
+      "target": "「令和6年度小金井市物価高騰対策給付金（1世帯あたり3万円）」の支給対象世帯のうち、18歳以下の児童（平成18年4月2日以降生まれ）（以下「対象児童」という。） を扶養している子育て世帯",
+      "review_priority": "要更新確認",
+      "past_year_in_title": true,
+      "possible_business_only": false,
+      "potentially_covered": false,
+      "ended_in_title": false,
+      "review_note": ""
+    },
+    {
+      "title": "令和7年度 就学援助制度のお知らせ",
+      "area": "東京都 小金井市",
+      "source_id": "koganei",
+      "source": "https://www.city.koganei.lg.jp/kosodatekyoiku/gakkou-kyouiku/syuugakuenjoseido/R7syuugakuenjo.html",
+      "target": "市内に住所を有し、市立及び国公立の小中学校に在籍する児童生徒がいる世帯で、次に掲げる（1）から（9）の要件のうちいずれか1つに該当する世帯。 （1）世帯全員の年間（前年）の総収入額が基準以下である ・世帯収入の例：【世帯人数】2人【家族構成の例】親（32歳）、子（8歳）【年間総収入（持家の場合）】約272万円以下【年間総収入（賃貸の場合）】約350万円以下 ・世帯収入の例：【世帯人数】3人 【家族構成の例】父（40歳）、母（35歳）、子（10歳）【年間総収入（持家の場合）】約356万円以下【年間総収入（賃貸の場合）】約434万円以下 ・世帯収入の例：【世帯人数】4人【家族構成の例】父（43歳）、母（39歳）、子（14歳）、子（11歳）【年間総収入（持家の場合）】 約434万円以下【年間総収入（賃貸の場合）】約513万円以下 ・世帯収入の例：【世帯人数】5人【家族構成の例】 父（40歳）、母（37歳）、子（13歳）、子（8歳）、子（5歳）【年間総収入（持家の場合）】約468万円以下【年間総収入（賃貸の場合）】547万円以下 （2）児童扶養手当を受給している（ひとり親世帯など） （3）生活保護を受給している（令和6年度中に停止・廃止を受けた場合も含む） （4）市民税の非課税または減免を保護者全員が受けている （5）固定資産税または個人事業税の減免を受けている （6）国民年金掛金の減免を保護者全員が受けている （7）国民健康保険税の減免または徴収猶予を保護者全員が受けている （8）生活福祉資金の貸し付けを受けている （9）日雇労働被保険者手帳を所持している",
+      "review_priority": "要更新確認",
+      "past_year_in_title": true,
+      "possible_business_only": false,
+      "potentially_covered": false,
+      "ended_in_title": false,
+      "review_note": ""
+    },
+    {
+      "title": "令和7年度 防犯機器等購入補助事業",
+      "area": "東京都 小金井市",
+      "source_id": "koganei",
+      "source": "https://www.city.koganei.lg.jp/smph/kurashi/472/bohan/anshinmachi/r7bouhannkiki.html",
+      "target": "市内の住宅等の所有者・使用者・管理組合 住宅等とは、戸建て・共同住宅・店舗・事務所のこととなります。 なお、補助対象者は以下の全てを満たす必要があります。 ・補助金の申請日において市内に住民登録があり、その住所に居住している個人であること。ただし、市内の住宅等の所有者であって、市以外の住民基本台帳に記録されている方に関してはその限りでない。 ・小金井市暴力団排除条例（平成24年条例第47号）第2条第2号に規定する暴力団員及び同条第2号に規定する暴力団員及び同条第3号に規定する暴力団関係者でないこと。 ・住宅等の売買を目的として補助対象事業を行う者ではないこと。 ・国、地方公共団体その他これらに準ずる団体ではないもの。",
+      "review_priority": "要更新確認",
+      "past_year_in_title": true,
+      "possible_business_only": false,
+      "potentially_covered": false,
+      "ended_in_title": false,
+      "review_note": ""
+    },
+    {
+      "title": "令和7年度実施協働事業提案制度",
+      "area": "東京都 小金井市",
+      "source_id": "koganei",
+      "source": "https://www.city.koganei.lg.jp/kurashi/462/shiminkyodo/E05/E09/R7kyodoboshu.html",
+      "target": "応募できる団体：市内に活動拠点をもつ5人以上で構成された市民活動団体等 対象となる事業：令和7年4月頃に行われる協定書締結から令和8年3月31日までに実施する公共的な課題を解決する事業（市の補助は50万円まで希望できます。）本事業は最大2ヵ年分の提案が可能です。",
+      "review_priority": "要更新確認",
+      "past_year_in_title": true,
+      "possible_business_only": false,
+      "potentially_covered": false,
+      "ended_in_title": false,
+      "review_note": ""
+    },
+    {
+      "title": "住宅用新エネルギー機器等普及促進補助金（令和7年度）",
+      "area": "東京都 小金井市",
+      "source_id": "koganei",
+      "source": "https://www.city.koganei.lg.jp/smph/kurashi/473/hozyokin/06sinnene.html",
+      "target": "（1）小金井市民である方 （2）市民税や国民健康保険税等の滞納がない方 （3）対象設備を自ら購入・所有し、使用する方（中古品、リース及び自己負担なしなどでの設置は補助対象外） （4）補助対象期間内に設置が完了し、必要書類が提出できる方（設置後申請）",
+      "review_priority": "要更新確認",
+      "past_year_in_title": true,
+      "possible_business_only": false,
+      "potentially_covered": false,
+      "ended_in_title": false,
+      "review_note": ""
+    },
+    {
+      "title": "(受付終了)令和6年度小金井市物価高騰対策給付金（1世帯あたり3万円）",
+      "area": "東京都 小金井市",
+      "source_id": "koganei",
+      "source": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045",
+      "target": "支給対象世帯 1.住民税均等割非課税世帯：基準日（令和6年12月13日）時点で小金井市に住民登録があり、世帯全員が、令和6年度の住民税均等割が非課税である世帯 2.住民税均等割のみ課税世帯（定額減税前住民税所得割非課税世帯）：基準日（令和6年12月13日）時点で小金井市に住民登録があり、世帯全員が、令和6年度の住民税均等割が非課税または均等割のみ課税である世帯 3.家計急変世帯：1及び2を除く世帯のうち、申請時点かつ基準日（令和6年12月13日）時点で小金井市に住民登録があり、令和6年1月から令和6年12月までの間に家計が予期せず急変し、世帯員全員のそれぞれの収入見込額（令和6年1月から令和6年12月までの任意の1カ月の収入または所得を12倍した額）が、住民税均等割のみ課税水準（所得割非課税水準）以下に相当する額となった世帯 ・1、2、3いずれの場合も、世帯全員が、住民税所得割が課税されている他の親族等の扶養を受けている場合は対象となりません。 ・租税条約に基づく令和6年度住民税の免除を届け出ている方がいる世帯は対象となりません。 ・「世帯」とは、主として家計と住居を同じくする人々からなる集団のことです。一人暮らしの場合は、一人世帯になります。 住民税所得割非課税世帯相当額早見表 【扶養している親族の状況】単身又は扶養親族がいない場合【所得割非課税相当収入限度額（収入額ベース）】100.0万円【所得割非課税相当所得限度額（所得額ベース）】45.0万円 【扶養している親族の状況】配偶者・扶養親族（1人）を扶養している場合（2人世帯）【所得割非課税相当収入限度額（収入額ベース）】170.0万円【所得割非課税相当所得限度額（所得額ベース）】112.0万円 【扶養している親族の状況】配偶者・扶養親族（計2人）を扶養している場合（3人世帯）【所得割非課税相当収入限度額（収入額ベース）】221.5万円【所得割非課税相当所得限度額（所得額ベース）】147.0万円 【扶養している親族の状況】配偶者・扶養親族（計3人）を扶養している場合（4人世帯）【所得割非課税相当収入限度額（収入額ベース）】271.5万円【所得割非課税相当所得限度額（所得額ベース）】182.0万円 【扶養している親族の状況】配偶者・扶養親族（計4名）を扶養している場合（5人世帯）【所得割非課税相当収入限度額（収入額ベース）】321.5万円【所得割非課税相当所得限度額（所得額ベース）】217.0万円 【扶養している親族の状況】障害者、未成年者、寡婦、ひとり親の場合【所得割非課税相当収入限度額（収入額ベース）】204.3万円【所得割非課税相当所得限度額（所得額ベース）】135.0万円",
+      "review_priority": "終了要確認",
+      "past_year_in_title": true,
+      "possible_business_only": false,
+      "potentially_covered": false,
+      "ended_in_title": true,
       "review_note": ""
     }
   ]
