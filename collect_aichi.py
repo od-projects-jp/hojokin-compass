@@ -73,7 +73,7 @@ def main():
         raise ValueError("Aichi source CSV is empty")
     candidates = convert(rows)
     if not candidates:
-        raise ValueError("No recognized program titles; check source CSV columns")
+        raise ValueError(f"No recognized program titles; source columns: {list(rows[0])}")
     output = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source_name": "愛知県 支援制度（給付金）情報",
