@@ -30,3 +30,9 @@ https://www.digital.go.jp/resources/open_data/municipal-standard-data-set-test
 `sources/individual_datasets.json` に公式CSVのエントリーを追加する。
 安全のためダウンロード先のホスト名は `collect_municipal.py` の許可リストに登録する。
 公式の紹介ページだけではなく、CSVの実URLと列構成を確認する。
+
+## 確認作業ビュー
+- [制度確認キュー](../individual-review.html) で確認待ち候補を検索・絞り込みできます。
+- 表示するデータは未確認の収集候補です。掲載・申請資格の保証ではありません。
+- 公式リンクで申請条件と最新年度を検証してから、確認済みJSONに反映してください。
+- キューの生成は `build_individual_review_queue.py` によって日次収集時に実施します。
