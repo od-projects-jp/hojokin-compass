@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="地域・目的・募集状況から補助金を探せるHojokin Compass">
+<title>Hojokin Compass | 補助金を、もっと見つけやすく。</title>
+<style>
+:root{--green:#214c3d;--ink:#20362e;--muted:#65756b;--cream:#f7f6f0;--line:#dfe5dd}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.65}
+header{background:#fff;border-bottom:1px solid var(--line)}
+.wrap{max-width:1120px;margin:auto;padding:0 24px}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:12px}
+.logo{font-size:21px;font-weight:800;color:var(--green);letter-spacing:-.6px}
+.small{font-size:12px;color:var(--muted)}
+.hero{padding:70px 0 46px}
+.eyebrow{color:#47755d;font-size:13px;font-weight:700;letter-spacing:2px}
+h1{font-size:clamp(29px,4.5vw,48px);line-height:1.35;letter-spacing:-1.3px;margin:14px 0}
+.lead{color:var(--muted);font-size:16px}
+.search{display:flex;gap:10px;margin-top:28px}
+input,select,button{font:inherit}
+input,select{border:1px solid #d5ddd4;border-radius:9px;background:white;padding:14px;color:var(--ink);min-width:0}
+input{flex:1;font-size:16px}
+button{border:0;border-radius:9px;background:var(--green);color:white;padding:13px 23px;cursor:pointer;font-weight:700}
+button:hover{background:#35634e}
+.metrics{display:flex;gap:32px;margin-top:26px;flex-wrap:wrap}
+.metric strong{font-size:26px;color:var(--green);display:block;line-height:1.3}
+.metric span{font-size:12px;color:var(--muted)}
+main{padding:18px 0 80px}
+.layout{display:grid;grid-template-columns:235px 1fr;gap:26px;align-items:start}
+aside,.result{background:#fff;border:1px solid var(--line);border-radius:13px}
+aside{padding:22px;position:sticky;top:16px}
+aside h2{font-size:17px;margin:0 0 20px}
+.field{margin:0 0 22px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
+.field select{width:100%;padding:11px;font-size:14px}
+.check{display:flex;gap:9px;align-items:center;font-size:13px;cursor:pointer}
+.check input{flex:none}
+.results-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}
+.results-head h2{margin:0;font-size:19px}
+.results-head select{font-size:13px;padding:9px}
+.result{padding:24px;margin-bottom:13px}
+.topline{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tag{font-size:11px;border-radius:5px;padding:3px 8px;background:#edf3ed;color:#315d47;font-weight:700}
+.tag.closed{background:#f1f1ed;color:#797d78}
+.tag.future{background:#fdf1de;color:#90692c}
+.result h3{font-size:19px;line-height:1.55;margin:12px 0}
+.agency{color:var(--muted);font-size:13px;margin-bottom:15px;overflow-wrap:anywhere}
+.details{display:flex;gap:18px 28px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:15px}
+.detail{font-size:13px}
+.detail span{color:var(--muted);display:block;font-size:11px}
+.detail strong{color:var(--green);font-size:16px}
+summary{cursor:pointer;color:var(--green);font-size:13px;font-weight:700;margin-top:17px}
+.more{margin-top:13px;padding:15px;background:#f8faf7;border-radius:8px;font-size:13px;overflow-wrap:anywhere}
+.more p{margin:5px 0}
+.notice{font-size:12px;color:var(--muted);margin:0 0 20px}
+.empty{background:#fff;border-radius:12px;padding:35px;text-align:center}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}
+a{color:var(--green)}
+@media(max-width:720px){
+.hero{padding:40px 0 25px}
+.layout{grid-template-columns:1fr;gap:15px}
+aside{position:static}
+.search{flex-direction:column}
+.metrics{gap:20px}
+.result{padding:18px}
+.results-head{align-items:flex-start}
+.nav{min-height:65px}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<div class="logo">◈ Hojokin Compass</div>
+<div class="small">補助金を、もっと見つけやすく。</div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+<div class="eyebrow">FIND YOUR OPPORTUNITY</div>
+<h1>事業の可能性を広げる、<br>補助金探し。</h1>
+<p class="lead">地域や目的から、あなたの事業に合った支援制度を探せます。</p>
+<div class="search">
+<input id="query" type="search" placeholder="例：創業、設備投資、デジタル化" aria-label="キーワード検索">
+<button id="searchBtn">補助金を探す →</button>
+</div>
+<div class="metrics">
+<div class="metric"><strong id="total">—</strong><span>収録補助金</span></div>
+<div class="metric"><strong>Jグランツ</strong><span>データソース</span></div>
+<div class="metric"><strong id="updated">—</strong><span>データ取得日</span></div>
+</div>
+</div></section>
+
+<main class="wrap">
+<div class="layout">
+<aside>
+<h2>条件で絞り込む</h2>
+<div class="field">
+<label for="area">対象地域</label>
+<select id="area"><option value="">すべての地域</option></select>
+</div>
+<div class="field">
+<label for="purpose">利用目的</label>
+<select id="purpose"><option value="">すべての目的</option></select>
+</div>
+<div class="field">
+<label for="status">募集状況（期間による判定）</label>
+<select id="status">
+<option value="">すべて</option>
+<option value="open">募集期間内</option>
+<option value="future">募集開始前</option>
+<option value="closed">募集期間終了</option>
+<option value="unknown">期間不明</option>
+</select>
+</div>
+<div class="field">
+<label class="check"><input type="checkbox" id="amount">上限金額が掲載されているもの</label>
+</div>
+<button id="reset" style="width:100%;background:#e8eee7;color:#214c3d">条件をクリア</button>
+</aside>
+
+<div>
+<div class="results-head">
+<h2 id="count">補助金を読み込み中…</h2>
+<select id="sort" aria-label="並び順">
+<option value="deadline">募集期限が近い順</option>
+<option value="amount">補助上限額が高い順</option>
+<option value="title">名称順</option>
+</select>
+</div>
+<p class="notice">募集状況は掲載された日付に基づく参考表示です。予算終了や募集変更、対象要件などは必ず公式情報をご確認ください。</p>
+<div id="results"></div>
+<div id="moreWrap" style="text-align:center;margin-top:20px">
+<button id="more" style="display:none">さらに表示</button>
+</div>
+</div>
+</div>
+</main>
+
+<footer><div class="wrap">
+Hojokin Compass — 補助金情報の検索サービス<br>
+出典：Jグランツ公開データ。
+<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener noreferrer">Jグランツ公式サイト</a><br>
+本サービスは補助金の交付や申請資格を保証するものではありません。
+</div></footer>
+
+<script>
+"use strict";
+let records=[],filtered=[],visible=20;
+const $=id=>document.getElementById(id);
+const yen=n=>{
+ if(!(Number(n)>0))return "要確認";
+ return Number(n)>=100000000
+  ?(Number(n)/100000000).toLocaleString("ja-JP",{maximumFractionDigits:2})+"億円"
+  :Number(n)>=10000
+  ?(Number(n)/10000).toLocaleString("ja-JP",{maximumFractionDigits:1})+"万円"
+  :Number(n).toLocaleString("ja-JP")+"円";
+};
+const dateText=s=>{
+ if(!s)return "不明";
+ const d=new Date(s);
+ return Number.isNaN(d.getTime())?"不明":
+ new Intl.DateTimeFormat("ja-JP",{timeZone:"Asia/Tokyo",year:"numeric",month:"2-digit",day:"2-digit"}).format(d);
+};
+const rounds=r=>Array.isArray(r.rounds)?r.rounds:[];
+const state=r=>{
+ const t=Date.now(),rs=rounds(r).filter(x=>x.start_at&&x.end_at);
+ if(!rs.length)return "unknown";
+ if(rs.some(x=>Date.parse(x.start_at)<=t&&t<=Date.parse(x.end_at)))return "open";
+ if(rs.some(x=>Date.parse(x.start_at)>t))return "future";
+ return "closed";
+};
+const deadline=r=>{
+ const t=Date.now();
+ const dates=rounds(r).map(x=>Date.parse(x.end_at)).filter(Number.isFinite);
+ const active=dates.filter(x=>x>=t);
+ return active.length?Math.min(...active):Infinity;
+};
+const lastDeadline=r=>{
+ const dates=rounds(r).map(x=>Date.parse(x.end_at)).filter(Number.isFinite);
+ return dates.length?Math.max(...dates):NaN;
+};
+const text=(tag,value,cls)=>{
+ const el=document.createElement(tag);
+ if(cls)el.className=cls;
+ el.textContent=value==null?"":String(value);
+ return el;
+};
+function fillSelect(id,values){
+ const sel=$(id);
+ [...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b,"ja"))
+ .forEach(v=>{
+ const op=document.createElement("option");op.value=v;op.textContent=v;sel.append(op);
+ });
+}
+function statusLabel(s){
+ return {open:"募集期間内",future:"募集開始前",closed:"期間終了",unknown:"期間不明"}[s];
+}
+function renderCard(r){
+ const article=document.createElement("article");article.className="result";
+ const top=text("div","","topline");
+ const s=state(r);
+ top.append(text("span",statusLabel(s),"tag "+(s==="closed"?"closed":s==="future"?"future":"")));
+ top.append(text("span",r.area||"地域不明","tag"));
+ article.append(top,text("h3",r.title||"名称不明"));
+ article.append(text("div",r.agency||"実施機関不明","agency"));
+ const details=text("div","","details");
+ const entries=[
+ ["補助上限額",yen(r.max_amount)],
+ ["募集終了日",dateText(Number.isFinite(lastDeadline(r))?new Date(lastDeadline(r)).toISOString():null)],
+ ["補助率",r.subsidy_rate||"要確認"]
+ ];
+ entries.forEach(([label,value])=>{
+ const box=text("div","","detail");
+ box.append(text("span",label),text("strong",value));
+ details.append(box);
+ });
+ article.append(details);
+ const expand=document.createElement("details");
+ expand.append(text("summary","制度の詳細を見る"));
+ const info=text("div","","more");
+ info.append(text("p","利用目的："+(r.purpose||"記載なし")));
+ info.append(text("p","対象地域："+(r.area||"記載なし")));
+ info.append(text("p","募集期間："));
+ if(rounds(r).length){
+ const uniq=[...new Set(rounds(r).map(x=>dateText(x.start_at)+" ～ "+dateText(x.end_at)))];
+ uniq.slice(0,8).forEach(x=>info.append(text("p",x)));
+ if(uniq.length>8)info.append(text("p","ほか "+(uniq.length-8)+" 件"));
+ }else info.append(text("p","記載なし"));
+ info.append(text("p","Jグランツ掲載ID："+r.id));
+ const link=document.createElement("a");
+ link.href="https://www.jgrants-portal.go.jp/";
+ link.target="_blank";link.rel="noopener noreferrer";
+ link.textContent="Jグランツ公式サイトで確認 ↗";
+ info.append(link);
+ expand.append(info);article.append(expand);
+ return article;
+}
+function render(){
+ const target=$("results");target.replaceChildren();
+ const frag=document.createDocumentFragment();
+ filtered.slice(0,visible).forEach(r=>frag.append(renderCard(r)));
+ target.append(frag);
+ $("count").textContent=filtered.length.toLocaleString("ja-JP")+" 件の補助金";
+ if(!filtered.length)target.append(text("div","条件に一致する補助金がありません。条件を変更してお試しください。","empty"));
+ $("more").style.display=visible<filtered.length?"inline-block":"none";
+}
+function apply(){
+ const q=$("query").value.normalize("NFKC").toLowerCase().trim();
+ const a=$("area").value,p=$("purpose").value,s=$("status").value;
+ const hasAmount=$("amount").checked;
+ filtered=records.filter(r=>{
+ const hay=[r.title,r.agency,r.purpose,r.area].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
+ if(q&&!q.split(/\s+/).every(w=>hay.includes(w)))return false;
+ if(a&&!(String(r.area||"").includes(a)||String(r.area||"").includes("全国")))return false;
+ if(p&&!String(r.purpose||"").split("/").map(x=>x.trim()).includes(p))return false;
+ if(s&&state(r)!==s)return false;
+ if(hasAmount&&!(Number(r.max_amount)>0))return false;
+ return true;
+ });
+ const sort=$("sort").value;
+ filtered.sort((x,y)=>sort==="amount"?(Number(y.max_amount)||0)-(Number(x.max_amount)||0)
+ :sort==="title"?String(x.title||"").localeCompare(String(y.title||""),"ja")
+ :deadline(x)-deadline(y));
+ visible=20;render();
+}
+async function init(){
+ try{
+ const res=await fetch("./public/data/subsidies.json",{cache:"no-store"});
+ if(!res.ok)throw Error("HTTP "+res.status);
+ const data=await res.json();
+ if(!Array.isArray(data.subsidies))throw Error("データ形式が不正です");
+ records=data.subsidies;
+ $("total").textContent=records.length.toLocaleString("ja-JP")+"件";
+ $("updated").textContent=dateText(data.generated_at);
+ const areas=[];
+ const purposes=[];
+ records.forEach(r=>{
+ String(r.area||"").split("/").map(x=>x.trim()).forEach(x=>{
+ if(x&&x!=="全国")areas.push(x);
+ });
+ String(r.purpose||"").split("/").map(x=>x.trim()).filter(Boolean).forEach(x=>purposes.push(x));
+ });
+ fillSelect("area",areas);fillSelect("purpose",purposes);
+ apply();
+ }catch(e){
+ $("count").textContent="データを読み込めませんでした";
+ $("results").append(text("div","補助金データの読み込みに失敗しました。public/data/subsidies.json の配置と公開設定を確認してください。","empty"));
+ console.error(e);
+ }
+}
+["query","area","purpose","status","amount","sort"].forEach(id=>{
+ $(id).addEventListener(id==="query"?"input":"change",apply);
+});
+$("searchBtn").addEventListener("click",apply);
+$("reset").addEventListener("click",()=>{
+ $("query").value="";$("area").value="";$("purpose").value="";
+ $("status").value="";$("amount").checked=false;$("sort").value="deadline";apply();
+});
+$("more").addEventListener("click",()=>{visible+=20;render()});
+init();
+</script>
+</body>
+</html>
