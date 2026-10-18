@@ -123,8 +123,8 @@ def save_json(path, items, generated_at):
 
     data = {
         "generated_at": generated_at,
-        "source_name": "東京都 2026年補助金一覧",
-        "source_url": URL,
+        "source_name": "東京都 2026年補助金一覧" if path == REVIEW_FILE else "公式情報確認済みの個人向け支援制度",
+        "source_url": URL if path == REVIEW_FILE else None,
         "total": len(items),
         "subsidies": items
     }
