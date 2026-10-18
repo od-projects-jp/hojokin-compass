@@ -34,6 +34,12 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 .deadline{border-left:3px solid #a5b7a7;background:#f5f8f3;padding:9px 12px;margin:12px 0;font-size:13px;line-height:1.65}
 .deadline.soon{border-color:#d18a27;background:#fff6e9}
 .deadline.past{border-color:#a44d4d;background:#fff0f0}
+.privacy-tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:15px 0}
+.privacy-tools button,.favorite{border:1px solid #cad7cb;border-radius:8px;padding:9px 13px;background:#fff;color:#193b31;font-weight:700;cursor:pointer}
+.privacy-tools button[aria-pressed="true"],.favorite[aria-pressed="true"]{background:#e8f0e2;border-color:#63816c}
+.favorite{margin:10px 0 14px;display:inline-block}
+.privacy-hint{font-size:12px;line-height:1.8;color:#65776b}
+.privacy-tools button:focus-visible,.favorite:focus-visible{outline:3px solid #91ae89;outline-offset:2px}
 .empty{border:1px dashed #b8c8ba;border-radius:14px;padding:38px 24px;text-align:center;background:#fff}
 .empty strong{display:block;font-size:19px;margin-bottom:12px}
 .empty p{color:#687a70;line-height:1.8}
@@ -96,6 +102,12 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 </div>
 </div>
 
+<div class="privacy-tools" aria-label="ブラウザ内の保存機能">
+<button id="savedOnly" type="button" aria-pressed="false">♡ お気に入りのみ表示（0件）</button>
+<button id="resetFilters" type="button">検索条件をリセット</button>
+<button id="clearLocal" type="button">この端末の保存データを削除</button>
+</div>
+<p id="privacyHint" class="privacy-hint" role="status">登録不要・無料。検索条件とお気に入りは、このブラウザ内にのみ保存します。共用端末では保存内容にご注意ください。</p>
 <p class="note">すべての確認済み制度を地域別に見る場合は、<a href="individual-directory.html">支援制度一覧ページ</a>をご利用ください。</p>
 <p class="note" id="coverage" aria-live="polite">地域別の掲載状況を確認しています...</p>
 <div class="count" id="count">支援制度を読み込み中...</div>
@@ -103,7 +115,28 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 <p class="note">市区町村名が表示されている制度は、その自治体の住民等に対象が限定される場合があります。都道府県を選んでも、市区町村の申請資格は自動判定されません。</p>
 <p class="note">掲載情報は公的機関の公開情報に基づきます。制度の利用可否・申請条件・募集状況は必ず公式情報でご確認ください。</p>
 </main>
+<script src="./privacy-storage.js"></script>
 <script>
+const localPrefs=window.HojokinLocalStore;
+const initialFilters=localPrefs.filters();
+let favorites=localPrefs.favorites();
+let savedOnly=initialFilters.savedOnly===true;
+const favoriteKey=x=>String(x.source||"")+"|"+String(x.title||"");
+function saveFilters(){
+ localPrefs.write(localPrefs.KEYS.individualFilters,{
+  region:region.value,municipality:municipality.value,
+  keyword:document.getElementById("keyword").value.slice(0,120),topic,savedOnly
+ });
+}
+function saveFavorites(){
+ localPrefs.write(localPrefs.KEYS.individualFavorites,favorites);
+ updateSavedButton();
+}
+function updateSavedButton(){
+ const button=document.getElementById("savedOnly");
+ button.textContent=(savedOnly?"♥ お気に入り表示中":"♡ お気に入りのみ表示")+"（"+favorites.length+"件）";
+ button.setAttribute("aria-pressed",String(savedOnly));
+}
 const prefectures=[
 "北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県",
 "茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県",
@@ -120,6 +153,14 @@ const o=document.createElement("option");
 o.value=p;o.textContent=p;region.appendChild(o);
 });
 let data=[],topic="";
+if(!localPrefs.available){
+ document.getElementById("privacyHint").textContent="このブラウザでは保存が無効です。検索・お気に入りはこのページを開いている間のみ利用できます。";
+}
+region.value=initialFilters.region&&prefectures.includes(initialFilters.region)?initialFilters.region:"";
+document.getElementById("keyword").value=initialFilters.keyword||"";
+topic=initialFilters.topic||"";
+document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dataset.topic===topic));
+updateSavedButton();
 const municipality=document.getElementById("municipality");
 function localCity(area,pref){
  if(!pref||!area.startsWith(pref+" "))return "";
@@ -143,6 +184,7 @@ const r=region.value;
 const city=municipality.value;
 const q=document.getElementById("keyword").value.trim().toLowerCase();
 const filtered=data.filter(x=>{
+if(savedOnly&&!favorites.includes(favoriteKey(x)))return false;
 const categories=Array.isArray(x.categories)?x.categories.join(" "):field(x.category);
 const area=field(x.area);
 const hay=[x.title,x.description,x.agency,x.target,categories].map(field).join(" ").toLowerCase();
@@ -173,6 +215,19 @@ eligibility.textContent=x.target?"対象者："+field(x.target):"対象者：公
 const verified=document.createElement("p");verified.className="meta";
 verified.textContent=x.verified_at?"情報確認日："+field(x.verified_at):"情報確認日は未登録です";
 card.append(h,p,kind,eligibility,verified);
+const fav=document.createElement("button");
+fav.type="button";fav.className="favorite";
+const key=favoriteKey(x);
+const selected=favorites.includes(key);
+fav.textContent=selected?"♥ お気に入り登録済み":"♡ お気に入りに保存";
+fav.setAttribute("aria-pressed",String(selected));
+fav.setAttribute("aria-label",field(x.title)+(selected?"をお気に入りから削除":"をお気に入りに追加"));
+fav.addEventListener("click",()=>{
+ if(favorites.includes(key))favorites=favorites.filter(v=>v!==key);
+ else if(favorites.length<500)favorites.push(key);
+ saveFavorites();render();
+});
+card.appendChild(fav);
 if(typeof x.application_deadline==="string"&&/^\\d{4}-\\d{2}-\\d{2}$/.test(x.application_deadline)){
  const today=new Date();today.setHours(0,0,0,0);
  const end=new Date(x.application_deadline+"T00:00:00");
@@ -195,11 +250,11 @@ document.querySelectorAll(".topic").forEach(b=>{
 b.addEventListener("click",()=>{
 topic=topic===b.dataset.topic?"":b.dataset.topic;
 document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dataset.topic===topic));
-render();
+saveFilters();render();
 });
 });
-region.addEventListener("change",()=>{refreshMunicipalities();render();showCoverage()});
-municipality.addEventListener("change",()=>{render();showCoverage()});
+region.addEventListener("change",()=>{refreshMunicipalities();saveFilters();render();showCoverage()});
+municipality.addEventListener("change",()=>{saveFilters();render();showCoverage()});
 let coverage=null;
 const coverageElement=document.getElementById("coverage");
 function showCoverage(){
@@ -215,10 +270,35 @@ fetch("./public/data/individual_coverage.json",{cache:"no-store"})
  .then(r=>{if(!r.ok)throw Error("coverage unavailable");return r.json()})
  .then(j=>{coverage=j;showCoverage()})
  .catch(()=>{coverageElement.textContent="地域別掲載状況は準備中です。"});
-document.getElementById("keyword").addEventListener("input",render);
+document.getElementById("keyword").addEventListener("input",()=>{saveFilters();render()});
+document.getElementById("savedOnly").addEventListener("click",()=>{
+ savedOnly=!savedOnly;updateSavedButton();saveFilters();render();
+});
+document.getElementById("resetFilters").addEventListener("click",()=>{
+ region.value="";municipality.value="";document.getElementById("keyword").value="";
+ topic="";savedOnly=false;
+ document.querySelectorAll(".topic").forEach(x=>x.classList.remove("active"));
+ refreshMunicipalities();updateSavedButton();saveFilters();render();showCoverage();
+});
+document.getElementById("clearLocal").addEventListener("click",()=>{
+ if(!window.confirm("このブラウザに保存した検索条件とお気に入りを削除しますか？"))return;
+ localPrefs.clear();
+ favorites=[];savedOnly=false;topic="";
+ region.value="";document.getElementById("keyword").value="";
+ document.querySelectorAll(".topic").forEach(x=>x.classList.remove("active"));
+ refreshMunicipalities();updateSavedButton();render();showCoverage();
+ document.getElementById("privacyHint").textContent="ブラウザ内の保存データを削除しました。";
+});
 fetch("./public/data/individual.json",{cache:"no-store"})
 .then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()})
-.then(j=>{data=Array.isArray(j)?j:Array.isArray(j.subsidies)?j.subsidies:[];refreshMunicipalities();render()})
+.then(j=>{
+ data=Array.isArray(j)?j:Array.isArray(j.subsidies)?j.subsidies:[];
+ refreshMunicipalities();
+ if(initialFilters.municipality&&[...municipality.options].some(o=>o.value===initialFilters.municipality)){
+  municipality.value=initialFilters.municipality;
+ }
+ render();showCoverage();
+})
 .catch(err=>{count.textContent="データを読み込めませんでした";results.textContent="通信またはデータの読み込みに失敗しました。ページを再読み込みしてください。";console.error("Individual data load failed:",err)});
 </script>
 </body>
