@@ -37,8 +37,8 @@
       "dataset_url": "https://www.city.noshiro.lg.jp/up/files/www/city/opendata/oopun/052027_support_system_information.csv",
       "landing_url": "https://www.city.noshiro.lg.jp/city/opendata/oopun/25108",
       "format": "csv",
-      "enabled": true,
-      "source_note": "能代市公式オープンデータ。候補のみ取り込み、個別の受付状況を確認するまで公開しない。"
+      "enabled": false,
+      "source_note": "公式掲載CSVの取得URLが2026-10-19時点でHTTP 404。公式ページに新しいCSVがあるため、最新リンク確認後に再有効化する。"
     }
   ]
 }
