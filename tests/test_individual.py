@@ -6,6 +6,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import collect_individual as collector
+from individual_coverage import build_coverage
 
 
 class IndividualDataTests(unittest.TestCase):
@@ -33,6 +34,14 @@ class IndividualDataTests(unittest.TestCase):
         self.verified.write_text(
             json.dumps({"subsidies": records}, ensure_ascii=False), encoding="utf-8"
         )
+
+    def test_prefecture_coverage_counts(self):
+        report = build_coverage([self.record, dict(self.record, area="全国")])
+        self.assertEqual(report["prefectures"]["東京都"], 1)
+        self.assertEqual(report["prefectures"]["大阪府"], 0)
+        self.assertEqual(report["nationwide"], 1)
+        self.assertEqual(report["prefectures_with_records"], 1)
+        self.assertEqual(report["total_prefectures"], 47)
 
     def test_only_verified_records_published(self):
         self.write_verified([self.record])
