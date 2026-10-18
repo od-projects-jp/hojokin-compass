@@ -12,6 +12,10 @@ on:
   schedule:
     - cron: "20 20 * * *"
 
+concurrency:
+  group: individual-data-writer
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -51,7 +55,22 @@ jobs:
           fi
           if ! git diff --cached --quiet; then
             git commit -m "Update individual support data"
-            git push
+            for attempt in 1 2 3; do
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort
+                echo "Automatic rebase conflict; preserving remote changes"
+                exit 1
+              fi
+              if git push origin HEAD:main; then
+                break
+              fi
+              if [ "$attempt" = 3 ]; then
+                echo "Push failed after 3 attempts"
+                exit 1
+              fi
+              sleep 2
+            done
           else
             echo "No changes to commit"
           fi
