@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   collect:
@@ -21,5 +21,17 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Test individual data collection
+      - name: Collect individual support data
         run: python collect_individual.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/individual.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update individual support data"
+            git push
+          else
+            echo "No changes to commit"
+          fi
