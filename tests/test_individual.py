@@ -7,6 +7,7 @@ from unittest.mock import patch
 
 import collect_individual as collector
 from individual_coverage import build_coverage
+from collect_aichi import convert, decode_csv
 
 
 class IndividualDataTests(unittest.TestCase):
@@ -35,6 +36,15 @@ class IndividualDataTests(unittest.TestCase):
         self.verified.write_text(
             json.dumps({"subsidies": records}, ensure_ascii=False), encoding="utf-8"
         )
+
+    def test_aichi_candidates_are_review_only(self):
+        rows = decode_csv("制度名,対象者,概要\\n家賃支援,住民,住まいの支援\\n".encode("utf-8-sig"))
+        candidates = convert(rows)
+        self.assertEqual(len(candidates), 1)
+        self.assertEqual(candidates[0]["title"], "家賃支援")
+        self.assertEqual(candidates[0]["area"], "愛知県")
+        self.assertEqual(candidates[0]["review_status"], "要確認")
+        self.assertEqual(candidates[0]["source_row"], 1)
 
     def test_regional_verified_files_are_combined(self):
         self.write_verified([self.record])
