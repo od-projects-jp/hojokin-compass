@@ -622,5 +622,187 @@ refreshDock();
 </script>
 <!-- End Hojokin Compass v0.2 -->
 
+<!-- Hojokin Compass / Editorial Design -->
+<style>
+/* Brand */
+:root {
+  --green: #193f35;
+  --ink: #1b3029;
+  --muted: #65746b;
+  --cream: #f8f7f2;
+  --line: #dfe4dc;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* Navigation */
+header {
+  background: #f8f7f2;
+  border-bottom: 1px solid #dfe4dc;
+}
+.nav {
+  min-height: 76px;
+}
+.logo {
+  color: #193f35;
+  font-size: 21px;
+  letter-spacing: -0.8px;
+}
+.nav .small {
+  color: #69766c;
+}
+
+/* Hero: editorial rather than decorative */
+.hero {
+  background: #f8f7f2;
+  color: #193f35;
+  padding: 68px 0 54px;
+  border-bottom: 1px solid #dfe4dc;
+  overflow: visible;
+}
+.hero:before {
+  display: none;
+}
+.eyebrow {
+  color: #5b7865;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.4px;
+}
+h1 {
+  color: #193f35;
+  font-size: clamp(36px, 5vw, 62px);
+  line-height: 1.25;
+  letter-spacing: -2px;
+  margin: 20px 0 18px;
+}
+.lead {
+  color: #617168;
+  font-size: 16px;
+}
+
+/* Search: solid and functional */
+.search {
+  max-width: 900px;
+  margin-top: 36px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #cbd6cd;
+  border-radius: 5px;
+  box-shadow: none;
+}
+.search input {
+  border: 0;
+  border-radius: 3px;
+  padding: 16px 18px;
+}
+.search button {
+  background: #193f35;
+  color: #fff;
+  border-radius: 3px;
+  padding: 16px 28px;
+}
+.search button:hover {
+  background: #2d5c4c;
+}
+
+/* Data credibility */
+.metrics {
+  margin-top: 30px;
+  gap: 44px;
+}
+.metric strong {
+  color: #193f35;
+  font-size: 22px;
+}
+.metric span {
+  color: #728078;
+  font-size: 11px;
+}
+
+/* Search results */
+main {
+  padding-top: 46px;
+}
+aside, .result {
+  border-radius: 5px;
+  box-shadow: none;
+  border-color: #dfe4dc;
+}
+aside {
+  padding: 25px 22px;
+}
+aside h2:before {
+  content: "";
+}
+.result {
+  padding: 27px 30px;
+  transition: border-color .15s;
+}
+.result:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: #789e89;
+}
+.result h3 {
+  font-size: 20px;
+  line-height: 1.55;
+  letter-spacing: -.4px;
+}
+.tag {
+  border-radius: 3px;
+  padding: 4px 9px;
+}
+.details {
+  gap: 20px 38px;
+}
+.detail strong {
+  font-size: 19px;
+}
+
+/* Quiet secondary actions */
+.action-btn {
+  border-radius: 3px;
+  background: #fff;
+  border: 1px solid #cddbd0;
+  color: #244d3a;
+}
+.action-btn:hover {
+  background: #eef4ed;
+}
+.action-btn.active {
+  background: #193f35;
+  color: #fff;
+}
+.compass-toolbar button {
+  border-radius: 3px;
+}
+
+/* Responsive */
+@media(max-width:720px) {
+  .hero {
+    padding: 48px 0 38px;
+  }
+  h1 {
+    letter-spacing: -1px;
+  }
+  .search {
+    padding: 6px;
+  }
+  .search button {
+    width: 100%;
+  }
+  .metrics {
+    gap: 22px;
+  }
+  .result {
+    padding: 22px 19px;
+  }
+}
+</style>
+
 </body>
 </html>
