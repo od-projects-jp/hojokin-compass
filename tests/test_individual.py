@@ -39,6 +39,17 @@ class IndividualDataTests(unittest.TestCase):
             json.dumps({"subsidies": records}, ensure_ascii=False), encoding="utf-8"
         )
 
+    def test_verified_publication_survives_upstream_outage(self):
+        self.write_verified([self.record])
+        existing_review = {"subsidies": [{"title": "前回の確認候補"}]}
+        self.review.write_text(json.dumps(existing_review, ensure_ascii=False), encoding="utf-8")
+        with patch.object(collector, "fetch_rows", side_effect=OSError("HTTP 503")):
+            collector.main()
+        published = json.loads(self.public.read_text(encoding="utf-8"))
+        self.assertEqual(published["total"], 1)
+        self.assertEqual(published["subsidies"][0]["title"], "確認済み制度")
+        self.assertEqual(json.loads(self.review.read_text(encoding="utf-8")), existing_review)
+
     def test_review_queue_excludes_verified_name_and_flags_shared_page(self):
         verified = [{"title": "制度A", "area": "東京都 小金井市",
                      "source": "https://www.city.koganei.lg.jp/a"}]
