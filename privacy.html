@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>プライバシーとブラウザ保存 | Hojokin Compass</title>
+<meta name="description" content="Hojokin Compassの登録不要・無料の利用方針とブラウザ内の検索条件・お気に入り保存について。">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f7f1;color:#193b31;font:16px/1.9 system-ui,-apple-system,Meiryo,sans-serif}
+header{background:white;border-bottom:1px solid #dfe7de;padding:20px max(18px,calc((100vw - 850px)/2))}
+main{max-width:850px;margin:auto;padding:35px 20px 80px}h1{font-size:clamp(26px,4vw,36px)}
+h2{font-size:20px;margin-top:34px}a{color:#145a48}.box{background:white;border:1px solid #dfe7de;border-radius:12px;padding:18px 22px}
+.note{font-size:13px;color:#5d7167}button{border:1px solid #9db8a1;border-radius:7px;background:white;color:#193b31;padding:12px 16px;font:inherit;font-weight:700;cursor:pointer}
+button:focus-visible{outline:3px solid #9ab98f;outline-offset:2px}
+</style>
+</head>
+<body>
+<header><a href="./">✧ Hojokin Compass</a>　<a href="individual.html">個人向け検索</a>　<a href="search.html">事業者向け検索</a></header>
+<main>
+<h1>プライバシーとブラウザ保存について</h1>
+<p>Hojokin Compassは、会員登録不要・無料で支援制度を探せるサービスです。初期段階では会員アカウントや利用者情報のデータベースを設けず、氏名・住所・メールアドレス等の入力を求めません。</p>
+<div class="box">
+<h2>検索条件・お気に入り</h2>
+<p>検索条件やお気に入りは、利用者のブラウザ内の <code>localStorage</code> に保存します。これらの情報をHojokinの会員サーバーに送信・同期しません。</p>
+<p>同じブラウザで再訪した際に復元されますが、別の端末には引き継がれません。ブラウザの設定やプライベートモードによっては保存されず、ブラウザのデータ削除によって消去されます。共用端末では、同じブラウザを使う他の人が保存内容を見られる場合があります。</p>
+<button id="deleteBrowserData" type="button">このブラウザのHojokin保存データを削除</button>
+<p id="result" role="status" class="note"></p>
+</div>
+<h2>外部サイトへの移動</h2>
+<p>制度の公式サイトや将来の提携先へは、リンクから直接移動します。移動先のサイトでは、その運営者のプライバシーポリシーが適用されます。広告・アフィリエイトを掲載する場合は、その旨を明示します。</p>
+<h2>アクセス情報と外部サービス</h2>
+<p>本サイトの画面には独自のアクセス解析タグや広告トラッキングタグを設置していません。ただし、ホスティングサービス（GitHub Pages）や閲覧先サイトの運営者が、技術的なアクセス情報を処理する場合があります。これらをHojokin側から完全に制御することはできません。</p>
+<h2>掲載情報について</h2>
+<p>支援制度の情報は公式情報に基づいて掲載しますが、募集状況や条件が変わる場合があります。申請前に必ず公式サイトをご確認ください。</p>
+<p class="note">この説明は現行サイトの運用方針です。外部サービスや収益化の仕組みを追加する際は、取得情報と表示内容を再確認します。</p>
+</main>
+<script src="./privacy-storage.js"></script>
+<script>
+document.getElementById("deleteBrowserData").addEventListener("click",()=>{
+ if(!window.confirm("このブラウザ内のHojokin検索条件とお気に入りを削除しますか？"))return;
+ window.HojokinLocalStore.clear();
+ document.getElementById("result").textContent="ブラウザ内のHojokin保存データを削除しました。";
+});
+</script>
+</body></html>
