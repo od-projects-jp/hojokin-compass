@@ -173,9 +173,19 @@ def load_verified():
 
 
 def main():
-    # Validate curated data before touching either generated output file.
+    # Verified records are the primary product. A temporary upstream outage must
+    # never prevent their publication or overwrite the last good review snapshot.
     verified = load_verified()
-    rows = fetch_rows()
+    generated_at = datetime.now(timezone.utc).isoformat()
+    save_json(PUBLIC_FILE, verified, generated_at)
+    print(f"確認済み公開対象: {len(verified)}件")
+
+    try:
+        rows = fetch_rows()
+    except (OSError, UnicodeError, ValueError, csv.Error) as exc:
+        print(f"東京都候補データ取得失敗（公開データは更新済み、前回候補を維持）: {exc}")
+        return
+
     print(f"東京都の取得件数: {len(rows)}")
     review, seen = [], set()
     for row in rows:
@@ -188,10 +198,7 @@ def main():
         seen.add(key)
         review.append(item)
 
-    generated_at = datetime.now(timezone.utc).isoformat()
-    save_json(PUBLIC_FILE, verified, generated_at)
     save_json(REVIEW_FILE, review, generated_at)
-    print(f"確認済み公開対象: {len(verified)}件")
     print(f"確認待ち: {len(review)}件")
 
 
