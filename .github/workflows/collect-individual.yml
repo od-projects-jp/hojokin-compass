@@ -67,6 +67,7 @@ jobs:
                 python collect_individual.py
                 python individual_coverage.py
                 python collect_municipal.py || true
+                python build_individual_review_queue.py
                 git add public/data/individual.json public/data/individual_review.json public/data/individual_coverage.json
                 if [ -f public/data/individual_collection_status.json ]; then git add public/data/individual_collection_status.json; fi
                 if [ -d public/data/individual_candidates ]; then git add -A public/data/individual_candidates; fi
