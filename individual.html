@@ -89,6 +89,7 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 </div>
 </div>
 
+<p class="note" id="coverage" aria-live="polite">地域別の掲載状況を確認しています...</p>
 <div class="count" id="count">支援制度を読み込み中...</div>
 <div id="results"></div>
 <p class="note">掲載情報は公的機関の公開情報に基づきます。制度の利用可否・申請条件・募集状況は必ず公式情報でご確認ください。</p>
@@ -159,7 +160,21 @@ document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dat
 render();
 });
 });
-region.addEventListener("change",render);
+region.addEventListener("change",()=>{render();showCoverage()});
+let coverage=null;
+const coverageElement=document.getElementById("coverage");
+function showCoverage(){
+ if(!coverage){coverageElement.textContent="掲載地域の情報を準備しています。";return;}
+ const selected=region.value;
+ const n=selected?Number(coverage.prefectures?.[selected]||0)+Number(coverage.nationwide||0):null;
+ coverageElement.textContent=selected
+ ? selected+"の掲載済み確認制度："+n+"件（未掲載の制度もあります）"
+ : "掲載済み制度がある都道府県："+coverage.prefectures_with_records+"/47。全国の制度を網羅した件数ではありません。";
+}
+fetch("./public/data/individual_coverage.json",{cache:"no-store"})
+ .then(r=>{if(!r.ok)throw Error("coverage unavailable");return r.json()})
+ .then(j=>{coverage=j;showCoverage()})
+ .catch(()=>{coverageElement.textContent="地域別掲載状況は準備中です。"});
 document.getElementById("keyword").addEventListener("input",render);
 fetch("./public/data/individual.json",{cache:"no-store"})
 .then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()})
