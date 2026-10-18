@@ -20,8 +20,8 @@ def canonical_url(url):
 
 def normalized_title(title):
     """Compare official CSV labels with curated city-qualified titles."""
-    title = re.sub(r"（[^）]*小金井市[^）]*）", "", str(title or ""))
-    title = re.sub(r"[\\s　・･（）()「」]", "", title)
+    title = re.sub(r"（[^）]*(?:小金井市|横浜市)[^）]*）", "", str(title or ""))
+    title = re.sub(r"[\s　・･（）()「」]", "", title)
     return title
 
 
@@ -47,10 +47,13 @@ def build_queue(candidate_sets, verified):
                 "review_priority", "past_year_in_title", "possible_business_only"
             )}
             candidate["potentially_covered"] = already_covered_url
+            candidate["ended_in_title"] = bool(item.get("ended_in_title"))
             candidate["review_note"] = "同じ公式ページで確認済みの別制度が存在。内容を照合してください。" if already_covered_url else ""
             queue.append(candidate)
     queue.sort(key=lambda x: (
         x["review_priority"] != "高",
+        x["ended_in_title"] is True,
+        x["past_year_in_title"] is True,
         x["possible_business_only"] is True,
         x["potentially_covered"] is True,
         x["title"] or "",

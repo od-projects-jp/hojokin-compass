@@ -48,6 +48,23 @@ jobs:
               assert coverage[key] == expected[key], f"Coverage mismatch: {key}"
           print(f"Published {len(records)} validated records; coverage consistent")
           PY
+      - name: Validate deadline report and published records
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import date
+          from pathlib import Path
+          from individual_deadlines import build_deadline_report
+          from collect_individual import load_verified
+          records = load_verified()
+          for item in records:
+              if item.get("application_deadline"):
+                  date.fromisoformat(item["application_deadline"])
+          report = json.loads(Path("public/data/individual_deadlines.json").read_text(encoding="utf-8"))
+          expected = build_deadline_report(records, date.fromisoformat(report["as_of"]))
+          assert report == expected, "Deadline report does not match curated records"
+          print(f"{len(expected['programs'])} deadlines validated")
+          PY
       - name: Validate browser JavaScript syntax
         run: |
           python - <<'PY'

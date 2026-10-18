@@ -31,6 +31,9 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 .item h3{margin:0 0 12px;font-size:18px}
 .meta{color:#66776c;font-size:13px;line-height:1.8}
 .item a{color:#193b31;font-weight:700}
+.deadline{border-left:3px solid #a5b7a7;background:#f5f8f3;padding:9px 12px;margin:12px 0;font-size:13px;line-height:1.65}
+.deadline.soon{border-color:#d18a27;background:#fff6e9}
+.deadline.past{border-color:#a44d4d;background:#fff0f0}
 .empty{border:1px dashed #b8c8ba;border-radius:14px;padding:38px 24px;text-align:center;background:#fff}
 .empty strong{display:block;font-size:19px;margin-bottom:12px}
 .empty p{color:#687a70;line-height:1.8}
@@ -169,6 +172,16 @@ eligibility.textContent=x.target?"対象者："+field(x.target):"対象者：公
 const verified=document.createElement("p");verified.className="meta";
 verified.textContent=x.verified_at?"情報確認日："+field(x.verified_at):"情報確認日は未登録です";
 card.append(h,p,kind,eligibility,verified);
+if(typeof x.application_deadline==="string"&&/^\\d{4}-\\d{2}-\\d{2}$/.test(x.application_deadline)){
+ const today=new Date();today.setHours(0,0,0,0);
+ const end=new Date(x.application_deadline+"T00:00:00");
+ if(!Number.isNaN(end.getTime())){
+  const days=Math.round((end-today)/86400000);
+  const deadline=document.createElement("p");deadline.className="deadline"+(days<0?" past":days<=30?" soon":"");
+  deadline.textContent=(days<0?"掲載年度の申請期限を経過（要再確認）":days<=30?"申請期限が近づいています":"掲載年度の申請期限あり")+"： "+x.application_deadline.replaceAll("-","/")+(x.deadline_note?" ／ "+field(x.deadline_note):"")+"。最新の受付状況は公式情報でご確認ください。";
+  card.appendChild(deadline);
+ }
+}
 if(typeof x.source==="string"&&/^https:\/\//.test(x.source)){
 const a=document.createElement("a");
 a.href=x.source;a.target="_blank";a.rel="noopener noreferrer";
