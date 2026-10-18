@@ -8,7 +8,8 @@
       "dataset_url": "https://www.pref.aichi.jp/uploaded/life/631516_2906587_misc.csv",
       "landing_url": "https://www.pref.aichi.jp/opendata/support-info.html",
       "format": "csv",
-      "enabled": true
+      "enabled": false,
+      "source_note": "GitHub ActionsでHTTP 403。代替の公式ダウンロードURLが見つかるまで停止"
     },
     {
       "id": "koganei",
@@ -26,8 +27,8 @@
       "dataset_url": "https://www2.wagmap.jp/nakanodatamap/nakanodatamap/opendatafile/map_1/CSV/opendata_5000776.csv",
       "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131148d0000000035",
       "format": "csv",
-      "enabled": true,
-      "source_note": "公式データ更新日2024年。候補としてのみ収集し現行制度は必ず再確認"
+      "enabled": false,
+      "source_note": "公式カタログ掲載URLがHTTP 404。新しい公式CSV URLの確認まで停止"
     }
   ]
 }
