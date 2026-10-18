@@ -40,3 +40,21 @@ jobs:
               assert coverage[key] == expected[key], f"Coverage mismatch: {key}"
           print(f"Published {len(records)} validated records; coverage consistent")
           PY
+      - name: Validate browser JavaScript syntax
+        run: |
+          python - <<'PY'
+          import re
+          import subprocess
+          import tempfile
+          from pathlib import Path
+          for page in ("individual.html", "individual-review.html"):
+              html = Path(page).read_text(encoding="utf-8")
+              scripts = re.findall(r"<script(?:\\s[^>]*)?>(.*?)</script>", html, re.S | re.I)
+              assert scripts, f"No inline script found in {page}"
+              for script in scripts:
+                  with tempfile.NamedTemporaryFile(mode="w", suffix=".js", encoding="utf-8") as tmp:
+                      tmp.write(script)
+                      tmp.flush()
+                      subprocess.run(["node", "--check", tmp.name], check=True)
+              print(page, "JavaScript syntax OK")
+          PY
