@@ -90,6 +90,35 @@
       "review_status": "公式情報確認済み",
       "verified_at": "2026-10-19",
       "support_type": "検査費用助成"
+    },
+    {
+      "title": "出産費用助成金（横浜市）",
+      "description": "2026年4月1日以降に出産した対象者へ、出産児1人あたり最大9万円を支給。健康保険組合等から出産育児一時金の付加給付がある場合はその額を控除。出産翌日から1年以内に申請。",
+      "area": "神奈川県 横浜市",
+      "agency": "横浜市 こども青少年局",
+      "target": "2026年4月1日以降に出産（妊娠85日以上の流産・死産を含む）し、出産日から申請時まで横浜市に住民登録があり、健康保険に加入する方。",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/teate/syussanjosei.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "助成金"
+    },
+    {
+      "title": "空家を活用した子育て世代転入・定住促進補助金（横浜市）",
+      "description": "横浜市内の一定条件の空き家を購入し転居する子育て世代に、購入対象経費の2分の1または基礎額100万円＋加算額の低い方を補助。最大200万円。2026年度交付申請期限は11月27日。売買契約前に交付決定が必要。予算到達による早期終了に注意。",
+      "area": "神奈川県 横浜市",
+      "agency": "横浜市 建築局",
+      "target": "18歳未満の子のいる世帯、または夫婦等のいずれかが49歳以下の世帯で、横浜市内の対象空き家を購入し、10年間の居住意思等の条件を満たす方。",
+      "categories": [
+        "住宅",
+        "子育て"
+      ],
+      "source": "https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/jutaku/sien/akiya/akiyatennyuuteijyuu.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "住宅購入補助金"
     }
   ]
 }
