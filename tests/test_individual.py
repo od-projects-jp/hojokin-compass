@@ -10,6 +10,8 @@ from individual_coverage import build_coverage
 from collect_aichi import convert, decode_csv
 from collect_municipal import normalize, parse_csv, validate_source, collect_one
 from build_individual_review_queue import build_queue, normalized_title
+from individual_deadlines import build_deadline_report, deadline_status
+from datetime import date
 
 
 class IndividualDataTests(unittest.TestCase):
@@ -58,6 +60,31 @@ class IndividualDataTests(unittest.TestCase):
                             "URL": "https://www.city.koganei.lg.jp/closed"}], source)
         self.assertEqual(items[0]["review_priority"], "終了要確認")
         self.assertTrue(items[0]["ended_in_title"])
+
+    def test_title_normalization_removes_ascii_and_full_width_spaces(self):
+        self.assertEqual(normalized_title(" 児童　育成 手当（小金井市） "), "児童育成手当")
+
+    def test_fixed_deadline_status_boundaries(self):
+        today = date(2026, 10, 19)
+        self.assertEqual(deadline_status("2026-10-18", today), ("期限経過", -1))
+        self.assertEqual(deadline_status("2026-10-19", today), ("締切間近", 0))
+        self.assertEqual(deadline_status("2026-11-18", today), ("締切間近", 30))
+        self.assertEqual(deadline_status("2026-11-19", today), ("期限設定あり", 31))
+        with self.assertRaises(ValueError):
+            deadline_status("2026-02-30", today)
+
+    def test_deadline_report_only_uses_explicit_dates(self):
+        items = [
+            {"title": "制度A", "area": "東京都", "source": "https://example.org/a",
+             "application_deadline": "2026-10-25"},
+            {"title": "制度B", "area": "全国", "source": "https://example.org/b"},
+            {"title": "制度C", "area": "東京都", "source": "https://example.org/c",
+             "application_deadline": "2026-10-01"},
+        ]
+        report = build_deadline_report(items, date(2026, 10, 19))
+        self.assertEqual(report["total_with_fixed_deadlines"], 2)
+        self.assertEqual(report["upcoming_within_30_days"], 1)
+        self.assertEqual(report["past_deadline"], 1)
 
     def test_city_qualified_titles_are_matched_in_review_queue(self):
         self.assertEqual(normalized_title("児童育成手当（小金井市）"), normalized_title("児童育成手当"))
