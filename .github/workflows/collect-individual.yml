@@ -42,11 +42,14 @@ jobs:
         continue-on-error: true
         run: python collect_municipal.py
 
+      - name: Build review queue
+        run: python build_individual_review_queue.py
+
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/individual.json public/data/individual_review.json public/data/individual_coverage.json
+          git add public/data/individual.json public/data/individual_review.json public/data/individual_coverage.json public/data/individual_review_queue.json
           if [ -f public/data/individual_collection_status.json ]; then
             git add public/data/individual_collection_status.json
           fi
