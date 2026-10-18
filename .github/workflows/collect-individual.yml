@@ -3,6 +3,12 @@ name: Collect Individual Support Data
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'collect_municipal.py'
+      - 'sources/individual_datasets.json'
+      - '.github/workflows/collect-individual.yml'
   schedule:
     - cron: "20 20 * * *"
 
