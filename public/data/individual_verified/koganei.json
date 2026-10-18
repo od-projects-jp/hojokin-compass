@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "description": "小金井市公式ページで確認した市民向け支援制度",
+  "subsidies": [
+    {
+      "title": "おたふくかぜワクチン任意予防接種費用助成",
+      "description": "小金井市の指定医療機関でおたふくかぜワクチンを接種する際、費用の一部を助成。2026年度の自己負担額は3,500円、1人1回まで。生活保護受給世帯は自己負担なし。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 健康課",
+      "target": "接種日に小金井市に住民登録がある1歳以上2歳未満の子ども。2026年4月1日～2027年3月31日の接種が対象。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/yobousesyujigyo/kodomo_koureisha/otafuku.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "助成"
+    },
+    {
+      "title": "ひとり親家庭等医療費助成制度（小金井市）",
+      "description": "小金井市のひとり親家庭等の児童と父母・養育者について、保険診療の自己負担額の一部または全額を助成。所得制限、医療保険加入等の条件があります。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 子育て支援課",
+      "target": "小金井市在住で18歳年度末まで（一定の障害がある場合は20歳未満）の対象児童を監護・養育する父母または養育者等。所得・家族状況などの要件あり。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kosodatekyoiku/N84/iryohi/maruoya.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "医療費助成"
+    },
+    {
+      "title": "ファーストバースデーサポート事業（小金井市）",
+      "description": "小金井市で1歳を迎える子どものいる世帯に電子ギフトを配付。第1子6万円、第2子7万円、第3子以降8万円。案内に従ったアンケート回答などが必要です。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 こども家庭センター",
+      "target": "小金井市内に住所がある1歳になる子どもを育てる世帯の方。市からの案内とアンケート回答期限を確認してください。",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/bosihokenjigyo/D0506153943495.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "電子ギフト"
+    }
+  ]
+}
