@@ -27,12 +27,13 @@ jobs:
         run: |
           python collect_individual.py
           python individual_coverage.py
+          python collect_aichi.py
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/individual.json public/data/individual_review.json public/data/individual_coverage.json
+          git add public/data/individual.json public/data/individual_review.json public/data/individual_coverage.json public/data/individual_review_aichi.json
           if ! git diff --cached --quiet; then
             git commit -m "Update individual support data"
             git push
