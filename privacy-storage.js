@@ -4,7 +4,8 @@
   const KEYS = Object.freeze({
     individualFilters: "hojokin-individual-filters-v1",
     individualFavorites: "hojokin-individual-favorites-v1",
-    businessFilters: "hojokin-business-filters-v1"
+    businessFilters: "hojokin-business-filters-v1",
+    businessFavorites: "hojokin-compass-saved-v1"
   });
   function safeStorage() {
     try {
