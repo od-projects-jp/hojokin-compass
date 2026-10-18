@@ -79,6 +79,9 @@ def normalize(rows, source):
         personal = any(word in target for word in PERSON_HINTS)
         business = any(word in target for word in BUSINESS_HINTS)
         priority = "高" if personal and not business and url != source["landing_url"] else "通常"
+        old_year_in_title = bool(re.search(r"(?:令和[1-7]年度|202[0-5]年度|202[0-5]年)", title))
+        if old_year_in_title:
+            priority = "要更新確認"
         key = (title, target)
         if key in seen:
             continue
@@ -96,6 +99,7 @@ def normalize(rows, source):
             "categories": [],
             "review_status": "要確認",
             "review_priority": priority,
+            "past_year_in_title": old_year_in_title,
             "possible_business_only": business and not personal,
             "review_reason": "申請資格・公式制度ページ・募集状況の確認が必要",
             "source_note": source.get("source_note", ""),
