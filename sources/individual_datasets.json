@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "aichi",
+      "name": "愛知県 支援制度（給付金）情報",
+      "area": "愛知県",
+      "dataset_url": "https://www.pref.aichi.jp/uploaded/life/631516_2906587_misc.csv",
+      "landing_url": "https://www.pref.aichi.jp/opendata/support-info.html",
+      "format": "csv",
+      "enabled": true
+    },
+    {
+      "id": "koganei",
+      "name": "東京都小金井市 支援制度（給付金）情報",
+      "area": "東京都 小金井市",
+      "dataset_url": "https://www.opendata.metro.tokyo.lg.jp/koganei/22_support_system.csv",
+      "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045",
+      "format": "csv",
+      "enabled": true
+    }
+  ]
+}
