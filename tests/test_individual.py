@@ -42,7 +42,7 @@ class IndividualDataTests(unittest.TestCase):
         source = {"id": "koganei", "name": "小金井市", "area": "東京都 小金井市",
                   "dataset_url": "https://www.opendata.metro.tokyo.lg.jp/koganei/22_support_system.csv",
                   "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045"}
-        rows = parse_csv("制度名,対象者,概要,URL\\n住宅支援,市民,家賃補助,https://example.go.jp/program\\n".encode("utf-8-sig"))
+        rows = parse_csv("制度名,対象者,概要,URL\n住宅支援,市民,家賃補助,https://example.go.jp/program\n".encode("utf-8-sig"))
         items = normalize(rows, source)
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]["review_status"], "要確認")
