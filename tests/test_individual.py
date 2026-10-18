@@ -70,6 +70,15 @@ class IndividualDataTests(unittest.TestCase):
                          "dataset_url": "https://www2.wagmap.jp/nakanodatamap/nakanodatamap/opendatafile/map_1/CSV/opendata_5000776.csv",
                          "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131148d0000000035"})
 
+    def test_prior_year_program_is_flagged_for_review(self):
+        source = {"id": "koganei", "area": "東京都 小金井市",
+                  "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045"}
+        items = normalize([{"タイトル（制度名）": "令和7年度 住宅支援",
+                            "対象者": "小金井市民", "URL": "https://www.city.koganei.lg.jp/example"}], source)
+        self.assertTrue(items[0]["past_year_in_title"])
+        self.assertEqual(items[0]["review_priority"], "要更新確認")
+        self.assertEqual(items[0]["review_status"], "要確認")
+
     def test_municipal_source_note_is_retained(self):
         source = {"id": "nakano", "area": "東京都 中野区",
                   "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131148d0000000035",
