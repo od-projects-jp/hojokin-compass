@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-10-18T23:22:34.849522+00:00",
-  "source_count": 2,
+  "checked_at": "2026-10-18T23:23:19.671252+00:00",
+  "source_count": 1,
   "success_count": 1,
   "candidate_count_this_run": 119,
   "high_priority_count_this_run": 35,
@@ -12,11 +12,6 @@
       "high_priority_count": 35,
       "possible_business_only_count": 15,
       "output": "public/data/individual_candidates/koganei.json"
-    },
-    {
-      "source_id": "noshiro",
-      "status": "error",
-      "error": "HTTP Error 404: Not Found"
     }
   ],
   "notice": "候補数であり、公開済み・申請可能な制度数ではありません。"
