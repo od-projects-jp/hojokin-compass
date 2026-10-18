@@ -140,11 +140,13 @@ const card=document.createElement("article");card.className="item";
 const h=document.createElement("h3");h.textContent=field(x.title);
 const p=document.createElement("p");p.className="meta";
 p.textContent=[x.area,x.agency,x.description].filter(Boolean).join(" / ");
+const kind=document.createElement("p");kind.className="meta";
+kind.textContent=x.support_type?"支援の種類："+field(x.support_type):"";
 const eligibility=document.createElement("p");eligibility.className="meta";
 eligibility.textContent=x.target?"対象者："+field(x.target):"対象者：公式情報で確認してください";
 const verified=document.createElement("p");verified.className="meta";
 verified.textContent=x.verified_at?"情報確認日："+field(x.verified_at):"情報確認日は未登録です";
-card.append(h,p,eligibility,verified);
+card.append(h,p,kind,eligibility,verified);
 if(typeof x.source==="string"&&/^https:\/\//.test(x.source)){
 const a=document.createElement("a");
 a.href=x.source;a.target="_blank";a.rel="noopener noreferrer";
