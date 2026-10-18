@@ -16,7 +16,7 @@ REGISTRY = Path("sources/individual_datasets.json")
 OUTPUT_DIR = Path("public/data/individual_candidates")
 REPORT = Path("public/data/individual_collection_status.json")
 MAX_BYTES = 5_000_000
-ALLOWED_HOSTS = {"www.pref.aichi.jp", "www.opendata.metro.tokyo.lg.jp"}
+ALLOWED_HOSTS = {"www.pref.aichi.jp", "www.opendata.metro.tokyo.lg.jp", "www2.wagmap.jp"}
 
 TITLE_FIELDS = ("制度名", "支援制度名", "名称", "給付金名", "事業名", "タイトル", "支援制度名称", "支援制度名（正式名称）", "タイトル（制度名）")
 TARGET_FIELDS = ("対象者", "支援対象者", "給付対象者", "補助対象者", "対象")
@@ -98,6 +98,7 @@ def normalize(rows, source):
             "review_priority": priority,
             "possible_business_only": business and not personal,
             "review_reason": "申請資格・公式制度ページ・募集状況の確認が必要",
+            "source_note": source.get("source_note", ""),
         })
     if not candidates:
         raise ValueError("No matching title field; columns: " + ", ".join(str(x) for x in rows[0]))
