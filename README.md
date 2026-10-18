@@ -1,29 +1,38 @@
-# Hojokin Compass — Data Collector v0.2
+# Hojokin Compass
 
-Jグランツ公開APIを利用したデータ収集の検証版。**この環境では外部APIとの実通信に成功していないため、取得件数は未検証です。**
+登録不要・完全無料で、公的な補助金・助成金・給付金を探す静的Webサービスです。
 
-## 実行
+- [トップページ](https://od-projects-jp.github.io/hojokin-compass/)
+- [個人向け検索](https://od-projects-jp.github.io/hojokin-compass/individual.html)
+- [法人・事業者向け検索](https://od-projects-jp.github.io/hojokin-compass/search.html)
+- [確認済みの個人向け制度一覧](https://od-projects-jp.github.io/hojokin-compass/individual-directory.html)
+- [プライバシーとブラウザ保存](https://od-projects-jp.github.io/hojokin-compass/privacy.html)
 
-```bash
-pip install -r requirements.txt
-python collector.py --detail-limit 30
-```
+## 事業・開発方針
 
-出力: `hojokin.sqlite`（制度・募集回・実行履歴）と `hojokin.report.json`（取得結果）。
+[2026-10-19決定の方針](docs/product-principles.md)に従い、会員登録・有料会員制・利用者個人情報のデータベースは設けません。検索条件とお気に入りは、ブラウザ内の `localStorage` に保存します。保存できない環境でも検索は利用できます。
 
-## 仕様
-- 複数キーワードで一覧を検索し、補助金IDで重複排除
-- 詳細v2のworkflow（募集回）を別テーブルに保存
-- 429・一時エラーに指数バックオフ
-- APIへの過剰アクセスを避けるためリクエスト間隔を設定
-- 実行履歴とエラーを保存
+収益化は将来の外部送客・アフィリエイトを中心に検討します。利用者情報をHojokin側で受け取らない設計を維持し、提携リンクを導入する場合は広告・提携関係を明示します。
 
-## 未対応・留意事項
-- API接続テスト、レスポンス実データに基づく検証
-- 全件網羅性の保証、自治体独自サイトの取り込み
-- 公募要領からの条件抽出、厳密な受給額試算
-- 同一制度の募集回ごとの期限・適格性の判定
-- 公式API利用規約の遵守と出典表示が必要
-- 公開サイトへの自動更新・デプロイ
+詳細: [プライバシー・収益化の実装基準](docs/privacy-and-monetization-architecture.md)
 
-公式仕様: https://developers.digital.go.jp/documents/jgrants/api/
+## データ
+
+- 個人向けは公式情報を確認した**37制度**を公開（2026-10-19時点）。全国共通制度に加え、東京都・神奈川県・埼玉県の制度を含みます。
+- 確認待ち候補は別ファイル・別画面で管理し、確認済み制度と混在させません。
+- `collect_individual.py` が確認済み制度を公開JSONにまとめ、`individual_coverage.py`、`individual_deadlines.py`、`build_individual_directory.py` が掲載地域・期限・静的一覧を生成します。
+- `audit_individual_links.py` が公式リンクの有効性を監査します。外部サイトの一時的なエラーで自動削除はしません。
+- 法人・事業者向けはJグランツ等の公開情報を利用します。全制度の網羅性や申請資格は保証しません。
+
+## 開発・テスト
+
+- GitHub Pagesで静的サイトを配信します。
+- GitHub Actionsでデータ更新、ユニットテスト、ブラウザ用JavaScriptの構文チェック、プライバシー制約チェックを実施します。
+- ローカルテスト: `python -m unittest discover -s tests -v`、`node tests/browser-local-storage.test.js`、`node tests/privacy-guardrails.test.js`
+- データ更新は `python collect_individual.py`、`python individual_coverage.py`、`python individual_deadlines.py`、`python build_individual_directory.py` の順に実行します。
+
+## 注意
+
+掲載情報は公的機関の情報に基づきますが、制度の受付状況・対象要件・申請期限・予算は変わる場合があります。必ず各制度の公式サイトをご確認ください。
+
+外部ホスティング事業者による技術的なアクセス情報の処理を完全に制御できるわけではありません。Hojokin自身は会員情報を収集・保管しない方針です。
