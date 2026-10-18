@@ -157,7 +157,7 @@ render();
 });
 region.addEventListener("change",render);
 document.getElementById("keyword").addEventListener("input",render);
-fetch("./public/data/individual.json")
+fetch("./public/data/individual.json?v=4",{cache:"no-store"})
 .then(r=>{if(!r.ok)throw Error("not ready");return r.json()})
 .then(j=>{data=Array.isArray(j)?j:Array.isArray(j.subsidies)?j.subsidies:[];render()})
 .catch(()=>{data=[];render()});
