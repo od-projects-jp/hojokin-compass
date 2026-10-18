@@ -18,6 +18,16 @@
       "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045",
       "format": "csv",
       "enabled": true
+    },
+    {
+      "id": "nakano",
+      "name": "東京都中野区 支援制度（給付金）情報",
+      "area": "東京都 中野区",
+      "dataset_url": "https://www2.wagmap.jp/nakanodatamap/nakanodatamap/opendatafile/map_1/CSV/opendata_5000776.csv",
+      "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131148d0000000035",
+      "format": "csv",
+      "enabled": true,
+      "source_note": "公式データ更新日2024年。候補としてのみ収集し現行制度は必ず再確認"
     }
   ]
 }
