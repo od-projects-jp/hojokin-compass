@@ -101,6 +101,153 @@
       "review_status": "公式情報確認済み",
       "verified_at": "2026-10-19",
       "support_type": "補助金"
+    },
+    {
+      "title": "住居確保給付金（家賃補助・小金井市）",
+      "description": "離職・廃業ややむを得ない休業等による減収で住居を失うおそれのある方に、原則3か月・最長9か月、家賃相当額を上限付きで家主等に支給。1人世帯の家賃上限例は月53,700円。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 地域福祉課",
+      "target": "離職・廃業後2年以内またはやむを得ない減収があり、収入・金融資産・求職活動などの要件を満たす小金井市の世帯。",
+      "categories": [
+        "住宅",
+        "仕事"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/444/jyuukyokakuhokakudai.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "給付金"
+    },
+    {
+      "title": "児童扶養手当（小金井市の申請案内）",
+      "description": "ひとり親家庭等の生活の安定と児童の福祉のための手当。2026年4月以降の第1子の全部支給は月額48,050円。所得や養育状況に応じて支給額が異なる。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 子育て支援課",
+      "target": "父母の離婚・死亡等の要件に該当する児童を監護する父・母・養育者。原則18歳到達後最初の3月31日まで、一定の障害がある場合は20歳未満。所得制限あり。",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kosodatekyoiku/N84/kakusyuteate/zidouhuyouteate/jidouhuyouteate.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "手当"
+    },
+    {
+      "title": "児童育成手当（小金井市）",
+      "description": "一定のひとり親家庭等や障害のある児童を養育する方への東京都の制度。2026年度の育成手当は児童1人につき月額13,500円、障害手当は月額25,000円。所得制限あり。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 子育て支援課",
+      "target": "離婚・死亡等の要件に該当する18歳年度末までの児童、または一定の障害のある20歳未満の児童を扶養する方。",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kosodatekyoiku/N84/kakusyuteate/jidouikuseiteate.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "手当"
+    },
+    {
+      "title": "受験生チャレンジ支援貸付事業（小金井市の申請案内）",
+      "description": "中学3年生・高校3年生等のいる一定所得以下の世帯向け無利子貸付。学習塾等受講料は最大30万円、高校受験料は最大27,400円、大学受験料は最大12万円。入学後の申請等で返済免除の場合あり。2026年度の申請期限は2027年2月1日。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市社会福祉協議会",
+      "target": "進学を目指す中学3年生・高校3年生またはそれに準じる子を養育し、所得・生計中心者等の要件を満たす世帯。",
+      "categories": [
+        "教育",
+        "子育て"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kosodatekyoiku/N84/jukennseicyarenji.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "無利子貸付"
+    },
+    {
+      "title": "妊婦健康診査費用助成（小金井市）",
+      "description": "妊婦健診14回分、超音波検査4回分、子宮頸がん検診1回分の受診票を交付。2026年4月以降の助成上限例は妊婦健診1回目11,670円、2～14回目各5,460円。受診票対象外の費用は自己負担。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 こども家庭センター",
+      "target": "小金井市で妊娠届出等を行い、対象の医療機関で妊婦健康診査を受ける妊婦。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/bosihokenjigyo/ninpukensin.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "健診費用助成"
+    },
+    {
+      "title": "産婦健康診査・1か月児健康診査費用助成（小金井市）",
+      "description": "2026年10月1日以降、都内共通受診票による産婦健診（産後2か月以内・2回まで、各5,000円上限）と1か月児健診（生後28～41日・1回6,000円上限）を支援。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 こども家庭センター",
+      "target": "2026年10月1日以降に対象の都内委託医療機関で受診し、産婦・乳児健診の各要件を満たす方。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/bosihokenjigyo/sanpu1kagetujikensin.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "健診費用助成"
+    },
+    {
+      "title": "妊産婦・乳幼児保健指導票の交付（小金井市）",
+      "description": "生活保護世帯・住民税非課税世帯の産婦と新生児に保健指導票を交付。指定医療機関での産婦健診・1か月児健診等や保健指導の一定項目を公費負担。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 こども家庭センター",
+      "target": "世帯全員が住民税非課税または生活保護受給の世帯に属する産婦・新生児。申請書・証明書等が必要。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/bosihokenjigyo/hokensidouhyou.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "健診費用助成"
+    },
+    {
+      "title": "産後ケア事業（日帰り・宿泊・訪問型、小金井市）",
+      "description": "出産後の母親と乳児に、助産師等による授乳・育児相談、休息などの産後ケアを提供。2026年4月から宿泊型の自己負担額は1日3,000円。利用条件や施設別料金は公式案内を参照。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 こども家庭センター",
+      "target": "出産後に育児や心身のケア・休息等の支援を必要とする小金井市の母親と乳児。利用時期や申請条件あり。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/bosihokenjigyo/sanngokea.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "公的サービス"
+    },
+    {
+      "title": "妊婦歯科健康診査（小金井市）",
+      "description": "小金井市の委託医療機関で妊娠中に1回、所定の歯科健診を無料で受診可能。治療・クリーニングなど健診対象外の処置は自己負担。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 こども家庭センター",
+      "target": "小金井市に住民登録がある妊婦。妊娠16～27週頃が受診目安。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/bosihokenjigyo/ninnpukennkousinnsa.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "無料健診"
+    },
+    {
+      "title": "妊婦面談・妊婦のための支援給付（小金井市）",
+      "description": "保健師等との妊婦面談で妊娠・出産・子育ての相談支援を提供。初回面談終了時、妊婦のための支援給付5万円（現金または電子ギフト）と電子ギフト1万円を案内。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市 こども家庭センター",
+      "target": "小金井市に住民登録のある妊婦。面談は予約制。支援給付の受給条件・手続きは公式情報で確認。",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/bosihokenjigyo/ninnpumenndann.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "給付・相談支援"
     }
   ]
 }
