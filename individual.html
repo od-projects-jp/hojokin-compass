@@ -265,7 +265,7 @@ function showCoverage(){
  const city=municipality.value;
  coverageElement.textContent=selected
  ? (city?"選択した地域の検索結果を表示中。都道府県・全国制度も含みます。":"")+selected+"の掲載済み確認制度："+n+"件（市区町村の選択により表示件数は変わります。未掲載の制度もあります）"
- : "掲載済み制度がある都道府県："+coverage.prefectures_with_records+"/47。全国の制度を網羅した件数ではありません。";
+ : "全国共通の掲載制度："+coverage.nationwide+"件。自治体独自の制度を掲載している都道府県："+coverage.prefectures_with_records+"／47（未掲載地域の自治体制度は検索できません）。";
 }
 fetch("./public/data/individual_coverage.json",{cache:"no-store"})
  .then(r=>{if(!r.ok)throw Error("coverage unavailable");return r.json()})
