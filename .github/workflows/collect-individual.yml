@@ -59,8 +59,16 @@ jobs:
               git fetch origin main
               if ! git rebase origin/main; then
                 git rebase --abort
-                echo "Automatic rebase conflict; preserving remote changes"
-                exit 1
+                echo "Concurrent update: regenerate outputs against latest main"
+                git reset --hard origin/main
+                python collect_individual.py
+                python individual_coverage.py
+                python collect_municipal.py || true
+                git add public/data/individual.json public/data/individual_review.json public/data/individual_coverage.json
+                if [ -f public/data/individual_collection_status.json ]; then git add public/data/individual_collection_status.json; fi
+                if [ -d public/data/individual_candidates ]; then git add -A public/data/individual_candidates; fi
+                if git diff --cached --quiet; then echo "Already up to date"; exit 0; fi
+                git commit -m "Update individual support data"
               fi
               if git push origin HEAD:main; then
                 break
