@@ -11,6 +11,7 @@ URL = "https://www.opendata.metro.tokyo.lg.jp/zaimu/hojokin2026.csv"
 
 PUBLIC_FILE = Path("public/data/individual.json")
 REVIEW_FILE = Path("public/data/individual_review.json")
+VERIFIED_FILE = Path("public/data/individual_verified.json")
 
 # 個人・世帯が対象である可能性を示す表現
 PERSON_TERMS = [
@@ -154,10 +155,27 @@ def main():
         else:
             review.append(item)
 
+
     generated_at = datetime.now(timezone.utc).isoformat()
 
-    save_json(PUBLIC_FILE, public, generated_at)
+    # 確認済みデータは別ファイルで管理し、
+    # 自動収集によって上書きしない
+    verified = []
+
+    if VERIFIED_FILE.exists():
+        verified_data = json.loads(
+            VERIFIED_FILE.read_text(encoding="utf-8")
+        )
+        verified = verified_data.get("subsidies", [])
+
+    # 確認済み制度だけを公開
+    save_json(PUBLIC_FILE, verified, generated_at)
+
+    # 未確認の候補は別ファイルに保存
     save_json(REVIEW_FILE, review, generated_at)
+
+    print(f"確認済み公開対象: {len(verified)}件")
+
 
     print(f"公開対象: {len(public)}件")
     print(f"確認待ち: {len(review)}件")
