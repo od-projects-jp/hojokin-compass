@@ -4,6 +4,7 @@ import io
 import json
 import re
 import urllib.request
+from urllib.parse import urlparse
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -132,56 +133,60 @@ def save_json(path, items, generated_at):
         encoding="utf-8"
     )
 
+def load_verified():
+    """Publish only manually verified records with essential metadata."""
+    if not VERIFIED_FILE.exists():
+        raise FileNotFoundError(f"Verified source is missing: {VERIFIED_FILE}")
+    payload = json.loads(VERIFIED_FILE.read_text(encoding="utf-8"))
+    records = payload.get("subsidies")
+    if not isinstance(records, list):
+        raise ValueError("Verified subsidies must be a list")
+
+    verified, seen = [], set()
+    required = ("title", "description", "area", "agency", "target", "source", "verified_at")
+    for index, record in enumerate(records, 1):
+        if not isinstance(record, dict):
+            raise ValueError(f"Verified record {index} must be an object")
+        missing = [key for key in required if not clean(record.get(key))]
+        if missing:
+            raise ValueError(f"Verified record {index} missing: {', '.join(missing)}")
+        url = urlparse(record["source"])
+        if url.scheme != "https" or not url.netloc:
+            raise ValueError(f"Verified record {index} needs an HTTPS official URL")
+        if record.get("review_status") != "公式情報確認済み":
+            raise ValueError(f"Verified record {index} has not been approved")
+        if not isinstance(record.get("categories"), list) or not record["categories"]:
+            raise ValueError(f"Verified record {index} needs categories")
+        key = (clean(record["title"]), clean(record["area"]))
+        if key in seen:
+            continue
+        seen.add(key)
+        verified.append(record)
+    return verified
+
+
 def main():
+    # Validate curated data before touching either generated output file.
+    verified = load_verified()
     rows = fetch_rows()
     print(f"東京都の取得件数: {len(rows)}")
-
-    public = []
-    review = []
-    seen = set()
-
+    review, seen = [], set()
     for row in rows:
         status, item = classify(row)
         if status is None:
             continue
-
         key = (item["title"], item["agency"])
         if key in seen:
             continue
         seen.add(key)
-
-        if status == "public":
-            public.append(item)
-        else:
-            review.append(item)
-
+        review.append(item)
 
     generated_at = datetime.now(timezone.utc).isoformat()
-
-    # 確認済みデータは別ファイルで管理し、
-    # 自動収集によって上書きしない
-    verified = []
-
-    if VERIFIED_FILE.exists():
-        verified_data = json.loads(
-            VERIFIED_FILE.read_text(encoding="utf-8")
-        )
-        verified = verified_data.get("subsidies", [])
-
-    # 確認済み制度だけを公開
     save_json(PUBLIC_FILE, verified, generated_at)
-
-    # 未確認の候補は別ファイルに保存
     save_json(REVIEW_FILE, review, generated_at)
-
     print(f"確認済み公開対象: {len(verified)}件")
-
-
-    print(f"公開対象: {len(public)}件")
     print(f"確認待ち: {len(review)}件")
 
-    for item in review[:10]:
-        print("確認候補:", item["title"])
 
 if __name__ == "__main__":
     main()
