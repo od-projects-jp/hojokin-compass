@@ -2,7 +2,7 @@
   "generated_at": "2026-10-18T20:43:49.138542+00:00",
   "source_name": "公式情報確認済みの個人向け支援制度",
   "source_url": null,
-  "total": 13,
+  "total": 17,
   "subsidies": [
     {
       "title": "018サポート",
@@ -102,6 +102,62 @@
       "review_status": "公式情報確認済み",
       "verified_at": "2026-10-19",
       "support_type": "電子ギフト"
+    },
+    {
+      "title": "小金井市がん患者ウィッグ・補正具購入費等助成金制度",
+      "description": "がん治療に伴う脱毛や乳房切除等に必要なウィッグ・胸部補正具の購入・レンタル費用を助成。上限2万円、原則生涯2回まで。購入等の翌日から1年以内に申請。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市",
+      "target": "がんの治療を受けている、または受けていた方で、申請時に小金井市に住民登録があり、対象品が必要な方。",
+      "categories": [
+        "医療"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/apiaransu.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "助成"
+    },
+    {
+      "title": "多胎妊婦の妊婦健康診査費助成制度（15回目以降）",
+      "description": "多胎妊娠を理由に受診した15回目以降の妊婦健康診査について、最大5回・1回5,000円を上限に償還払いで助成。出産日等から1年以内に申請。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市",
+      "target": "15回目以降の妊婦健康診査受診日に小金井市に住民登録がある多胎妊婦の方。",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/kenkosodan/bosihokenjigyo/tataininpu.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "助成"
+    },
+    {
+      "title": "小金井市高齢者自立支援住宅改修給付",
+      "description": "身体的理由で住宅改修が必要な高齢者等に、手すり設置・段差解消や浴槽等の設備改修を給付。工事の種類・認定状況に応じて上限額と自己負担が異なり、着工前の申込みが必須。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市",
+      "target": "小金井市在住の原則65歳以上の方などで、介護認定状況・身体状況等の条件を満たす方。",
+      "categories": [
+        "住宅"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kenkofukuhsi/koreishafukushi/sumai/jirutusienjuukai.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "住宅改修給付"
+    },
+    {
+      "title": "小金井市養育費確保支援事業補助金",
+      "description": "ひとり親家庭の養育費の取決めに必要な公正証書等の作成費用や、養育費保証契約の費用の一部を補助。対象経費と申請条件は市の案内で確認。",
+      "area": "東京都 小金井市",
+      "agency": "小金井市",
+      "target": "小金井市在住のひとり親家庭で、対象児童を扶養し、養育費の取決め・保証契約等に関する条件を満たす方。",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.city.koganei.lg.jp/kosodatekyoiku/N84/youikuhikakuhosiennj.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "補助金"
     },
     {
       "title": "児童手当",
