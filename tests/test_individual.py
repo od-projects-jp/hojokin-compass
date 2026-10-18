@@ -9,6 +9,7 @@ import collect_individual as collector
 from individual_coverage import build_coverage
 from collect_aichi import convert, decode_csv
 from collect_municipal import normalize, parse_csv, validate_source, collect_one
+from build_individual_review_queue import build_queue
 
 
 class IndividualDataTests(unittest.TestCase):
@@ -37,6 +38,25 @@ class IndividualDataTests(unittest.TestCase):
         self.verified.write_text(
             json.dumps({"subsidies": records}, ensure_ascii=False), encoding="utf-8"
         )
+
+    def test_review_queue_excludes_verified_name_and_flags_shared_page(self):
+        verified = [{"title": "制度A", "area": "東京都 小金井市",
+                     "source": "https://www.city.koganei.lg.jp/a"}]
+        dataset = {"subsidies": [
+            {"title": "制度A", "area": "東京都 小金井市", "source_id": "koganei",
+             "source": "https://www.city.koganei.lg.jp/a", "review_priority": "高",
+             "possible_business_only": False},
+            {"title": "制度B", "area": "東京都 小金井市", "source_id": "koganei",
+             "source": "https://www.city.koganei.lg.jp/a/", "review_priority": "高",
+             "possible_business_only": False},
+            {"title": "制度C", "area": "東京都 小金井市", "source_id": "koganei",
+             "source": "https://www.city.koganei.lg.jp/c", "review_priority": "通常",
+             "possible_business_only": False},
+        ]}
+        queue = build_queue([dataset], verified)
+        self.assertEqual([x["title"] for x in queue], ["制度B", "制度C"])
+        self.assertTrue(queue[0]["potentially_covered"])
+        self.assertFalse(queue[1]["potentially_covered"])
 
     def test_municipal_registry_csv_normalization(self):
         source = {"id": "koganei", "name": "小金井市", "area": "東京都 小金井市",
