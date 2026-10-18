@@ -65,6 +65,19 @@ class IndividualDataTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             normalize([{"無関係な列": "value"}], source)
 
+    def test_nakano_official_source_allowed(self):
+        validate_source({"id": "nakano",
+                         "dataset_url": "https://www2.wagmap.jp/nakanodatamap/nakanodatamap/opendatafile/map_1/CSV/opendata_5000776.csv",
+                         "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131148d0000000035"})
+
+    def test_municipal_source_note_is_retained(self):
+        source = {"id": "nakano", "area": "東京都 中野区",
+                  "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t131148d0000000035",
+                  "source_note": "公式データ更新日2024年。要再確認"}
+        items = normalize([{"タイトル": "住宅支援", "対象者": "区民"}], source)
+        self.assertEqual(items[0]["review_status"], "要確認")
+        self.assertIn("2024", items[0]["source_note"])
+
     def test_municipal_rejects_unapproved_download_host(self):
         source = {"id": "bad", "dataset_url": "https://example.com/feed.csv",
                   "landing_url": "https://example.com/"}
