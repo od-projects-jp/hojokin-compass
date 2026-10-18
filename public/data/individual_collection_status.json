@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-10-18T15:13:11.247361+00:00",
-  "source_count": 2,
+  "checked_at": "2026-10-18T20:00:49.830301+00:00",
+  "source_count": 3,
   "success_count": 1,
   "candidate_count_this_run": 119,
   "sources": [
@@ -14,6 +14,11 @@
       "status": "ok",
       "candidate_count": 119,
       "output": "public/data/individual_candidates/koganei.json"
+    },
+    {
+      "source_id": "nakano",
+      "status": "error",
+      "error": "Unapproved dataset URL: dataset_url"
     }
   ],
   "notice": "候補数であり、公開済み・申請可能な制度数ではありません。"
