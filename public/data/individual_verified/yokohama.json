@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "description": "横浜市公式サイトで制度・対象者・2026年時点の案内を確認した個人向け支援制度",
+  "subsidies": [
+    {
+      "title": "小児医療費助成（横浜市）",
+      "description": "2026年6月から18歳年度末までの子どもを対象に、入院・通院の保険診療自己負担額を全額助成。保険外の差額ベッド代・健康診断等は対象外。医療証の交付申請が必要な場合あり。",
+      "area": "神奈川県 横浜市",
+      "agency": "横浜市 健康福祉局",
+      "target": "横浜市に住所があり健康保険に加入する0歳から18歳年度末までの子ども。生活保護・他の医療費助成対象者等は除外。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/kenko-iryo/iryohijosei/shoni/child.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "医療費助成"
+    },
+    {
+      "title": "ひとり親家庭等医療費助成（横浜市）",
+      "description": "健康保険に加入するひとり親家庭等の方が医療機関を受診した際の保険診療自己負担額を助成。対象者に福祉医療証を発行し、所得等の条件により助成内容が異なる。",
+      "area": "神奈川県 横浜市",
+      "agency": "横浜市 健康福祉局",
+      "target": "横浜市に住む母子・父子家庭などのひとり親家庭等で、児童の養育状況・所得などの受給条件を満たす方。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/kenko-iryo/iryohijosei/hitorioya.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "医療費助成"
+    },
+    {
+      "title": "妊婦のための支援給付（横浜市）",
+      "description": "2025年4月以降の対象妊婦に、1回目は妊婦1人につき5万円、2回目は胎児1人につき5万円を支給。転入前自治体での受給分との重複不可。申請期限は各事由から原則2年以内。",
+      "area": "神奈川県 横浜市",
+      "agency": "横浜市 こども青少年局",
+      "target": "横浜市在住で2025年4月以降に妊娠・出産等の条件を満たす方。流産・死産・人工妊娠中絶の場合も対象となることがある。",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/teate/syussankosodateouen.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "給付金"
+    },
+    {
+      "title": "妊婦健康診査費用補助券（横浜市）",
+      "description": "母子健康手帳の交付時に妊婦健診費用補助券14枚を交付。基本的な妊婦健診や所定の自費検査に利用可能。母子健康手帳交付前の受診や保険適用検査などは対象外。",
+      "area": "神奈川県 横浜市",
+      "agency": "横浜市 こども青少年局",
+      "target": "横浜市で母子健康手帳を交付され、契約医療機関等で妊婦健診を受診する妊婦。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/shido/kenshin/ninpukenshin.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "健診費用助成"
+    },
+    {
+      "title": "妊婦健康診査費用助成金（横浜市・追加5万円）",
+      "description": "従来の妊婦健診補助券に加え、2024年4月1日以降に妊婦健診を受けた対象妊婦に5万円を上乗せ助成。申請は妊娠中に行う必要があり、住民登録等の条件あり。",
+      "area": "神奈川県 横浜市",
+      "agency": "横浜市 こども青少年局",
+      "target": "妊娠届出後に妊婦健診を受け、健診受診日から申請日まで横浜市に住民登録がある妊婦。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/teate/ninpukenshinjosei.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "助成金"
+    },
+    {
+      "title": "不育症検査費助成事業（横浜市）",
+      "description": "流産等を繰り返す不育症の方を支援するため、国の要綱に基づき先進医療として告示された対象検査費用の一部を助成。対象検査は限定され、通常の治療費は対象外。",
+      "area": "神奈川県 横浜市",
+      "agency": "横浜市 こども青少年局",
+      "target": "横浜市の要件を満たし、指定された先進医療の不育症検査を受けた方。対象検査・申請期間等は公式案内を確認。",
+      "categories": [
+        "子育て",
+        "医療"
+      ],
+      "source": "https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/teate/fuikukensajyosei.html",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-19",
+      "support_type": "検査費用助成"
+    }
+  ]
+}
