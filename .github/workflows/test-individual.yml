@@ -92,7 +92,7 @@ jobs:
           import subprocess
           import tempfile
           from pathlib import Path
-          for page in ("individual.html", "individual-review.html", "search.html"):
+          for page in ("individual.html", "individual-review.html", "search.html", "privacy.html"):
               html = Path(page).read_text(encoding="utf-8")
               scripts = re.findall(r"<script(?:\\s[^>]*)?>(.*?)</script>", html, re.S | re.I)
               assert scripts, f"No inline script found in {page}"
