@@ -27,6 +27,9 @@ jobs:
       - name: Collect subsidy data
         run: python collector.py --detail-limit 400
 
+      - name: Export search data
+        run: python export_search.py
+
       - name: Upload collection results
         if: always()
         uses: actions/upload-artifact@v4
@@ -35,5 +38,7 @@ jobs:
           path: |
             hojokin.sqlite
             hojokin.report.json
+            public/data/subsidies.json
+        
           if-no-files-found: warn
           retention-days: 7
