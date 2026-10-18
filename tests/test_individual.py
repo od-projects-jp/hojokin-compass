@@ -50,6 +50,15 @@ class IndividualDataTests(unittest.TestCase):
         self.assertEqual(items[0]["source_id"], "koganei")
         self.assertEqual(items[0]["source"], "https://example.go.jp/program")
 
+    def test_koganei_real_header_names(self):
+        source = {"id": "koganei", "area": "東京都 小金井市",
+                  "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045"}
+        records = normalize([{"タイトル（制度名）": "制度A", "制度概要": "説明",
+                              "制度所管組織": "担当課", "対象者": "市民"}], source)
+        self.assertEqual(records[0]["title"], "制度A")
+        self.assertEqual(records[0]["agency"], "担当課")
+        self.assertEqual(records[0]["review_priority"], "通常")
+
     def test_municipal_csv_schema_mismatch_fails_safely(self):
         source = {"id": "koganei", "area": "東京都 小金井市",
                   "landing_url": "https://catalog.data.metro.tokyo.lg.jp/dataset/t132101d0000000045"}
