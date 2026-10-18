@@ -301,5 +301,326 @@ $("reset").addEventListener("click",()=>{
 $("more").addEventListener("click",()=>{visible+=20;render()});
 init();
 </script>
+
+<!-- Hojokin Compass v0.2: Design & Compare -->
+<style>
+:root{
+  --green:#153d30;
+  --ink:#1c3028;
+  --cream:#f5f3eb;
+  --line:#dce3d9;
+}
+body{background:var(--cream)}
+header{background:#153d30;border-bottom:0}
+.nav{min-height:82px}
+.logo{color:#f7f6ee;font-size:23px;letter-spacing:-.8px}
+.nav .small{color:#c7d8c9}
+.hero{
+  background:#153d30;
+  color:#fff;
+  padding:88px 0 70px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  width:520px;height:520px;
+  border:1px solid rgba(230,245,220,.16);
+  border-radius:50%;
+  right:-160px;top:-210px;
+  box-shadow:0 0 0 85px rgba(230,245,220,.025),
+             0 0 0 170px rgba(230,245,220,.025);
+  pointer-events:none;
+}
+.hero .wrap{position:relative}
+.eyebrow{color:#d1e7ad;font-size:12px;letter-spacing:2.8px}
+h1{color:#fff;font-size:clamp(35px,5vw,58px);line-height:1.32;margin:18px 0}
+.lead{color:#d4e2d7;max-width:600px}
+.search{
+  background:#fff;
+  padding:7px;
+  border-radius:13px;
+  box-shadow:0 18px 50px rgba(0,0,0,.13);
+  max-width:880px;
+}
+.search input{border:0;background:transparent;padding:15px}
+.search input:focus{outline:2px solid #c7d8b2;outline-offset:-2px}
+.search button{
+  background:#d7e9b6;
+  color:#153d30;
+  border-radius:9px;
+  padding:15px 26px;
+  white-space:nowrap;
+}
+.search button:hover{background:#c5dda0}
+.metrics{margin-top:30px;gap:38px}
+.metric strong{color:#f4f8ed}
+.metric span{color:#bdd0c2}
+main{padding-top:40px}
+aside,.result{
+  border-color:#e0e5dd;
+  box-shadow:0 5px 22px rgba(22,55,40,.035);
+}
+aside{border-radius:15px;padding:25px}
+aside h2:before{content:"☷ ";color:#557c61}
+.result{
+  border-radius:15px;
+  padding:27px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.result:hover{
+  transform:translateY(-2px);
+  box-shadow:0 13px 34px rgba(22,55,40,.09);
+  border-color:#b9cfbb;
+}
+.result h3{font-size:20px;letter-spacing:-.3px}
+.tag{border-radius:20px;padding:5px 11px}
+.details{gap:18px 36px}
+.detail strong{font-size:18px}
+.results-head h2{font-size:22px}
+.result-actions{
+  display:flex;gap:9px;flex-wrap:wrap;
+  margin-top:19px;padding-top:17px;
+  border-top:1px solid #e6ebe3;
+}
+.action-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#f0f5ed;color:#214b36;
+  padding:9px 14px;font-size:13px;border-radius:8px;
+  border:1px solid #e0e9db;
+}
+.action-btn:hover{background:#e0eddb}
+.action-btn.active{
+  background:#153d30;color:#fff;border-color:#153d30;
+}
+.compass-toolbar{
+  display:flex;align-items:center;gap:12px;
+  margin:0 0 20px;flex-wrap:wrap;
+}
+.compass-toolbar button{background:#e5eddf;color:#214b36}
+.compass-toolbar button:hover{background:#d5e5cf}
+.compare-dock{
+  position:fixed;bottom:20px;left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  width:min(680px,calc(100% - 32px));
+  background:#153d30;color:#fff;
+  border-radius:14px;
+  padding:15px 19px;
+  display:none;align-items:center;
+  justify-content:space-between;gap:12px;
+  box-shadow:0 15px 45px rgba(0,0,0,.25);
+}
+.compare-dock button{background:#d7e9b6;color:#153d30}
+.compare-modal{
+  position:fixed;inset:0;z-index:100;
+  background:rgba(12,29,22,.75);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+}
+.compare-sheet{
+  background:#f8f8f4;color:#1c3028;
+  border-radius:18px;padding:26px;
+  width:min(1040px,100%);max-height:85vh;overflow:auto;
+}
+.compare-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;margin-top:20px;
+}
+.compare-item{
+  background:white;border:1px solid #dce3d9;
+  border-radius:12px;padding:18px;
+  overflow-wrap:anywhere;
+}
+.compare-item h3{font-size:17px;line-height:1.5}
+.compare-item p{font-size:13px}
+.compare-close{float:right}
+@media(max-width:720px){
+  .hero{padding:55px 0 46px}
+  .search{flex-direction:column}
+  .search button{width:100%}
+  .compare-grid{grid-template-columns:1fr}
+  .compare-dock{bottom:10px}
+}
+</style>
+
+<script>
+(function(){
+"use strict";
+const STORAGE="hojokin-compass-saved-v1";
+let saved=[];
+let comparing=[];
+
+try{
+ const data=JSON.parse(localStorage.getItem(STORAGE)||"[]");
+ if(Array.isArray(data))saved=data.filter(x=>typeof x==="string");
+}catch(e){saved=[];}
+
+function persist(){
+ try{localStorage.setItem(STORAGE,JSON.stringify(saved))}
+ catch(e){console.warn("保存できませんでした",e)}
+}
+
+function makeButton(label,action,id,active){
+ const b=document.createElement("button");
+ b.type="button";
+ b.className="action-btn"+(active?" active":"");
+ b.textContent=label;
+ b.dataset.action=action;
+ b.dataset.id=id;
+ return b;
+}
+
+const oldRenderCard=renderCard;
+renderCard=function(r){
+ const card=oldRenderCard(r);
+ const actions=document.createElement("div");
+ actions.className="result-actions";
+ actions.append(
+  makeButton(
+   saved.includes(r.id)?"♥ 保存済み":"♡ 保存する",
+   "save",r.id,saved.includes(r.id)
+  ),
+  makeButton(
+   comparing.includes(r.id)?"✓ 比較対象":"⊞ 比較に追加",
+   "compare",r.id,comparing.includes(r.id)
+  )
+ );
+ card.append(actions);
+ return card;
+};
+
+const toolbar=document.createElement("div");
+toolbar.className="compass-toolbar";
+const savedButton=document.createElement("button");
+savedButton.type="button";
+savedButton.id="savedToggle";
+savedButton.textContent="♡ 保存した補助金を見る";
+toolbar.append(savedButton);
+const resultHeading=document.querySelector(".results-head");
+resultHeading.parentNode.insertBefore(toolbar,resultHeading);
+
+let savedOnly=false;
+const originalApply=apply;
+apply=function(){
+ originalApply();
+ if(savedOnly){
+  filtered=filtered.filter(r=>saved.includes(r.id));
+  visible=20;
+  render();
+ }
+};
+
+savedButton.addEventListener("click",()=>{
+ savedOnly=!savedOnly;
+ savedButton.textContent=savedOnly?
+ "← すべての検索結果に戻る":"♡ 保存した補助金を見る";
+ apply();
+});
+
+const dock=document.createElement("div");
+dock.className="compare-dock";
+dock.setAttribute("role","region");
+dock.setAttribute("aria-label","補助金比較");
+const dockLabel=document.createElement("span");
+const compareOpen=document.createElement("button");
+compareOpen.type="button";
+compareOpen.textContent="比較を見る →";
+dock.append(dockLabel,compareOpen);
+document.body.append(dock);
+
+const modal=document.createElement("div");
+modal.className="compare-modal";
+modal.setAttribute("role","dialog");
+modal.setAttribute("aria-modal","true");
+modal.setAttribute("aria-label","補助金の比較");
+const sheet=document.createElement("div");
+sheet.className="compare-sheet";
+const close=document.createElement("button");
+close.className="compare-close";
+close.textContent="閉じる ×";
+const heading=document.createElement("h2");
+heading.textContent="補助金を比較する";
+const comparison=document.createElement("div");
+comparison.className="compare-grid";
+sheet.append(close,heading,comparison);
+modal.append(sheet);
+document.body.append(modal);
+
+function refreshDock(){
+ dock.style.display=comparing.length?"flex":"none";
+ dockLabel.textContent="比較対象 "+comparing.length+" / 3 件";
+}
+
+function info(parent,label,value){
+ const p=document.createElement("p");
+ const strong=document.createElement("strong");
+ strong.textContent=label+"：";
+ p.append(strong,document.createTextNode(String(value||"要確認")));
+ parent.append(p);
+}
+
+function showCompare(){
+ comparison.replaceChildren();
+ comparing.forEach(id=>{
+  const r=records.find(x=>x.id===id);
+  if(!r)return;
+  const item=document.createElement("div");
+  item.className="compare-item";
+  const h=document.createElement("h3");
+  h.textContent=r.title||"名称不明";
+  item.append(h);
+  info(item,"対象地域",r.area);
+  info(item,"補助上限額",yen(r.max_amount));
+  info(item,"補助率",r.subsidy_rate);
+  info(item,"募集状況",statusLabel(state(r)));
+  const last=lastDeadline(r);
+  info(item,"最終募集期限",
+   Number.isFinite(last)?dateText(new Date(last).toISOString()):"不明");
+  info(item,"利用目的",r.purpose);
+  comparison.append(item);
+ });
+ modal.style.display="flex";
+}
+
+document.addEventListener("click",e=>{
+ const b=e.target.closest("button[data-action]");
+ if(!b)return;
+ const id=b.dataset.id;
+ if(b.dataset.action==="save"){
+  saved=saved.includes(id)?
+   saved.filter(x=>x!==id):[...saved,id];
+  persist();
+  render();
+ }else if(b.dataset.action==="compare"){
+  if(comparing.includes(id)){
+   comparing=comparing.filter(x=>x!==id);
+  }else{
+   if(comparing.length>=3){
+    alert("比較できるのは最大3件です。");
+    return;
+   }
+   comparing.push(id);
+  }
+  refreshDock();
+  render();
+ }
+});
+
+compareOpen.addEventListener("click",showCompare);
+close.addEventListener("click",()=>modal.style.display="none");
+modal.addEventListener("click",e=>{
+ if(e.target===modal)modal.style.display="none";
+});
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape")modal.style.display="none";
+});
+
+refreshDock();
+})();
+</script>
+<!-- End Hojokin Compass v0.2 -->
+
 </body>
 </html>
