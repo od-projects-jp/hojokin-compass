@@ -1,808 +1,864 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="地域・目的・募集状況から補助金を探せるHojokin Compass">
-<title>Hojokin Compass | 補助金を、もっと見つけやすく。</title>
+<meta name="description" content="事業に合う補助金を、迷わず探す。検索・保存・比較ができる補助金情報サービス。">
+<title>Hojokin Compass | 事業に合う補助金を、迷わず。</title>
 <style>
-:root{--green:#214c3d;--ink:#20362e;--muted:#65756b;--cream:#f7f6f0;--line:#dfe5dd}
+:root{
+  --green:#183e33;--ink:#20372e;--muted:#6a786f;
+  --line:#dce4db;--bg:#f7f8f4;--white:#fff;
+  --pale:#edf3e9;--lime:#dceba8
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.65}
-header{background:#fff;border-bottom:1px solid var(--line)}
-.wrap{max-width:1120px;margin:auto;padding:0 24px}
-.nav{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:12px}
-.logo{font-size:21px;font-weight:800;color:var(--green);letter-spacing:-.6px}
-.small{font-size:12px;color:var(--muted)}
-.hero{padding:70px 0 46px}
-.eyebrow{color:#47755d;font-size:13px;font-weight:700;letter-spacing:2px}
-h1{font-size:clamp(29px,4.5vw,48px);line-height:1.35;letter-spacing:-1.3px;margin:14px 0}
-.lead{color:var(--muted);font-size:16px}
-.search{display:flex;gap:10px;margin-top:28px}
-input,select,button{font:inherit}
-input,select{border:1px solid #d5ddd4;border-radius:9px;background:white;padding:14px;color:var(--ink);min-width:0}
-input{flex:1;font-size:16px}
-button{border:0;border-radius:9px;background:var(--green);color:white;padding:13px 23px;cursor:pointer;font-weight:700}
-button:hover{background:#35634e}
-.metrics{display:flex;gap:32px;margin-top:26px;flex-wrap:wrap}
-.metric strong{font-size:26px;color:var(--green);display:block;line-height:1.3}
-.metric span{font-size:12px;color:var(--muted)}
-main{padding:18px 0 80px}
-.layout{display:grid;grid-template-columns:235px 1fr;gap:26px;align-items:start}
-aside,.result{background:#fff;border:1px solid var(--line);border-radius:13px}
-aside{padding:22px;position:sticky;top:16px}
-aside h2{font-size:17px;margin:0 0 20px}
-.field{margin:0 0 22px}
-.field label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
-.field select{width:100%;padding:11px;font-size:14px}
-.check{display:flex;gap:9px;align-items:center;font-size:13px;cursor:pointer}
-.check input{flex:none}
-.results-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}
-.results-head h2{margin:0;font-size:19px}
-.results-head select{font-size:13px;padding:9px}
-.result{padding:24px;margin-bottom:13px}
-.topline{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.tag{font-size:11px;border-radius:5px;padding:3px 8px;background:#edf3ed;color:#315d47;font-weight:700}
-.tag.closed{background:#f1f1ed;color:#797d78}
-.tag.future{background:#fdf1de;color:#90692c}
-.result h3{font-size:19px;line-height:1.55;margin:12px 0}
-.agency{color:var(--muted);font-size:13px;margin-bottom:15px;overflow-wrap:anywhere}
-.details{display:flex;gap:18px 28px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:15px}
-.detail{font-size:13px}
-.detail span{color:var(--muted);display:block;font-size:11px}
-.detail strong{color:var(--green);font-size:16px}
-summary{cursor:pointer;color:var(--green);font-size:13px;font-weight:700;margin-top:17px}
-.more{margin-top:13px;padding:15px;background:#f8faf7;border-radius:8px;font-size:13px;overflow-wrap:anywhere}
-.more p{margin:5px 0}
-.notice{font-size:12px;color:var(--muted);margin:0 0 20px}
-.empty{background:#fff;border-radius:12px;padding:35px;text-align:center}
-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:Arial,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  line-height:1.65;-webkit-font-smoothing:antialiased
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
 a{color:var(--green)}
-@media(max-width:720px){
-.hero{padding:40px 0 25px}
-.layout{grid-template-columns:1fr;gap:15px}
-aside{position:static}
-.search{flex-direction:column}
-.metrics{gap:20px}
-.result{padding:18px}
-.results-head{align-items:flex-start}
-.nav{min-height:65px}
+button:focus-visible,input:focus-visible,select:focus-visible{
+  outline:3px solid #a7c58b;outline-offset:2px
+}
+.wrap{max-width:1220px;margin:auto;padding:0 26px}
+header{background:white;border-bottom:1px solid var(--line)}
+.nav{
+  min-height:72px;display:flex;align-items:center;
+  justify-content:space-between;gap:16px
+}
+.brand{
+  display:flex;align-items:center;gap:11px;text-decoration:none;
+  color:var(--green);font-weight:850;font-size:21px;letter-spacing:-.8px
+}
+.symbol{
+  width:34px;height:34px;display:grid;place-items:center;
+  border-radius:7px;background:var(--green);color:var(--lime);
+  font-size:22px
+}
+.nav-note{font-size:12px;color:var(--muted)}
+.intro{background:white;border-bottom:1px solid var(--line)}
+.intro-inner{padding-top:37px;padding-bottom:24px}
+.kicker{
+  font-size:11px;font-weight:800;letter-spacing:1.8px;
+  color:#668269;margin-bottom:11px
+}
+.intro-grid{
+  display:grid;grid-template-columns:1fr 510px;
+  gap:34px;align-items:center
+}
+h1{
+  margin:0 0 10px;font-size:clamp(28px,3vw,40px);
+  letter-spacing:-1.4px;line-height:1.4
+}
+.sub{margin:0;color:var(--muted);font-size:13px}
+.search{
+  display:flex;align-items:center;gap:8px;
+  border:1px solid #bdcdbd;border-radius:6px;
+  padding:6px;background:white
+}
+.search input{
+  min-width:0;flex:1;border:0;padding:12px 13px;
+  outline:none;font-size:14px
+}
+.primary{
+  border:0;border-radius:4px;background:var(--green);
+  color:white;font-weight:800;font-size:13px;padding:13px 19px;
+  white-space:nowrap
+}
+.primary:hover{background:#2b5b47}
+.topics{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:22px}
+.topics-label{font-size:11px;color:var(--muted);margin-right:3px}
+.topic{
+  border:1px solid var(--line);border-radius:4px;
+  background:#f8faf7;color:var(--green);
+  padding:6px 12px;font-size:12px
+}
+.topic:hover{background:var(--pale)}
+.source{
+  display:flex;gap:12px 24px;flex-wrap:wrap;
+  border-top:1px solid #edf0ec;margin-top:22px;padding-top:14px;
+  color:var(--muted);font-size:11px
+}
+.source b{color:var(--green)}
+.workspace{padding-top:28px;padding-bottom:75px}
+.layout{
+  display:grid;grid-template-columns:240px minmax(0,1fr);
+  gap:26px;align-items:start
+}
+.filters{
+  background:white;border:1px solid var(--line);
+  border-radius:6px;padding:21px;position:sticky;top:15px
+}
+.filters h2{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:15px;margin:0 0 20px
+}
+.reset{
+  border:0;background:none;text-decoration:underline;
+  color:var(--green);font-size:11px
+}
+.field{margin-bottom:19px}
+.field label{
+  display:block;font-size:12px;font-weight:750;margin-bottom:7px
+}
+.field select{
+  width:100%;background:white;border:1px solid #d3ded4;
+  border-radius:4px;padding:11px;color:var(--ink);font-size:12px
+}
+.check{display:flex;gap:9px;align-items:flex-start;font-size:12px}
+.check input{accent-color:var(--green);margin-top:5px}
+.result-head{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;margin-bottom:15px
+}
+.result-head h2{font-size:22px;letter-spacing:-.5px;margin:0}
+.sort{
+  background:white;border:1px solid #d1dcd2;
+  padding:10px 12px;border-radius:4px;color:var(--ink);font-size:12px
+}
+.toolbar{margin-bottom:13px}
+.toolbar button{
+  border:1px solid #cfdccf;border-radius:4px;background:white;
+  color:var(--green);padding:9px 13px;font-size:12px;font-weight:750
+}
+.toolbar button.selected{background:var(--green);color:white}
+.note{
+  color:var(--muted);font-size:11px;line-height:1.7;
+  margin:0 0 16px
+}
+.card{
+  background:white;border:1px solid var(--line);
+  border-radius:6px;margin-bottom:10px;overflow:hidden
+}
+.card:hover{border-color:#a0b7a2}
+.card-main{padding:21px 23px 17px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px}
+.tag{
+  background:#eaf2e7;color:#315c42;
+  border-radius:3px;padding:3px 8px;
+  font-size:10px;font-weight:750
+}
+.tag.future{background:#fff1db;color:#94662b}
+.tag.closed,.tag.unknown{background:#eff1ef;color:#6b776e}
+.tag.region{background:#f3f5f2;color:#52685a}
+.card h3{
+  margin:0;font-size:17px;line-height:1.55;
+  letter-spacing:-.3px;overflow-wrap:anywhere
+}
+.agency{font-size:11px;color:var(--muted);margin:7px 0 15px}
+.stats{
+  display:grid;grid-template-columns:1.1fr 1fr .85fr;
+  gap:12px;border-top:1px solid #e8ede7;padding-top:14px
+}
+.stat-label{font-size:10px;color:#718076;margin-bottom:4px}
+.stat-value{font-size:15px;font-weight:800;overflow-wrap:anywhere}
+.stat-value.money{font-size:20px;letter-spacing:-.5px}
+.stat-value.missing{font-size:13px;color:var(--muted);font-weight:600}
+.actions{
+  border-top:1px solid #edf0eb;background:#fcfdfa;
+  padding:10px 23px;display:flex;align-items:center;
+  gap:8px;flex-wrap:wrap
+}
+.action{
+  border:1px solid #d4e0d3;border-radius:4px;
+  color:var(--green);background:white;
+  font-size:11px;font-weight:750;padding:7px 11px
+}
+.action.active{background:#e3f0df;border-color:#9fbd9b}
+.detail-button{
+  margin-left:auto;border:0;background:none;color:var(--green);
+  font-size:11px;font-weight:800;padding:8px 0
+}
+.details{
+  border-top:1px solid var(--line);padding:18px 23px;
+  background:#f9fbf8;font-size:12px
+}
+.details dl{
+  display:grid;grid-template-columns:110px 1fr;
+  gap:9px 15px;margin:0
+}
+.details dt{color:var(--muted)}
+.details dd{margin:0;overflow-wrap:anywhere}
+.details a{display:inline-block;margin-top:15px;font-weight:800}
+.empty{
+  padding:45px 20px;text-align:center;color:var(--muted);
+  background:white;border:1px solid var(--line);border-radius:6px
+}
+.more-wrap{text-align:center;margin-top:25px}
+.more{
+  border:1px solid #a9bcab;border-radius:5px;
+  background:white;color:var(--green);
+  padding:12px 27px;font-weight:750
+}
+footer{border-top:1px solid var(--line);background:white;padding:30px 0}
+.footer-inner{
+  display:flex;justify-content:space-between;flex-wrap:wrap;
+  gap:20px;color:var(--muted);font-size:11px
+}
+.footer-inner strong{color:var(--green);font-size:15px}
+.dock{
+  position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+  z-index:20;display:none;align-items:center;justify-content:space-between;
+  gap:16px;width:min(670px,calc(100% - 30px));
+  padding:14px 17px;background:var(--green);color:white;
+  border-radius:7px;box-shadow:0 10px 30px #173a2d40;font-size:13px
+}
+.dock button{
+  border:0;background:var(--lime);color:var(--green);
+  padding:10px 15px;border-radius:4px;font-weight:800;font-size:12px
+}
+.modal{
+  display:none;position:fixed;inset:0;z-index:50;
+  background:#0c211bc9;padding:16px;
+  align-items:center;justify-content:center
+}
+.modal.open{display:flex}
+.sheet{
+  width:min(1080px,100%);max-height:90vh;overflow:auto;
+  background:#f8faf7;border-radius:8px;padding:26px
+}
+.modal-head{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;margin-bottom:18px
+}
+.modal-head h2{margin:0;font-size:22px}
+.close{
+  border:0;border-radius:4px;background:#e7ede6;
+  color:var(--green);padding:8px 12px
+}
+.table-scroll{overflow-x:auto}
+.compare{
+  border-collapse:collapse;width:100%;
+  min-width:650px;table-layout:fixed;font-size:12px
+}
+.compare th,.compare td{
+  border:1px solid var(--line);padding:13px 12px;
+  text-align:left;vertical-align:top;overflow-wrap:anywhere;background:white
+}
+.compare th{width:125px;background:#edf2ec}
+.compare thead td{font-weight:800;font-size:14px}
+@media(max-width:950px){
+  .intro-grid{grid-template-columns:1fr;gap:18px}
+  .layout{grid-template-columns:210px minmax(0,1fr);gap:16px}
+}
+@media(max-width:700px){
+  .wrap{padding:0 17px}
+  .nav{min-height:62px}
+  .brand{font-size:18px}
+  .nav-note{display:none}
+  .intro-inner{padding-top:27px}
+  h1{font-size:29px}
+  .search{flex-wrap:wrap}
+  .search input{flex:1}
+  .search .primary{width:100%}
+  .layout{display:block}
+  .filters{position:static;margin-bottom:20px}
+  .filter-fields{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+  .card-main{padding:18px 16px 14px}
+  .actions{padding:10px 16px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats>div:last-child{grid-column:span 2}
+  .card h3{font-size:16px}
+  .details{padding:16px}
+  .details dl{grid-template-columns:1fr;gap:2px}
+  .details dd{margin-bottom:10px}
+  .sheet{padding:16px}
 }
 </style>
 </head>
 <body>
-<header><div class="wrap nav">
-<div class="logo">◈ Hojokin Compass</div>
-<div class="small">補助金を、もっと見つけやすく。</div>
-</div></header>
 
-<section class="hero"><div class="wrap">
-<div class="eyebrow">FIND YOUR OPPORTUNITY</div>
-<h1>事業の可能性を広げる、<br>補助金探し。</h1>
-<p class="lead">地域や目的から、あなたの事業に合った支援制度を探せます。</p>
-<div class="search">
-<input id="query" type="search" placeholder="例：創業、設備投資、デジタル化" aria-label="キーワード検索">
-<button id="searchBtn">補助金を探す →</button>
-</div>
-<div class="metrics">
-<div class="metric"><strong id="total">—</strong><span>収録補助金</span></div>
-<div class="metric"><strong>Jグランツ</strong><span>データソース</span></div>
-<div class="metric"><strong id="updated">—</strong><span>データ取得日</span></div>
-</div>
-</div></section>
+<header>
+  <div class="wrap nav">
+    <a href="./" class="brand">
+      <span class="symbol">◇</span>Hojokin Compass
+    </a>
+    <span class="nav-note">補助金を、もっと見つけやすく。</span>
+  </div>
+</header>
 
-<main class="wrap">
-<div class="layout">
-<aside>
-<h2>条件で絞り込む</h2>
-<div class="field">
-<label for="area">対象地域</label>
-<select id="area"><option value="">すべての地域</option></select>
-</div>
-<div class="field">
-<label for="purpose">利用目的</label>
-<select id="purpose"><option value="">すべての目的</option></select>
-</div>
-<div class="field">
-<label for="status">募集状況（期間による判定）</label>
-<select id="status">
-<option value="">すべて</option>
-<option value="open">募集期間内</option>
-<option value="future">募集開始前</option>
-<option value="closed">募集期間終了</option>
-<option value="unknown">期間不明</option>
-</select>
-</div>
-<div class="field">
-<label class="check"><input type="checkbox" id="amount">上限金額が掲載されているもの</label>
-</div>
-<button id="reset" style="width:100%;background:#e8eee7;color:#214c3d">条件をクリア</button>
-</aside>
+<section class="intro">
+  <div class="wrap intro-inner">
+    <div class="kicker">SUBSIDY FINDER / 補助金データベース</div>
+    <div class="intro-grid">
+      <div>
+        <h1>事業に合う補助金を、<br>迷わず探す。</h1>
+        <p class="sub">地域・目的・募集期間から探して、気になる制度を保存・比較。</p>
+      </div>
+      <form id="searchForm" class="search" role="search">
+        <input id="query" type="search"
+          placeholder="創業、設備投資、DXなど"
+          aria-label="補助金のキーワード検索">
+        <button class="primary" type="submit">補助金を検索 →</button>
+      </form>
+    </div>
 
-<div>
-<div class="results-head">
-<h2 id="count">補助金を読み込み中…</h2>
-<select id="sort" aria-label="並び順">
-<option value="deadline">募集期限が近い順</option>
-<option value="amount">補助上限額が高い順</option>
-<option value="title">名称順</option>
-</select>
-</div>
-<p class="notice">募集状況は掲載された日付に基づく参考表示です。予算終了や募集変更、対象要件などは必ず公式情報をご確認ください。</p>
-<div id="results"></div>
-<div id="moreWrap" style="text-align:center;margin-top:20px">
-<button id="more" style="display:none">さらに表示</button>
-</div>
-</div>
-</div>
+    <div class="topics">
+      <span class="topics-label">テーマから探す</span>
+      <button class="topic" data-keyword="創業">創業・起業 ↗</button>
+      <button class="topic" data-keyword="設備投資">設備投資 ↗</button>
+      <button class="topic" data-keyword="デジタル">デジタル化 ↗</button>
+      <button class="topic" data-keyword="省エネ">省エネ ↗</button>
+      <button class="topic" data-keyword="人材">人材・雇用 ↗</button>
+    </div>
+
+    <div class="source">
+      <span>収録 <b id="total">読み込み中</b></span>
+      <span>出典 <b>Jグランツ公開データ</b></span>
+      <span>取得日 <b id="updated">—</b></span>
+      <span>※掲載情報は申請資格・受付状況を保証しません</span>
+    </div>
+  </div>
+</section>
+
+<main class="wrap workspace" id="resultsArea">
+  <div class="layout">
+
+    <aside class="filters">
+      <h2>
+        絞り込み
+        <button id="reset" class="reset" type="button">すべて解除</button>
+      </h2>
+      <div class="filter-fields">
+        <div class="field">
+          <label for="area">対象地域</label>
+          <select id="area">
+            <option value="">すべての地域</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="purpose">利用目的</label>
+          <select id="purpose">
+            <option value="">すべての目的</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="status">募集状況（期間による推定）</label>
+          <select id="status">
+            <option value="">すべて</option>
+            <option value="open">募集期間内</option>
+            <option value="future">募集開始前</option>
+            <option value="closed">期間終了</option>
+            <option value="unknown">期間不明</option>
+          </select>
+        </div>
+        <label class="check">
+          <input id="amount" type="checkbox">
+          補助上限額が掲載されているもの
+        </label>
+      </div>
+    </aside>
+
+    <section>
+      <div class="result-head">
+        <h2 id="count">読み込み中…</h2>
+        <select id="sort" class="sort" aria-label="並び順">
+          <option value="deadline">募集期限が近い順</option>
+          <option value="amount">補助上限額が高い順</option>
+          <option value="title">名称順</option>
+        </select>
+      </div>
+      <div class="toolbar">
+        <button id="savedToggle" type="button">♡ 保存した補助金を見る</button>
+      </div>
+      <p class="note">
+        募集状況・期限は公開データの日付に基づく参考表示です。
+        申請前に必ず公式情報で最新の要件をご確認ください。
+      </p>
+      <div id="results" aria-live="polite"></div>
+      <div class="more-wrap">
+        <button id="more" class="more" type="button" hidden>さらに表示 ↓</button>
+      </div>
+    </section>
+
+  </div>
 </main>
 
-<footer><div class="wrap">
-Hojokin Compass — 補助金情報の検索サービス<br>
-出典：Jグランツ公開データ。
-<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener noreferrer">Jグランツ公式サイト</a><br>
-本サービスは補助金の交付や申請資格を保証するものではありません。
-</div></footer>
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <strong>◇ Hojokin Compass</strong><br>
+      補助金情報を、もっと見つけやすく。<br>
+      政府・自治体の公式サービスではありません。
+    </div>
+    <div>
+      出典：Jグランツ公開データ<br>
+      <a href="https://www.jgrants-portal.go.jp/"
+         target="_blank" rel="noopener noreferrer">
+        Jグランツ公式サイト ↗
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="dock" id="dock">
+  <span id="dockLabel">比較対象 0 / 3 件</span>
+  <button id="compareOpen" type="button">比較表を見る →</button>
+</div>
+
+<div class="modal" id="modal" role="dialog"
+     aria-modal="true" aria-labelledby="modalTitle">
+  <div class="sheet">
+    <div class="modal-head">
+      <h2 id="modalTitle">補助金を比較する</h2>
+      <button id="modalClose" class="close" type="button">閉じる ×</button>
+    </div>
+    <div id="comparison" class="table-scroll"></div>
+    <p class="note">
+      ※ 金額・補助率・期限は公開データに基づきます。
+      必ず公式の募集要項をご確認ください。
+    </p>
+  </div>
+</div>
 
 <script>
 "use strict";
-let records=[],filtered=[],visible=20;
-const $=id=>document.getElementById(id);
-const yen=n=>{
- if(!(Number(n)>0))return "要確認";
- return Number(n)>=100000000
-  ?(Number(n)/100000000).toLocaleString("ja-JP",{maximumFractionDigits:2})+"億円"
-  :Number(n)>=10000
-  ?(Number(n)/10000).toLocaleString("ja-JP",{maximumFractionDigits:1})+"万円"
-  :Number(n).toLocaleString("ja-JP")+"円";
-};
-const dateText=s=>{
- if(!s)return "不明";
- const d=new Date(s);
- return Number.isNaN(d.getTime())?"不明":
- new Intl.DateTimeFormat("ja-JP",{timeZone:"Asia/Tokyo",year:"numeric",month:"2-digit",day:"2-digit"}).format(d);
-};
-const rounds=r=>Array.isArray(r.rounds)?r.rounds:[];
-const state=r=>{
- const t=Date.now(),rs=rounds(r).filter(x=>x.start_at&&x.end_at);
- if(!rs.length)return "unknown";
- if(rs.some(x=>Date.parse(x.start_at)<=t&&t<=Date.parse(x.end_at)))return "open";
- if(rs.some(x=>Date.parse(x.start_at)>t))return "future";
- return "closed";
-};
-const deadline=r=>{
- const t=Date.now();
- const dates=rounds(r).map(x=>Date.parse(x.end_at)).filter(Number.isFinite);
- const active=dates.filter(x=>x>=t);
- return active.length?Math.min(...active):Infinity;
-};
-const lastDeadline=r=>{
- const dates=rounds(r).map(x=>Date.parse(x.end_at)).filter(Number.isFinite);
- return dates.length?Math.max(...dates):NaN;
-};
-const text=(tag,value,cls)=>{
- const el=document.createElement(tag);
- if(cls)el.className=cls;
- el.textContent=value==null?"":String(value);
- return el;
-};
-function fillSelect(id,values){
- const sel=$(id);
- [...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b,"ja"))
- .forEach(v=>{
- const op=document.createElement("option");op.value=v;op.textContent=v;sel.append(op);
- });
+
+const $ = id => document.getElementById(id);
+const STORAGE = "hojokin-compass-saved-v1";
+
+let records = [];
+let filtered = [];
+let visible = 20;
+let saved = [];
+let comparing = [];
+let savedOnly = false;
+
+try {
+  const data = JSON.parse(localStorage.getItem(STORAGE) || "[]");
+  if (Array.isArray(data)) {
+    saved = data.filter(x => typeof x === "string");
+  }
+} catch(e) {
+  saved = [];
 }
-function statusLabel(s){
- return {open:"募集期間内",future:"募集開始前",closed:"期間終了",unknown:"期間不明"}[s];
+
+function node(tag, cls, value) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (value !== undefined) e.textContent = String(value ?? "");
+  return e;
 }
-function renderCard(r){
- const article=document.createElement("article");article.className="result";
- const top=text("div","","topline");
- const s=state(r);
- top.append(text("span",statusLabel(s),"tag "+(s==="closed"?"closed":s==="future"?"future":"")));
- top.append(text("span",r.area||"地域不明","tag"));
- article.append(top,text("h3",r.title||"名称不明"));
- article.append(text("div",r.agency||"実施機関不明","agency"));
- const details=text("div","","details");
- const entries=[
- ["補助上限額",yen(r.max_amount)],
- ["募集終了日",dateText(Number.isFinite(lastDeadline(r))?new Date(lastDeadline(r)).toISOString():null)],
- ["補助率",r.subsidy_rate||"要確認"]
- ];
- entries.forEach(([label,value])=>{
- const box=text("div","","detail");
- box.append(text("span",label),text("strong",value));
- details.append(box);
- });
- article.append(details);
- const expand=document.createElement("details");
- expand.append(text("summary","制度の詳細を見る"));
- const info=text("div","","more");
- info.append(text("p","利用目的："+(r.purpose||"記載なし")));
- info.append(text("p","対象地域："+(r.area||"記載なし")));
- info.append(text("p","募集期間："));
- if(rounds(r).length){
- const uniq=[...new Set(rounds(r).map(x=>dateText(x.start_at)+" ～ "+dateText(x.end_at)))];
- uniq.slice(0,8).forEach(x=>info.append(text("p",x)));
- if(uniq.length>8)info.append(text("p","ほか "+(uniq.length-8)+" 件"));
- }else info.append(text("p","記載なし"));
- info.append(text("p","Jグランツ掲載ID："+r.id));
- const link=document.createElement("a");
- link.href="https://www.jgrants-portal.go.jp/";
- link.target="_blank";link.rel="noopener noreferrer";
- link.textContent="Jグランツ公式サイトで確認 ↗";
- info.append(link);
- expand.append(info);article.append(expand);
- return article;
+
+function money(value) {
+  const n = Number(value);
+  if (!(n > 0)) return "要確認";
+  if (n >= 100000000)
+    return (n / 100000000).toLocaleString("ja-JP",
+      {maximumFractionDigits:2}) + "億円";
+  if (n >= 10000)
+    return (n / 10000).toLocaleString("ja-JP",
+      {maximumFractionDigits:1}) + "万円";
+  return n.toLocaleString("ja-JP") + "円";
 }
-function render(){
- const target=$("results");target.replaceChildren();
- const frag=document.createDocumentFragment();
- filtered.slice(0,visible).forEach(r=>frag.append(renderCard(r)));
- target.append(frag);
- $("count").textContent=filtered.length.toLocaleString("ja-JP")+" 件の補助金";
- if(!filtered.length)target.append(text("div","条件に一致する補助金がありません。条件を変更してお試しください。","empty"));
- $("more").style.display=visible<filtered.length?"inline-block":"none";
+
+function dateText(value) {
+  if (!value) return "要確認";
+  const d = new Date(value);
+  if (isNaN(d.getTime())) return "要確認";
+  return new Intl.DateTimeFormat("ja-JP", {
+    timeZone:"Asia/Tokyo",
+    year:"numeric",month:"2-digit",day:"2-digit"
+  }).format(d);
 }
-function apply(){
- const q=$("query").value.normalize("NFKC").toLowerCase().trim();
- const a=$("area").value,p=$("purpose").value,s=$("status").value;
- const hasAmount=$("amount").checked;
- filtered=records.filter(r=>{
- const hay=[r.title,r.agency,r.purpose,r.area].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
- if(q&&!q.split(/\s+/).every(w=>hay.includes(w)))return false;
- if(a&&!(String(r.area||"").includes(a)||String(r.area||"").includes("全国")))return false;
- if(p&&!String(r.purpose||"").split("/").map(x=>x.trim()).includes(p))return false;
- if(s&&state(r)!==s)return false;
- if(hasAmount&&!(Number(r.max_amount)>0))return false;
- return true;
- });
- const sort=$("sort").value;
- filtered.sort((x,y)=>sort==="amount"?(Number(y.max_amount)||0)-(Number(x.max_amount)||0)
- :sort==="title"?String(x.title||"").localeCompare(String(y.title||""),"ja")
- :deadline(x)-deadline(y));
- visible=20;render();
+
+function rounds(r) {
+  return Array.isArray(r.rounds) ? r.rounds : [];
 }
-async function init(){
- try{
- const res=await fetch("./public/data/subsidies.json",{cache:"no-store"});
- if(!res.ok)throw Error("HTTP "+res.status);
- const data=await res.json();
- if(!Array.isArray(data.subsidies))throw Error("データ形式が不正です");
- records=data.subsidies;
- $("total").textContent=records.length.toLocaleString("ja-JP")+"件";
- $("updated").textContent=dateText(data.generated_at);
- const areas=[];
- const purposes=[];
- records.forEach(r=>{
- String(r.area||"").split("/").map(x=>x.trim()).forEach(x=>{
- if(x&&x!=="全国")areas.push(x);
- });
- String(r.purpose||"").split("/").map(x=>x.trim()).filter(Boolean).forEach(x=>purposes.push(x));
- });
- fillSelect("area",areas);fillSelect("purpose",purposes);
- apply();
- }catch(e){
- $("count").textContent="データを読み込めませんでした";
- $("results").append(text("div","補助金データの読み込みに失敗しました。public/data/subsidies.json の配置と公開設定を確認してください。","empty"));
- console.error(e);
- }
+
+function status(r) {
+  const now = Date.now();
+  const valid = rounds(r).filter(x =>
+    Number.isFinite(Date.parse(x.start_at)) &&
+    Number.isFinite(Date.parse(x.end_at))
+  );
+  if (!valid.length) return "unknown";
+  if (valid.some(x =>
+    Date.parse(x.start_at) <= now &&
+    now <= Date.parse(x.end_at))) return "open";
+  if (valid.some(x =>
+    Date.parse(x.start_at) > now)) return "future";
+  return "closed";
 }
-["query","area","purpose","status","amount","sort"].forEach(id=>{
- $(id).addEventListener(id==="query"?"input":"change",apply);
+
+const statusLabel = {
+  open:"募集期間内",
+  future:"募集開始前",
+  closed:"期間終了",
+  unknown:"期間不明"
+};
+
+function deadline(r) {
+  const now = Date.now();
+  const valid = rounds(r).map(x => ({
+    start:Date.parse(x.start_at),
+    end:Date.parse(x.end_at)
+  })).filter(x =>
+    Number.isFinite(x.start) && Number.isFinite(x.end)
+  );
+
+  const active = valid.filter(x =>
+    x.start <= now && now <= x.end
+  );
+  if (active.length) return Math.min(...active.map(x => x.end));
+
+  const future = valid.filter(x => x.start > now);
+  if (future.length) return Math.min(...future.map(x => x.end));
+
+  if (valid.length) return Math.max(...valid.map(x => x.end));
+  return NaN;
+}
+
+function deadlineSort(r) {
+  const s = status(r);
+  if (s === "open") return deadline(r);
+  if (s === "future") return deadline(r) + 1e13;
+  return Infinity;
+}
+
+function apply() {
+  const q = $("query").value.normalize("NFKC").toLowerCase().trim();
+  const area = $("area").value;
+  const purpose = $("purpose").value;
+  const st = $("status").value;
+  const amount = $("amount").checked;
+
+  filtered = records.filter(r => {
+    const hay = [
+      r.title,r.agency,r.purpose,r.area,r.industry
+    ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
+
+    if (q && !q.split(/\s+/).every(w => hay.includes(w))) return false;
+    if (area && !(
+      String(r.area || "").includes(area) ||
+      String(r.area || "").includes("全国")
+    )) return false;
+    if (purpose && !String(r.purpose || "")
+      .split("/").map(x => x.trim()).includes(purpose)) return false;
+    if (st && status(r) !== st) return false;
+    if (amount && !(Number(r.max_amount) > 0)) return false;
+    if (savedOnly && !saved.includes(String(r.id))) return false;
+
+    return true;
+  });
+
+  const sort = $("sort").value;
+  filtered.sort((a,b) => {
+    if (sort === "amount")
+      return (Number(b.max_amount)||0) - (Number(a.max_amount)||0);
+    if (sort === "title")
+      return String(a.title||"").localeCompare(String(b.title||""),"ja");
+    return deadlineSort(a) - deadlineSort(b);
+  });
+
+  visible = 20;
+  render();
+}
+
+function action(label,type,id,active) {
+  const b = node("button","action" + (active ? " active" : ""),label);
+  b.type = "button";
+  b.dataset.action = type;
+  b.dataset.id = String(id);
+  b.setAttribute("aria-pressed",String(active));
+  return b;
+}
+
+function card(r) {
+  const article = node("article","card");
+  const body = node("div","card-main");
+  const tags = node("div","tags");
+  const st = status(r);
+
+  tags.append(
+    node("span","tag "+st,statusLabel[st]),
+    node("span","tag region",r.area || "地域不明")
+  );
+  body.append(tags);
+  body.append(node("h3","",r.title || "名称不明"));
+  body.append(node("div","agency",r.agency || "実施機関不明"));
+
+  const stats = node("div","stats");
+  const end = deadline(r);
+  const values = [
+    ["補助上限額",money(r.max_amount)],
+    [st==="open" ? "募集終了日" : "掲載募集期限",
+      Number.isFinite(end) ? dateText(end) : "要確認"],
+    ["補助率",r.subsidy_rate || "要確認"]
+  ];
+
+  values.forEach(([label,value],i) => {
+    const box = node("div");
+    box.append(node("div","stat-label",label));
+    box.append(node("div","stat-value" +
+      (i===0 && value!=="要確認" ? " money" : "") +
+      (value==="要確認" ? " missing" : ""),value));
+    stats.append(box);
+  });
+  body.append(stats);
+  article.append(body);
+
+  const buttons = node("div","actions");
+  const id = String(r.id);
+  buttons.append(
+    action(saved.includes(id) ? "♥ 保存済み" : "♡ 保存する",
+      "save",id,saved.includes(id)),
+    action(comparing.includes(id) ? "✓ 比較対象" : "⊞ 比較に追加",
+      "compare",id,comparing.includes(id))
+  );
+
+  const toggle = node("button","detail-button","詳細を見る ＋");
+  toggle.type = "button";
+  toggle.setAttribute("aria-expanded","false");
+  buttons.append(toggle);
+  article.append(buttons);
+
+  const details = node("div","details");
+  details.hidden = true;
+  const dl = node("dl");
+  const add = (label,value) => {
+    dl.append(node("dt","",label));
+    dl.append(node("dd","",value || "記載なし"));
+  };
+  add("利用目的",r.purpose);
+  add("対象地域",r.area);
+  add("対象業種",r.industry);
+  add("掲載ID",r.id);
+
+  const periods = [...new Set(rounds(r).map(x =>
+    dateText(x.start_at)+" ～ "+dateText(x.end_at)
+  ))];
+  add("募集期間",periods.length
+    ? periods.slice(0,10).join(" / ") : "記載なし");
+  details.append(dl);
+
+  const link = node("a","","Jグランツ公式サイトで確認 ↗");
+  link.href = "https://www.jgrants-portal.go.jp/";
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  details.append(link);
+  details.append(node("p","note",
+    "※公式サイトのトップページに移動します。制度名で検索してください。"));
+  article.append(details);
+
+  toggle.addEventListener("click",() => {
+    details.hidden = !details.hidden;
+    toggle.textContent = details.hidden
+      ? "詳細を見る ＋" : "詳細を閉じる −";
+    toggle.setAttribute("aria-expanded",String(!details.hidden));
+  });
+
+  return article;
+}
+
+function render() {
+  const target = $("results");
+  const frag = document.createDocumentFragment();
+  filtered.slice(0,visible).forEach(r => frag.append(card(r)));
+  target.replaceChildren(frag);
+
+  $("count").textContent =
+    filtered.length.toLocaleString("ja-JP")+" 件の補助金";
+
+  if (!filtered.length) {
+    target.append(node("div","empty",
+      records.length
+        ? "条件に一致する補助金がありません。条件を変えてください。"
+        : "補助金データを読み込み中です。"));
+  }
+
+  $("more").hidden = visible >= filtered.length;
+  $("savedToggle").classList.toggle("selected",savedOnly);
+  $("savedToggle").textContent = savedOnly
+    ? "← すべての補助金に戻る"
+    : "♡ 保存した補助金を見る";
+}
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE,JSON.stringify(saved));
+  } catch(e) {
+    console.warn("保存に失敗しました",e);
+  }
+}
+
+function updateDock() {
+  $("dock").style.display = comparing.length ? "flex" : "none";
+  $("dockLabel").textContent =
+    "比較対象 "+comparing.length+" / 3 件";
+}
+
+document.addEventListener("click",e => {
+  const b = e.target.closest("button[data-action]");
+  if (!b) return;
+  const id = b.dataset.id;
+
+  if (b.dataset.action === "save") {
+    saved = saved.includes(id)
+      ? saved.filter(x => x!==id) : [...saved,id];
+    persist();
+    apply();
+  }
+
+  if (b.dataset.action === "compare") {
+    if (comparing.includes(id)) {
+      comparing = comparing.filter(x => x!==id);
+    } else {
+      if (comparing.length >= 3) {
+        alert("比較できる補助金は3件までです。");
+        return;
+      }
+      comparing.push(id);
+    }
+    updateDock();
+    render();
+  }
 });
-$("searchBtn").addEventListener("click",apply);
-$("reset").addEventListener("click",()=>{
- $("query").value="";$("area").value="";$("purpose").value="";
- $("status").value="";$("amount").checked=false;$("sort").value="deadline";apply();
+
+function openComparison() {
+  const list = comparing
+    .map(id => records.find(r => String(r.id)===id))
+    .filter(Boolean);
+  if (!list.length) return;
+
+  const table = node("table","compare");
+  const head = node("thead");
+  const header = node("tr");
+  header.append(node("th","","比較項目"));
+  list.forEach(r => header.append(node("td","",r.title||"名称不明")));
+  head.append(header);
+  table.append(head);
+
+  const body = node("tbody");
+  const fields = [
+    ["募集状況",r=>statusLabel[status(r)]],
+    ["補助上限額",r=>money(r.max_amount)],
+    ["補助率",r=>r.subsidy_rate||"要確認"],
+    ["掲載募集期限",r=>Number.isFinite(deadline(r))
+      ? dateText(deadline(r)) : "要確認"],
+    ["対象地域",r=>r.area||"要確認"],
+    ["実施機関",r=>r.agency||"要確認"],
+    ["利用目的",r=>r.purpose||"要確認"]
+  ];
+
+  fields.forEach(([label,get]) => {
+    const tr = node("tr");
+    tr.append(node("th","",label));
+    list.forEach(r => tr.append(node("td","",get(r))));
+    body.append(tr);
+  });
+
+  table.append(body);
+  $("comparison").replaceChildren(table);
+  $("modal").classList.add("open");
+  document.body.style.overflow = "hidden";
+  $("modalClose").focus();
+}
+
+function closeComparison() {
+  $("modal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+["query","area","purpose","status","amount","sort"]
+  .forEach(id => $(id).addEventListener(
+    id==="query" ? "input" : "change",apply));
+
+$("searchForm").addEventListener("submit",e => {
+  e.preventDefault();
+  apply();
+  $("resultsArea").scrollIntoView({behavior:"smooth"});
 });
-$("more").addEventListener("click",()=>{visible+=20;render()});
+
+document.querySelectorAll("[data-keyword]").forEach(b => {
+  b.addEventListener("click",() => {
+    $("query").value = b.dataset.keyword;
+    savedOnly = false;
+    apply();
+    $("resultsArea").scrollIntoView({behavior:"smooth"});
+  });
+});
+
+$("reset").addEventListener("click",() => {
+  ["query","area","purpose","status"].forEach(id => $(id).value="");
+  $("amount").checked = false;
+  $("sort").value = "deadline";
+  savedOnly = false;
+  apply();
+});
+
+$("savedToggle").addEventListener("click",() => {
+  savedOnly = !savedOnly;
+  apply();
+});
+
+$("more").addEventListener("click",() => {
+  visible += 20;
+  render();
+});
+
+$("compareOpen").addEventListener("click",openComparison);
+$("modalClose").addEventListener("click",closeComparison);
+$("modal").addEventListener("click",e => {
+  if (e.target === $("modal")) closeComparison();
+});
+document.addEventListener("keydown",e => {
+  if (e.key==="Escape") closeComparison();
+});
+
+function fill(id,values) {
+  [...new Set(values.filter(Boolean))]
+    .sort((a,b) => a.localeCompare(b,"ja"))
+    .forEach(value => {
+      const option = node("option","",value);
+      option.value = value;
+      $(id).append(option);
+    });
+}
+
+async function init() {
+  try {
+    const response = await fetch("./public/data/subsidies.json",{
+      cache:"no-store"
+    });
+    if (!response.ok) throw Error("HTTP "+response.status);
+    const data = await response.json();
+    if (!Array.isArray(data.subsidies)) throw Error("Invalid data");
+
+    records = data.subsidies;
+    $("total").textContent =
+      records.length.toLocaleString("ja-JP")+"件";
+    $("updated").textContent = dateText(data.generated_at);
+
+    const areas = [],purposes = [];
+    records.forEach(r => {
+      String(r.area||"").split("/").forEach(x => {
+        x=x.trim();
+        if (x && x!=="全国") areas.push(x);
+      });
+      String(r.purpose||"").split("/").forEach(x => {
+        x=x.trim();
+        if (x) purposes.push(x);
+      });
+    });
+
+    fill("area",areas);
+    fill("purpose",purposes);
+    apply();
+  } catch(e) {
+    console.error(e);
+    $("count").textContent = "データを読み込めませんでした";
+    $("results").replaceChildren(node("div","empty",
+      "データ取得に失敗しました。再読み込みしてください。"));
+  }
+}
+
 init();
 </script>
-
-<!-- Hojokin Compass v0.2: Design & Compare -->
-<style>
-:root{
-  --green:#153d30;
-  --ink:#1c3028;
-  --cream:#f5f3eb;
-  --line:#dce3d9;
-}
-body{background:var(--cream)}
-header{background:#153d30;border-bottom:0}
-.nav{min-height:82px}
-.logo{color:#f7f6ee;font-size:23px;letter-spacing:-.8px}
-.nav .small{color:#c7d8c9}
-.hero{
-  background:#153d30;
-  color:#fff;
-  padding:88px 0 70px;
-  position:relative;
-  overflow:hidden;
-}
-.hero:before{
-  content:"";
-  position:absolute;
-  width:520px;height:520px;
-  border:1px solid rgba(230,245,220,.16);
-  border-radius:50%;
-  right:-160px;top:-210px;
-  box-shadow:0 0 0 85px rgba(230,245,220,.025),
-             0 0 0 170px rgba(230,245,220,.025);
-  pointer-events:none;
-}
-.hero .wrap{position:relative}
-.eyebrow{color:#d1e7ad;font-size:12px;letter-spacing:2.8px}
-h1{color:#fff;font-size:clamp(35px,5vw,58px);line-height:1.32;margin:18px 0}
-.lead{color:#d4e2d7;max-width:600px}
-.search{
-  background:#fff;
-  padding:7px;
-  border-radius:13px;
-  box-shadow:0 18px 50px rgba(0,0,0,.13);
-  max-width:880px;
-}
-.search input{border:0;background:transparent;padding:15px}
-.search input:focus{outline:2px solid #c7d8b2;outline-offset:-2px}
-.search button{
-  background:#d7e9b6;
-  color:#153d30;
-  border-radius:9px;
-  padding:15px 26px;
-  white-space:nowrap;
-}
-.search button:hover{background:#c5dda0}
-.metrics{margin-top:30px;gap:38px}
-.metric strong{color:#f4f8ed}
-.metric span{color:#bdd0c2}
-main{padding-top:40px}
-aside,.result{
-  border-color:#e0e5dd;
-  box-shadow:0 5px 22px rgba(22,55,40,.035);
-}
-aside{border-radius:15px;padding:25px}
-aside h2:before{content:"☷ ";color:#557c61}
-.result{
-  border-radius:15px;
-  padding:27px;
-  transition:transform .2s,box-shadow .2s,border-color .2s;
-}
-.result:hover{
-  transform:translateY(-2px);
-  box-shadow:0 13px 34px rgba(22,55,40,.09);
-  border-color:#b9cfbb;
-}
-.result h3{font-size:20px;letter-spacing:-.3px}
-.tag{border-radius:20px;padding:5px 11px}
-.details{gap:18px 36px}
-.detail strong{font-size:18px}
-.results-head h2{font-size:22px}
-.result-actions{
-  display:flex;gap:9px;flex-wrap:wrap;
-  margin-top:19px;padding-top:17px;
-  border-top:1px solid #e6ebe3;
-}
-.action-btn{
-  display:inline-flex;align-items:center;gap:7px;
-  background:#f0f5ed;color:#214b36;
-  padding:9px 14px;font-size:13px;border-radius:8px;
-  border:1px solid #e0e9db;
-}
-.action-btn:hover{background:#e0eddb}
-.action-btn.active{
-  background:#153d30;color:#fff;border-color:#153d30;
-}
-.compass-toolbar{
-  display:flex;align-items:center;gap:12px;
-  margin:0 0 20px;flex-wrap:wrap;
-}
-.compass-toolbar button{background:#e5eddf;color:#214b36}
-.compass-toolbar button:hover{background:#d5e5cf}
-.compare-dock{
-  position:fixed;bottom:20px;left:50%;
-  transform:translateX(-50%);
-  z-index:50;
-  width:min(680px,calc(100% - 32px));
-  background:#153d30;color:#fff;
-  border-radius:14px;
-  padding:15px 19px;
-  display:none;align-items:center;
-  justify-content:space-between;gap:12px;
-  box-shadow:0 15px 45px rgba(0,0,0,.25);
-}
-.compare-dock button{background:#d7e9b6;color:#153d30}
-.compare-modal{
-  position:fixed;inset:0;z-index:100;
-  background:rgba(12,29,22,.75);
-  display:none;align-items:center;justify-content:center;
-  padding:20px;
-}
-.compare-sheet{
-  background:#f8f8f4;color:#1c3028;
-  border-radius:18px;padding:26px;
-  width:min(1040px,100%);max-height:85vh;overflow:auto;
-}
-.compare-grid{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;margin-top:20px;
-}
-.compare-item{
-  background:white;border:1px solid #dce3d9;
-  border-radius:12px;padding:18px;
-  overflow-wrap:anywhere;
-}
-.compare-item h3{font-size:17px;line-height:1.5}
-.compare-item p{font-size:13px}
-.compare-close{float:right}
-@media(max-width:720px){
-  .hero{padding:55px 0 46px}
-  .search{flex-direction:column}
-  .search button{width:100%}
-  .compare-grid{grid-template-columns:1fr}
-  .compare-dock{bottom:10px}
-}
-</style>
-
-<script>
-(function(){
-"use strict";
-const STORAGE="hojokin-compass-saved-v1";
-let saved=[];
-let comparing=[];
-
-try{
- const data=JSON.parse(localStorage.getItem(STORAGE)||"[]");
- if(Array.isArray(data))saved=data.filter(x=>typeof x==="string");
-}catch(e){saved=[];}
-
-function persist(){
- try{localStorage.setItem(STORAGE,JSON.stringify(saved))}
- catch(e){console.warn("保存できませんでした",e)}
-}
-
-function makeButton(label,action,id,active){
- const b=document.createElement("button");
- b.type="button";
- b.className="action-btn"+(active?" active":"");
- b.textContent=label;
- b.dataset.action=action;
- b.dataset.id=id;
- return b;
-}
-
-const oldRenderCard=renderCard;
-renderCard=function(r){
- const card=oldRenderCard(r);
- const actions=document.createElement("div");
- actions.className="result-actions";
- actions.append(
-  makeButton(
-   saved.includes(r.id)?"♥ 保存済み":"♡ 保存する",
-   "save",r.id,saved.includes(r.id)
-  ),
-  makeButton(
-   comparing.includes(r.id)?"✓ 比較対象":"⊞ 比較に追加",
-   "compare",r.id,comparing.includes(r.id)
-  )
- );
- card.append(actions);
- return card;
-};
-
-const toolbar=document.createElement("div");
-toolbar.className="compass-toolbar";
-const savedButton=document.createElement("button");
-savedButton.type="button";
-savedButton.id="savedToggle";
-savedButton.textContent="♡ 保存した補助金を見る";
-toolbar.append(savedButton);
-const resultHeading=document.querySelector(".results-head");
-resultHeading.parentNode.insertBefore(toolbar,resultHeading);
-
-let savedOnly=false;
-const originalApply=apply;
-apply=function(){
- originalApply();
- if(savedOnly){
-  filtered=filtered.filter(r=>saved.includes(r.id));
-  visible=20;
-  render();
- }
-};
-
-savedButton.addEventListener("click",()=>{
- savedOnly=!savedOnly;
- savedButton.textContent=savedOnly?
- "← すべての検索結果に戻る":"♡ 保存した補助金を見る";
- apply();
-});
-
-const dock=document.createElement("div");
-dock.className="compare-dock";
-dock.setAttribute("role","region");
-dock.setAttribute("aria-label","補助金比較");
-const dockLabel=document.createElement("span");
-const compareOpen=document.createElement("button");
-compareOpen.type="button";
-compareOpen.textContent="比較を見る →";
-dock.append(dockLabel,compareOpen);
-document.body.append(dock);
-
-const modal=document.createElement("div");
-modal.className="compare-modal";
-modal.setAttribute("role","dialog");
-modal.setAttribute("aria-modal","true");
-modal.setAttribute("aria-label","補助金の比較");
-const sheet=document.createElement("div");
-sheet.className="compare-sheet";
-const close=document.createElement("button");
-close.className="compare-close";
-close.textContent="閉じる ×";
-const heading=document.createElement("h2");
-heading.textContent="補助金を比較する";
-const comparison=document.createElement("div");
-comparison.className="compare-grid";
-sheet.append(close,heading,comparison);
-modal.append(sheet);
-document.body.append(modal);
-
-function refreshDock(){
- dock.style.display=comparing.length?"flex":"none";
- dockLabel.textContent="比較対象 "+comparing.length+" / 3 件";
-}
-
-function info(parent,label,value){
- const p=document.createElement("p");
- const strong=document.createElement("strong");
- strong.textContent=label+"：";
- p.append(strong,document.createTextNode(String(value||"要確認")));
- parent.append(p);
-}
-
-function showCompare(){
- comparison.replaceChildren();
- comparing.forEach(id=>{
-  const r=records.find(x=>x.id===id);
-  if(!r)return;
-  const item=document.createElement("div");
-  item.className="compare-item";
-  const h=document.createElement("h3");
-  h.textContent=r.title||"名称不明";
-  item.append(h);
-  info(item,"対象地域",r.area);
-  info(item,"補助上限額",yen(r.max_amount));
-  info(item,"補助率",r.subsidy_rate);
-  info(item,"募集状況",statusLabel(state(r)));
-  const last=lastDeadline(r);
-  info(item,"最終募集期限",
-   Number.isFinite(last)?dateText(new Date(last).toISOString()):"不明");
-  info(item,"利用目的",r.purpose);
-  comparison.append(item);
- });
- modal.style.display="flex";
-}
-
-document.addEventListener("click",e=>{
- const b=e.target.closest("button[data-action]");
- if(!b)return;
- const id=b.dataset.id;
- if(b.dataset.action==="save"){
-  saved=saved.includes(id)?
-   saved.filter(x=>x!==id):[...saved,id];
-  persist();
-  render();
- }else if(b.dataset.action==="compare"){
-  if(comparing.includes(id)){
-   comparing=comparing.filter(x=>x!==id);
-  }else{
-   if(comparing.length>=3){
-    alert("比較できるのは最大3件です。");
-    return;
-   }
-   comparing.push(id);
-  }
-  refreshDock();
-  render();
- }
-});
-
-compareOpen.addEventListener("click",showCompare);
-close.addEventListener("click",()=>modal.style.display="none");
-modal.addEventListener("click",e=>{
- if(e.target===modal)modal.style.display="none";
-});
-document.addEventListener("keydown",e=>{
- if(e.key==="Escape")modal.style.display="none";
-});
-
-refreshDock();
-})();
-</script>
-<!-- End Hojokin Compass v0.2 -->
-
-<!-- Hojokin Compass / Editorial Design -->
-<style>
-/* Brand */
-:root {
-  --green: #193f35;
-  --ink: #1b3029;
-  --muted: #65746b;
-  --cream: #f8f7f2;
-  --line: #dfe4dc;
-}
-
-body {
-  background: var(--cream);
-  color: var(--ink);
-}
-
-/* Navigation */
-header {
-  background: #f8f7f2;
-  border-bottom: 1px solid #dfe4dc;
-}
-.nav {
-  min-height: 76px;
-}
-.logo {
-  color: #193f35;
-  font-size: 21px;
-  letter-spacing: -0.8px;
-}
-.nav .small {
-  color: #69766c;
-}
-
-/* Hero: editorial rather than decorative */
-.hero {
-  background: #f8f7f2;
-  color: #193f35;
-  padding: 68px 0 54px;
-  border-bottom: 1px solid #dfe4dc;
-  overflow: visible;
-}
-.hero:before {
-  display: none;
-}
-.eyebrow {
-  color: #5b7865;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2.4px;
-}
-h1 {
-  color: #193f35;
-  font-size: clamp(36px, 5vw, 62px);
-  line-height: 1.25;
-  letter-spacing: -2px;
-  margin: 20px 0 18px;
-}
-.lead {
-  color: #617168;
-  font-size: 16px;
-}
-
-/* Search: solid and functional */
-.search {
-  max-width: 900px;
-  margin-top: 36px;
-  padding: 5px;
-  background: #fff;
-  border: 1px solid #cbd6cd;
-  border-radius: 5px;
-  box-shadow: none;
-}
-.search input {
-  border: 0;
-  border-radius: 3px;
-  padding: 16px 18px;
-}
-.search button {
-  background: #193f35;
-  color: #fff;
-  border-radius: 3px;
-  padding: 16px 28px;
-}
-.search button:hover {
-  background: #2d5c4c;
-}
-
-/* Data credibility */
-.metrics {
-  margin-top: 30px;
-  gap: 44px;
-}
-.metric strong {
-  color: #193f35;
-  font-size: 22px;
-}
-.metric span {
-  color: #728078;
-  font-size: 11px;
-}
-
-/* Search results */
-main {
-  padding-top: 46px;
-}
-aside, .result {
-  border-radius: 5px;
-  box-shadow: none;
-  border-color: #dfe4dc;
-}
-aside {
-  padding: 25px 22px;
-}
-aside h2:before {
-  content: "";
-}
-.result {
-  padding: 27px 30px;
-  transition: border-color .15s;
-}
-.result:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: #789e89;
-}
-.result h3 {
-  font-size: 20px;
-  line-height: 1.55;
-  letter-spacing: -.4px;
-}
-.tag {
-  border-radius: 3px;
-  padding: 4px 9px;
-}
-.details {
-  gap: 20px 38px;
-}
-.detail strong {
-  font-size: 19px;
-}
-
-/* Quiet secondary actions */
-.action-btn {
-  border-radius: 3px;
-  background: #fff;
-  border: 1px solid #cddbd0;
-  color: #244d3a;
-}
-.action-btn:hover {
-  background: #eef4ed;
-}
-.action-btn.active {
-  background: #193f35;
-  color: #fff;
-}
-.compass-toolbar button {
-  border-radius: 3px;
-}
-
-/* Responsive */
-@media(max-width:720px) {
-  .hero {
-    padding: 48px 0 38px;
-  }
-  h1 {
-    letter-spacing: -1px;
-  }
-  .search {
-    padding: 6px;
-  }
-  .search button {
-    width: 100%;
-  }
-  .metrics {
-    gap: 22px;
-  }
-  .result {
-    padding: 22px 19px;
-  }
-}
-</style>
-
 </body>
 </html>
