@@ -1,0 +1,872 @@
+{
+  "generated_at": "2026-10-18T14:20:43.514413+00:00",
+  "source_name": "東京都 2026年補助金一覧",
+  "source_url": "https://www.opendata.metro.tokyo.lg.jp/zaimu/hojokin2026.csv",
+  "total": 65,
+  "subsidies": [
+    {
+      "title": "東京グローバル・パスポート支援金",
+      "description": "補助金の目的：より多くの大学生等が海外留学の最初の一歩を踏み出すきっかけ作りのサポート 補助対象者：都から支援の決定を受けて海外留学を行う大学生等 補助対象経費： 【短期コース】留学計画の実行に係る一連の経費 【中長期コース】留学計画の実行に係る経費のうち、渡航費等準備金、授業料及び現地活動費 負担割合： 【短期コース】留学計画の実行に係る一連の経費：都10/10（留学先国・地域ごとの補助上限額あり（地域①：900,000円、地域②：700,000円、地域③：400,000円）） 【中長期コース】渡航費等準備金：都10/10（留学先国・地域ごとの補助上限額あり（アジア地域：210,000円、その他の地域：350,000円））、授業料：都10/10（留学先国・地域ごとの補助上限額あり（地域①：1,000,000円、地域②：800,000円、地域③：500,000円））、現地活動費：都10/10（留学先国・地域ごとの補助上限額あり（地域①②：150,000円/月、地域③：100,000円/月））",
+      "area": "東京都",
+      "agency": "子供政策連携室総合推進部若者政策連携推進課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "小笠原諸島帰島民荷物輸送費補助",
+      "description": "補助金の目的：小笠原諸島における旧島民等の帰島援護を図るため 補助対象者 ：旧島民(昭和１９年３月３１日に小笠原諸島に住所を有していた者で、昭和４３年６月２５日に小笠原諸島以外の本邦に住所を有していた者)、その父母、子及び孫並びにこれらの配偶者 補助対象経費：航路事業者が補助対象者から受付を行った引越荷物の東京、小笠原諸島間及び小笠原諸島相互間の運搬に要する輸送費 負担割合 ：１４トン（重量トン又は 容積トンのいずれか大きい方とする。）までにつき、その輸送費の金額を１世帯１回",
+      "area": "東京都",
+      "agency": "総務局行政部振興企画課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.soumu.metro.tokyo.lg.jp/05gyousei/06sinkouogasawarajigyou1.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高等専門学校の奨学のための給付金",
+      "description": "補助金の目的：教育に係る経済的負担の軽減を図り、もって教育の機会均等に寄与 補助対象者 ：生活保護受給世帯、都道府県民税所得割額及び区市町村民税所得割額が非課税の世帯及び中所得世帯（年収目安490万円未満）の保護者等 補助対象経費：授業料以外の教育に必要な経費（教材、学用品費等） 負担割合 ：国1/2、都1/2",
+      "area": "東京都",
+      "agency": "総務局総務部企画計理課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育",
+        "仕事"
+      ],
+      "source": "https://www.soumu.metro.tokyo.lg.jp/08daigaku/kyuuhukin.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "東京都フリースクール等利用者支援事業助成金",
+      "description": "補助金の目的：フリースクール等の利用者の経済的負担の軽減 補助対象者：都内在住の不登校の小・中学生の保護者 ※ このほか、都が定める要件を満たしている必要あり 補助対象経費：フリースクール等の利用料 ※入会金・施設維持費・教材費などの経費は対象外 負担割合：都10/10 （月額上限2万円）",
+      "area": "東京都",
+      "agency": "生活文化局私学部連携支援課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://tokyo-fs-support.metro.tokyo.lg.jp/",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "私立学校被災生徒等受入支援事業費補助（臨時支援金）（国補助）",
+      "description": "補助金の目的：被災生徒等の保護者の経済的負担の軽減 補助対象者 ：被災により都内に転入・居住し、私立小学校・中学校に在学する生徒の保護者（その他要件あり） 補助対象経費：学用品費、修学旅行、遠足、教科外活動費等の一部 負担割合 ：国10/10",
+      "area": "東京都",
+      "agency": "生活文化局私学部私学振興課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.seikatubunka.metro.tokyo.lg.jp/shigaku/hogosha/0000000058.html",
+      "review_status": "要確認",
+      "review_reason": "組織向けまたは申請者区分が不明確"
+    },
+    {
+      "title": "私立高等学校海外留学推進補助",
+      "description": "補助金の目的：私立高等学校が行う留学に参加する生徒の経済的負担の軽減 補助対象者 ：私立高等学校に在学し、学校の推薦を受けた生徒の保護者（その他要件あり） 補助対象経費：生徒が海外留学に関して学校等へ支払う参加費用の一部 負担割合 ：都10/10",
+      "area": "東京都",
+      "agency": "生活文化局私学部私学振興課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.seikatubunka.metro.tokyo.lg.jp/shigaku/jyosei/0000000307.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "私立学校教員向け奨学金返還支援事業費補助",
+      "description": "補助金の目的：都内の私立学校に採用された教員に対し、奨学金の返還支援を実施 補助対象者 ：私立幼稚園・小学校・中学校・高等学校・特別支援学校等に採用された教員 補助対象経費：大学等在学時に貸与を受けた奨学金 負担割合 ：都1/2、教員1/2",
+      "area": "東京都",
+      "agency": "生活文化局私学部連携支援課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.seikatubunka.metro.tokyo.lg.jp/shigaku/jyosei/0000000307.html",
+      "review_status": "要確認",
+      "review_reason": "組織向けまたは申請者区分が不明確"
+    },
+    {
+      "title": "都市計画道路用地の先行取得に関する建築物除却補助金",
+      "description": "補助金の目的：都市計画道路用地の先行取得の活用促進 補助対象者 ：第五次事業化計画における優先整備路線（東京都施行）区域内の土地所有者 補助対象経費：都市計画道路用地の先行取得において買収候補地として選定された土地にある建築物の除却工事 負担割合 ：当該建築物の延べ床面積に、次に掲げる単価を乗じて得た額を限度とする ・木造建築物の場合 １㎡当たり33,000円 ・非木造建築物の場合 １㎡当たり47,000円",
+      "area": "東京都",
+      "agency": "都市整備局都市基盤部街路計画課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.toshiseibi.metro.tokyo.lg.jp/kotsu_butsuryu/doromou/keikaku_doro/keikaku_torikumi/senkou_shutoku",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "液状化の判定に係る調査費用助成（都民向け)",
+      "description": "補助金の目的：建築物における液状化対策の推進 補助対象者 ：土地の所有者等 補助対象経費：液状化の判定に係る調査に要する費用 負担割合 ：都1/2 所有者1/2",
+      "area": "東京都",
+      "agency": "都市整備局市街地建築部建築企画課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://kenchiku-ekijoka.metro.tokyo.lg.jp/index.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "東京都空き家家財整理・解体促進事業",
+      "description": "補助金の目的：空き家状態の早期解決及び空き家の利活用等を推進 補助対象者 ：個人 補助対象経費：空き家の解体又は家財整理に係る費用 負担割合 ：1/2",
+      "area": "東京都",
+      "agency": "住宅政策本部民間住宅部計画課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.juutakuseisaku.metro.tokyo.lg.jp/akiya/kaitai_seiri.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高齢者向け優良賃貸住宅家賃対策補助（平成11年度認定・都管理）",
+      "description": "補助金の目的：高齢者の安全で安定した居住の確保 補助対象者 ：個人又は法人 補助対象経費：家賃の減額に係る補助 負担割合 ：1/2",
+      "area": "東京都",
+      "agency": "住宅政策本部民間住宅部安心居住推進課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "住宅"
+      ],
+      "source": "https://www.juutakuseisaku.metro.tokyo.lg.jp/juutaku_seisaku/116kouyutin.htm",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高齢者向け優良賃貸住宅管理費補助（平成11年度認定・都管理）",
+      "description": "補助金の目的：高齢者の安全で安定した居住の確保 補助対象者 ：個人又は法人 補助対象経費：管理事務の減額に係る補助 負担割合 ：10/10",
+      "area": "東京都",
+      "agency": "住宅政策本部民間住宅部安心居住推進課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "住宅"
+      ],
+      "source": "https://www.juutakuseisaku.metro.tokyo.lg.jp/juutaku_seisaku/116kouyutin.htm",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "「子供を守る」住宅確保促進事業",
+      "description": "補助金の目的：既存集合住宅ストックにおける子供の安全性の向上 補助対象者：区分所有者や賃借人など 補助対象経費：子供の安全性の向上に資する改修や設備設置費 負担割合：2/3",
+      "area": "東京都",
+      "agency": "住宅政策本部民間住宅部安心居住推進課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "住宅"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "既存住宅省エネ診断・設計等支援事業（住宅の所有者やマンション管理組合等）",
+      "description": "補助金の目的：省エネ診断や省エネ設計に補助を行うことで、既存住宅の省エネ性能向上を促進する 補助対象者 ：住宅の所有者やマンション管理組合等 補助対象経費：住宅の省エネ診断や省エネ設計に要する経費 負担割合 ：省エネ診断 国 1/3、都 1/3、個人負担1/3 省エネ設計（省エネ基準適合レベル） 国 1/5、都 1/5、個人負担3/5 省エネ設計（ZEH水準適合レベル） 国 2/5、都 2/5、個人負担1/5",
+      "area": "東京都",
+      "agency": "住宅政策本部民間住宅部計画課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "住宅",
+        "省エネ"
+      ],
+      "source": "https://www.juutakuseisaku.metro.tokyo.lg.jp/juutaku_seisaku/shouene.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "介護支援専門員再就業等支援事業事業",
+      "description": "補助金の目的：現任ではない有資格者の再就業等を支援することで、都内における現任介護支援専門員の確保に繋げる。 補助対象者 ：都のケアマネ名簿に登録され都内で勤務する現任ではない有資格者 補助対象経費：再就業/新規就業・定着奨励金 負担割合 ：都10/10",
+      "area": "東京都",
+      "agency": "福祉局高齢者施策推進部介護保険課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "医療"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高等学校卒業程度認定試験合格支援事業（町村）",
+      "description": "補助金の目的：ひとり親家庭等の学び直しの支援 補助対象者 ：ひとり親家庭等 補助対象経費：高卒認定試験合格のための講座受講のために支払った費用の一部 負担割合 ：国3/4 都1/4",
+      "area": "東京都",
+      "agency": "福祉局子供・子育て支援部育成支援課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.fukushi.metro.tokyo.lg.jp/kodomo/hitorioya_shien/syurou/kousotu",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "児童養護施設の一時保護委託受入促進事業補助金",
+      "description": "補助金の目的：児童養護施設における児童の一時保護委託の受入体制の充実 補助対象者・児童養護施設 補助対象経費：事業の実施に必要な経費 負担割合：都10/10",
+      "area": "東京都",
+      "agency": "福祉局子供・子育て支援部家庭支援課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "子育て"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "組織向けまたは申請者区分が不明確"
+    },
+    {
+      "title": "東京都養育家庭等自立援助事業補助",
+      "description": "補助金の目的：里親等に委託されてていた児童の自立後の生活の安定を図る 補助対象者 ：養育家庭等/元委託児童 補助対象経費：相談援助などに係る経費の一部/一人暮らしにかかる居住費の一部 負担割合 ：都10/10",
+      "area": "東京都",
+      "agency": "福祉局子供・子育て支援部育成支援課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "子育て",
+        "仕事"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "組織向けまたは申請者区分が不明確"
+    },
+    {
+      "title": "東京都養子縁組民間あっせん機関助成事業補助（養親希望者手数料負担軽減事業）",
+      "description": "補助金の目的：養子縁組のさらなる促進 補助対象者 ：養親希望者 補助対象経費：養親希望者が養子縁組民間あっせん機関に対して支払った手数料 負担割合 ：都1/2、国1/2",
+      "area": "東京都",
+      "agency": "福祉局子供・子育て支援部育成支援課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.fukushi.metro.tokyo.lg.jp/kodomo/satooya/sonota/youshintesuryo",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "東京都里親委託交流事業補助",
+      "description": "補助金の目的：養育家庭等が委託候補児童との交流に係る経費の一部を補助する事業 補助対象者 ：養育家庭・養子縁組里親 補助対象経費：交流に係る経費 負担割合 ：都1/2、国1/2",
+      "area": "東京都",
+      "agency": "福祉局子供・子育て支援部育成支援課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://www.fukushi.metro.tokyo.lg.jp/kodomo/satooya/seido/hotfamily/shinchaku/kouryuuzigyou",
+      "review_status": "要確認",
+      "review_reason": "組織向けまたは申請者区分が不明確"
+    },
+    {
+      "title": "児童発達支援事業所等利用支援事業補助金",
+      "description": "補助金の目的：児童発達支援事業等を利用する児童の保護者の自己負担を、世帯収入に関わらず無償化することで、安心して子育てできる環境づくりを推進 補助対象者 ：児童発達支援事業等を利用する児童のいる世帯等の保護者 補助対象経費：0～２歳の利用者負担 負担割合 ：都10/10",
+      "area": "東京都",
+      "agency": "福祉局障害者施策推進部療育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "子育て"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "肝炎初回精密検査費用助成・肝炎定期検査費用助成",
+      "description": "補助金の目的：ウイルス性肝炎の重症化予防を図る。 補助対象者 ：【初回精密検査】肝炎ウイルス検査で陽性と判定された方 【定期検査】肝炎ウイルスによる慢性肝疾患で療養中の方（各検査とも要綱に詳細な規定あり） 補助対象経費：検査費用 負担割合 ：国1/2、都1/2",
+      "area": "東京都",
+      "agency": "保健医療局保健政策部疾病対策課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.hokeniryo.metro.tokyo.lg.jp/kenkou/kenkou/kanen_senryaku/kanen_kensahiyou_josei",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "腎移植にかかる組織適合検査補助",
+      "description": "補助金の目的：腎移植を推進し、患者の負担軽減を図る。 補助対象者 ：献腎移植を希望し、（公社）日本臓器移植ネットワークに移植希望の登録をする方 補助対象経費：腎臓移植組織適合性検査費 負担割合 ：都10/10",
+      "area": "東京都",
+      "agency": "保健医療局保健政策部疾病対策課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.hokeniryo.metro.tokyo.lg.jp/kenkou/k_isyoku/annai.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "療養所入所患者見舞",
+      "description": "補助金の目的：ハンセン病療養所入所者に対し、見舞金及び見舞い品を支給することにより、社会復帰への意欲の高揚と長期にわたる療養生活の慰安に資する 補助対象者 ：東京都出身ハンセン病療養所入所者 補助対象経費：見舞金及び見舞品 負担割合 ：都10/10",
+      "area": "東京都",
+      "agency": "保健医療局感染症対策部防疫課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "仕事"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "患者郷土訪問補助",
+      "description": "補助金の目的：社会交流（郷土訪問等）をすることにより入所者の社会復帰への意欲の高揚を図り、また長期にわたる療養生活の慰安に資する 補助対象者 ：東京都出身ハンセン病療養所入所者 補助対象経費：目的地までの往復交通費、宿泊費、食卓料 負担割合 ：都10/10（宿泊料上限10,000円（施設所在地の隣県は11,000円、卓料上限2,200円）",
+      "area": "東京都",
+      "agency": "保健医療局感染症対策部防疫課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "仕事"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "空き家所有者補助金",
+      "description": "補助金の目的：空き家を有効活用した事業を創出するため 補助対象者 ：一般都民 補助対象経費：空き家の管理費相当額（固定資産税、都市計画税） 負担割合 ：1年目10/10、2年目2/3、3年目1/3",
+      "area": "東京都",
+      "agency": "産業労働局商工部創業支援課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.sangyo-rodo.metro.tokyo.lg.jp/chushou/shoko/sougyou/akiya/",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "クラウドファンディングを活用した東京農業支援事業費補助金",
+      "description": "補助金の目的：農業者等によるクラウドファンディング活用支援 補助対象者 ：農業者等 補助対象経費：クラウドファンディング活用時に要する手数料等 負担割合 ：都2/3",
+      "area": "東京都",
+      "agency": "産業労働局農林水産部農業振興課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "組織向けまたは申請者区分が不明確"
+    },
+    {
+      "title": "新東京都ＧＡＰ推進事業（認証取得・維持に必要な設備等の補助）費補助金",
+      "description": "補助金の目的：新東京都ＧＡＰ認証農産物の普及促進 補助対象者 ：新東京都ＧＡＰの認証を取得した農業者および取得に向け、指導を受けている農業者、またはこれらを補助する区市町村 補助対象経費：新東京都ＧＡＰを取得、維持する上で必要な環境整備等の経費 負担割合 ：都1/2、事業者1/2",
+      "area": "東京都",
+      "agency": "農業振興事務所振興課農業環境担当",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "生産農場清浄化対策",
+      "description": "補助金の目的：ヨーネ病、牛ウイルス性下痢、牛伝染性リンパ腫に感染している牛を淘汰する 補助対象者 ：都内の牛飼養者 補助対象経費：当該牛の評価額から利用額を控除した額 負担割合 ：都1/3以内",
+      "area": "東京都",
+      "agency": "産業労働局農林水産部食料安全課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "ワクチン接種の推進",
+      "description": "補助金の目的：アカバネ病、イバラキ病、牛6種混合のワクチン接種を推進する 補助対象者 ：都内の牛飼養者 補助対象経費：上述の３種類の接種料金の一部 負担割合 ：アカバネ病556円、牛６種混合573円",
+      "area": "東京都",
+      "agency": "産業労働局農林水産部食料安全課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "死亡牛処理費補助",
+      "description": "補助金の目的：死亡牛の処理・運搬費用を補助する 補助対象者 ：都内の牛飼養者 補助対象経費：死亡牛の処理・運搬費用の一部 負担割合 ：運搬費最大3,500円、処理費最大7,500円",
+      "area": "東京都",
+      "agency": "産業労働局農林水産部食料安全課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "特定家畜伝染病侵入防止対策事業費補助金",
+      "description": "補助金の目的：特定家畜伝染病の感染防止を推進する 補助対象者 ：都内の家畜・家きん飼養者 補助対象経費：特定家畜伝染病の病原体の侵入を防止する取組 負担割合 ：1/2以内",
+      "area": "東京都",
+      "agency": "産業労働局農林水産部食料安全課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "組織向けまたは申請者区分が不明確"
+    },
+    {
+      "title": "女性が輝く東京農業支援費補助金",
+      "description": "補助金の目的：女性農業者グループの活動及びネットワーク形成の支援 補助対象者 ：女性農業者グループ 補助対象経費：グループ活動に要する経費 負担割合 ：都1/2",
+      "area": "東京都",
+      "agency": "産業労働局農林水産部農業振興課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.sangyo-rodo.metro.tokyo.lg.jp/nourin/nougyou/shuunou/akademi/",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "農業スポットワーク活用促進事業奨励金",
+      "description": "補助金の目的：農業者のスポットワーカー活用を促進 補助対象者 ：スポットワークを利用する農業者 補助対象経費：スポットワーク初回利用経費 負担割合 ：定額",
+      "area": "東京都",
+      "agency": "産業労働局農林水産部農業振興課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "伐採を促進する契約合意支援事業費補助金",
+      "description": "補助金の目的：所有不明森林および境界が不明瞭な森林において、相続人への登記等の補助、境界の現地立会に係る経費を支援し、伐採促進につなげることを目的とする。 補助対象者 ：森林所有者 補助対象経費：①相続人の登記・調査等経費補助 ②相続人の登記等調整労力への謝金 ③現地立会に係る補助 負担割合 ：①③10/10 ②都1/2、事業体1/2",
+      "area": "東京都",
+      "agency": "産業労働局農林水産部森林課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "組織向けまたは申請者区分が不明確"
+    },
+    {
+      "title": "東京都家内労働対策労働衛生環境改善助成",
+      "description": "補助金の目的：有機溶剤を使用する作業等に従事する家内労働者の安全な作業環境を確保し、健康の維持を図ること。 補助対象者 ：家内労働者 補助対象経費：安全衛生設備の設置に要する経費 負担割合 ：都1/2又は3/4（限度額あり）、家内労働者1/2又は1/4",
+      "area": "東京都",
+      "agency": "産業労働局雇用就業部労働環境課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "医療"
+      ],
+      "source": "https://www.hataraku.metro.tokyo.lg.jp/shigoto/kanai/index2.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "緩衝建築物の建築費等一部負担",
+      "description": "補助金の目的：沿道地区計画区域内の騒音対策として緩衝建築物建築の促進 補助対象者 ：一般都民または一般事業者 補助対象経費：緩衝建築物の建築費用、既存建物の除去費用 負担割合 ：国1/2、都1/2",
+      "area": "東京都",
+      "agency": "建設局道路管理部管理課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "防音工事助成",
+      "description": "補助金の目的：沿道地区計画区域内の騒音対策として建築物の防音構造化の促進 補助対象者 ：一般都民または一般事業者 補助対象経費：既存住宅の防音工事等の費用 負担割合 ：都1",
+      "area": "東京都",
+      "agency": "建設局道路管理部管理課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "住宅"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "調布飛行場自家用機分散移転促進補助",
+      "description": "補助金の目的：調布飛行場自家用機の分散移転の促進 補助対象者 ：調布飛行場に自家用機の航空機登録を行う者 補助対象経費：移転先までの交通費、資機材購入費、資機材輸送費等 負担割合 ： 100%（上限額まで）",
+      "area": "東京都",
+      "agency": "港湾局離島港湾部管理課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.kouwan.metro.tokyo.lg.jp/documents/d/kouwan/rito_outline5",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "東京都調布飛行場周辺住宅等騒音防止工事に関する補助金",
+      "description": "補助金の目的：航空機騒音の軽減及び住宅又は教育施設等の室内の有効な空気調和の確保 補助対象者 ：一定の条件を満たした住人、事業者 補助対象経費：工事費 負担割合 都 ８割（上限あり）",
+      "area": "東京都",
+      "agency": "港湾局離島港湾部計画課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "住宅",
+        "教育"
+      ],
+      "source": "https://www.kouwan.metro.tokyo.lg.jp/jigyo/14_28jyutaku.pdf",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "ダイバーシティ推進校Ｎ２受験料支援",
+      "description": "補助金の目的：外国人の子どもの日本語能力向上のため 補助対象者 ：ダイバーシティ推進校生徒 補助対象経費：N2受験に要する費用 負担割合 ：都1/2 生徒1/2",
+      "area": "東京都",
+      "agency": "教育庁グローバル人材育成部国際教育企画課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "幼稚園教諭経験者の小学校教諭免許状取得に係る補助金",
+      "description": "補助金の目的：隣接免許取得制度の周知を図るとともに制度活用を促進し、都内公立小学校における優秀な教員を確保すること 補助対象者 ：小学校教諭免許取得希望者 補助対象経費：免許状取得に係る受講費用等 負担割合 ：10/10（上限あり）",
+      "area": "東京都",
+      "agency": "教育庁人事部選考課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "都立高等学校及び都立中等教育学校後期課程の入学者への端末購入支援金",
+      "description": "補助金の目的：都立高等学校及び都立中等教育学校後期課程の入学者が購入するタブレット端末等の保護者負担額を軽減 補助対象者 ： 【保護者負担定額補助】 都立高等学校及び都立中等教育学校後期課程の入学者のうち端末を購入する者 【多子世帯補助】 保護者負担定額補助の対象者のうち、令和8年4月1日現在で、保護者等が扶養する23歳未満の子が3名以上いる世帯 【給付型奨学金（端末購入補助）】 保護者負担定額補助の対象者のうち、給付型奨学金対象世帯 補助対象経費： 都立高等学校及び都立中等教育学校後期課程の入学者が購入するタブレット端末等の購入経費 負担割合 ： 【保護者負担定額補助】保護者負担額が端末１台につき30,000円になるように補助 【多子世帯補助】15,000円（保護者負担額が端末１台につき15,000円になるように補助） 【給付型奨学金（端末購入補助）】30,000円（保護者負担額が端末１台につき0円になるように補助）",
+      "area": "東京都",
+      "agency": "教育庁企画部デジタル推進課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/admission/tuition/tuition/device_monetary_assistance.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高等学校就学支援金（都立高等学校等）",
+      "description": "補助金の目的：教育費の負担の軽減 補助対象者 ：個人 補助対象経費：授業料 負担割合 ：国3/4、都1/4",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/admission/tuition/tuition/scholarship.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高等学校奨学給付金（都立高等学校等）",
+      "description": "補助金の目的：授業料以外の教育費の負担の軽減 補助対象者 ：個人 補助対象経費：授業料以外の教育に必要な経費 負担割合 ：国1/2、都1/2",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/admission/tuition/tuition/scholarship_public_school.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高等学校奨学給付金（都立高等学校等以外の国公立高等学校等）（全日制高等学校管理運営（二次））",
+      "description": "補助金の目的：授業料以外の教育費の負担の軽減 補助対象者 ：個人 補助対象経費：授業料以外の教育に必要な経費 負担割合 ：国1/2、都1/2",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/admission/tuition/tuition/scholarship_public_school.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "学び直しへの支援（全日制高等学校管理運営（二次））",
+      "description": "補助金の目的：教育費の負担の軽減 補助対象者 ：個人 補助対象経費：授業料 負担割合 ：国3/4、都1/4",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高等学校における感染症対策等経費",
+      "description": "補助金の目的：感染症対策の影響により中止となった修学旅行等のキャンセル料等補助 補助対象者 ：修学旅行等に申し込みをしていた児童・生徒の保護者 補助対象経費：キャンセル料・手数料等 負担割合 ：都1/1",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "子育て",
+        "教育"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "特別支援学校就学支援金",
+      "description": "補助金の目的：教育に係る経済的な負担軽減、教育の機会均等 補助対象者 ：都立高等学校等に在学する生徒 補助対象経費：都立特別支援学校高等部授業料 負担割合 ：国3/4、都1/4",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部特別支援教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/admission/tuition/tuition/scholarship.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "学び直しへの支援（特別支援学校の管理運営）",
+      "description": "補助金の目的：学び直しの機会確保 補助対象者 ：就学支援金対象者のうち、高等学校等を中途退学した者が、学び直しのため高等学校等へ再入学した場合 補助対象経費：授業料又は通信教育受講料 負担割合 ：国3/4、都1/4",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部特別支援教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "給付型奨学金（特別支援学校）",
+      "description": "補助金の目的：教育費の負担軽減 補助対象者 ：都立高等学校等に在学する生徒（所得制限等の要件あり） 補助対象経費：生徒が選択的学習活動に参加するために必要な経費 負担割合 ：都全額負担",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部特別支援教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/admission/tuition/tuition/non-refundable_scholarship.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "被災児童・生徒就学援助事業",
+      "description": "補助金の目的：被災地域からの避難による経済的負担軽減、就学の機会確保 補助対象者 ：被災による転入学者で就学奨励費の申請を行い、補助金の交付を希望する者 補助対象経費：就学奨励事業対象経費(限度額超過分）、就学奨励事業対象外経費（実費相当額） 負担割合 ：都全額負担",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部特別支援教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "子育て"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高等学校就学支援金",
+      "description": "補助金の目的：教育費の負担の軽減 補助対象者 ：個人 補助対象経費：授業料 負担割合 ：国3/4、都1/4",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/admission/tuition/tuition/scholarship.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高等学校奨学給付金",
+      "description": "補助金の目的：授業料以外の教育費の負担の軽減 補助対象者 ：個人 補助対象経費：授業料以外の教育に必要な経費 負担割合 ：国1/2、都1/2",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/admission/tuition/tuition/scholarship_public_school.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高等学校奨学給付金（都立高等学校等以外の国公立高等学校等）（定時制・通信制高等学校管理運営（二次））",
+      "description": "補助金の目的：授業料以外の教育費の負担の軽減 補助対象者 ：個人 補助対象経費：授業料以外の教育に必要な経費 負担割合 ：国1/2、都1/2",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/admission/tuition/tuition/scholarship_public_school.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "学び直しへの支援（定時制・通信制高等学校管理運営（二次））",
+      "description": "補助金の目的：教育費の負担の軽減 補助対象者 ：個人 補助対象経費：授業料 負担割合 ：国3/4、都1/4",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "修学旅行費補助",
+      "description": "補助金の目的：東京都立高等学校の定時制課程及び通信制課程における学校行事としての修学旅行に参加する生徒の経済的負担の軽減 補助対象者 ：授業料減免者に相当する者かつ有職生徒のうち補助金の交付を希望する者 補助対象経費：修学旅行に要した経費 負担割合 ：100% （上限額 定時制:5,000円、通信制:2,000円）",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "修学指導事業費補助",
+      "description": "補助金の目的：東京都立高等学校の定時制課程 における定時制教育修学指導事業に参加する生徒の経済的負担の軽減 補助対象者 ：授業料減免者に相当する者かつ有職生徒のうち補助金の交付を希望する者 補助対象経費：交通費及び施設使用料 負担割合 ：100％ ただし、一人当たりの補助金の上限額は毎年度別に定める。",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "組織向けまたは申請者区分が不明確"
+    },
+    {
+      "title": "定時制教科用図書補助",
+      "description": "補助金の目的：東京都立高等学校の定時制課程における教科用図書を購入する生徒の経済的負担の軽減 補助対象者 ：有職生徒のうち補助金の交付を希望する者 補助対象経費：採択教科書及び著作教科書の購入費 負担割合 ：100％",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "通信制教科用図書補助",
+      "description": "補助金の目的：東京都立高等学校の通信制課程における教科用図書を購入する生徒の経済的負担の軽減 補助対象者 ：有職生徒のうち補助金の交付を希望する者 補助対象経費：採択教科書及び著作教科書並びに学習書の購入費 負担割合 ：100％",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "給付型奨学金（高等学校）",
+      "description": "補助金の目的：学校の多様な教育活動に係る経費負担の軽減 補助対象者 ：個人 補助対象経費：学校の多様な教育活動に係る経費 負担割合 ：都1/1",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/admission/tuition/tuition/non-refundable_scholarship.html",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "被災児童・生徒の就学補助",
+      "description": "補助金の目的：災害により被災した者の経済的負担軽減 補助対象者 ：都が定める災害により被災した都立高等学校等生徒 補助対象経費：在学する都立高等学校等における教育活動のために必要な経費 負担割合 ：都1/1",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "子育て",
+        "教育"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "東京都立高等学校工業系資格取得支援補助金",
+      "description": "補助金の目的：都立工科高校生及び都立産業科高校生の実践的なものづくり技能の習得促進 補助対象者 ：都立工科高校生及び都立産業科高校生 補助対象経費：工業系資格の受験料及び試験対策に要する経費 負担割合 ：都1/2、生徒1/2（補助上限額5万円）",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "https://www.kyoiku.metro.tokyo.lg.jp/school/high_school/specialized_school/tech/qualification_acquisition_assistance_system",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "東京都立高等学校農業関連資格取得支援補助金",
+      "description": "補助金の目的：都立農業系高校生が専門知識を深める農業関連資格の習得促進 補助対象者 ：都立農業系高校生 補助対象経費：農業関連資格の受験料及び試験対策に要する経費 負担割合 ：都1/2、生徒1/2（補助上限額5万円）",
+      "area": "東京都",
+      "agency": "教育庁都立学校教育部高等学校教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    },
+    {
+      "title": "高校生留学促進事業",
+      "description": "補助金の目的：高等学校等に在籍し、海外へ留学する意欲や関心のある生徒が留学することで生じる経済的負担を軽減することにより、世界に向かってチャレンジしようとする高校生を支援し、海外への留学を促進するため 補助対象者 ：学校教育活動の一環としての学校や地方公共団体、高校生及び中学生の留学・交流を扱う民間団体等が主催する短期の海外派遣プログラムへ参加する高等学校等に在籍する生徒 補助対象経費：プログラム参加に要する経費（補助対象事業に係る主務部の長が別に定めたものに係る経費） 負担割合：国10/10（上限あり）",
+      "area": "東京都",
+      "agency": "教育庁グローバル人材育成部国際交流教育課",
+      "target": "一般都民",
+      "eligible_costs": "",
+      "categories": [
+        "教育"
+      ],
+      "source": "",
+      "review_status": "要確認",
+      "review_reason": "個人の直接申請可否が未確認"
+    }
+  ]
+}
