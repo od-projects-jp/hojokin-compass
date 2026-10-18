@@ -215,7 +215,9 @@
       "source": "https://www.city.koganei.lg.jp/kosodatekyoiku/N84/jukennseicyarenji.html",
       "review_status": "公式情報確認済み",
       "verified_at": "2026-10-19",
-      "support_type": "無利子貸付"
+      "support_type": "無利子貸付",
+      "application_deadline": "2027-02-01",
+      "deadline_note": "2026年度申請期限。詳細は小金井市の公式案内を確認。"
     },
     {
       "title": "妊婦健康診査費用助成（小金井市）",
@@ -503,7 +505,9 @@
       "source": "https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/jutaku/sien/akiya/akiyatennyuuteijyuu.html",
       "review_status": "公式情報確認済み",
       "verified_at": "2026-10-19",
-      "support_type": "住宅購入補助金"
+      "support_type": "住宅購入補助金",
+      "application_deadline": "2026-11-27",
+      "deadline_note": "2026年度交付申請期限。売買契約前の交付決定が必要。予算状況による早期終了の可能性あり。"
     }
   ]
 }
