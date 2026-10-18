@@ -22,3 +22,21 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Validate curated JSON
         run: python -c "import collect_individual; print(len(collect_individual.load_verified()), 'verified records')"
+      - name: Validate published dataset and coverage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from collect_individual import load_verified
+          from individual_coverage import build_coverage
+          published = json.loads(Path("public/data/individual.json").read_text(encoding="utf-8"))
+          records = published["subsidies"]
+          verified = load_verified()
+          assert records == verified, "Published data differs from verified sources"
+          assert published["total"] == len(verified), "Incorrect published count"
+          coverage = json.loads(Path("public/data/individual_coverage.json").read_text(encoding="utf-8"))
+          expected = build_coverage(records)
+          for key in ("prefectures", "nationwide", "prefectures_with_records", "total_prefectures"):
+              assert coverage[key] == expected[key], f"Coverage mismatch: {key}"
+          print(f"Published {len(records)} validated records; coverage consistent")
+          PY
