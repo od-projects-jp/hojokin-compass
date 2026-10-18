@@ -119,7 +119,7 @@ const q=document.getElementById("keyword").value.trim().toLowerCase();
 const filtered=data.filter(x=>{
 const categories=Array.isArray(x.categories)?x.categories.join(" "):field(x.category);
 const area=field(x.area);
-const hay=[x.title,x.description,x.agency,categories].map(field).join(" ").toLowerCase();
+const hay=[x.title,x.description,x.agency,x.target,categories].map(field).join(" ").toLowerCase();
 return (!topic||categories.includes(topic))
 &&(!r||area.includes(r)||area.includes("全国"))
 &&(!q||hay.includes(q));
@@ -139,7 +139,11 @@ const card=document.createElement("article");card.className="item";
 const h=document.createElement("h3");h.textContent=field(x.title);
 const p=document.createElement("p");p.className="meta";
 p.textContent=[x.area,x.agency,x.description].filter(Boolean).join(" / ");
-card.append(h,p);
+const eligibility=document.createElement("p");eligibility.className="meta";
+eligibility.textContent=x.target?"対象者："+field(x.target):"対象者：公式情報で確認してください";
+const verified=document.createElement("p");verified.className="meta";
+verified.textContent=x.verified_at?"情報確認日："+field(x.verified_at):"情報確認日は未登録です";
+card.append(h,p,eligibility,verified);
 if(typeof x.source==="string"&&/^https:\/\//.test(x.source)){
 const a=document.createElement("a");
 a.href=x.source;a.target="_blank";a.rel="noopener noreferrer";
@@ -157,10 +161,10 @@ render();
 });
 region.addEventListener("change",render);
 document.getElementById("keyword").addEventListener("input",render);
-fetch("./public/data/individual.json?v=4",{cache:"no-store"})
-.then(r=>{if(!r.ok)throw Error("not ready");return r.json()})
+fetch("./public/data/individual.json",{cache:"no-store"})
+.then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()})
 .then(j=>{data=Array.isArray(j)?j:Array.isArray(j.subsidies)?j.subsidies:[];render()})
-.catch(()=>{data=[];render()});
+.catch(err=>{count.textContent="データを読み込めませんでした";results.textContent="通信またはデータの読み込みに失敗しました。ページを再読み込みしてください。";console.error("Individual data load failed:",err)});
 </script>
 </body>
 </html>
