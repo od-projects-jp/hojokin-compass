@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>個人向け支援制度 | Hojokin Compass</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f7f7f1;color:#193b31;font-family:"Helvetica Neue","Yu Gothic",Meiryo,sans-serif}
+header{background:white;border-bottom:1px solid #e0e6dc;padding:19px max(24px,calc((100% - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font-weight:800;font-size:18px;color:#193b31;text-decoration:none}
+.back{font-size:13px;color:#587064;text-decoration:none}
+main{max-width:1120px;margin:auto;padding:54px 24px 90px}
+.eyebrow{color:#67876a;font-size:12px;letter-spacing:2px;font-weight:800}
+h1{font-size:clamp(30px,4vw,47px);line-height:1.4;margin:14px 0}
+.lead{color:#687a70;line-height:1.9;margin-bottom:38px}
+h2{font-size:19px;margin:30px 0 18px}
+.topics{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.topic{background:white;border:1px solid #e0e6dc;border-radius:14px;padding:22px;text-align:left;cursor:pointer;color:#193b31;font:inherit;display:flex;align-items:center;gap:14px;transition:.15s}
+.topic:hover{border-color:#8ca68e}
+.topic.active{background:#e8f0e2;border:2px solid #193b31;padding:21px}
+.topic svg{width:28px;height:28px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.topic span{font-weight:700}
+.panel{background:white;border:1px solid #e0e6dc;border-radius:16px;padding:25px;margin-top:26px}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-weight:700;font-size:13px;margin-bottom:8px}
+select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;background:white;font-size:15px;color:#193b31}
+.count{font-weight:800;font-size:19px;margin:28px 0 12px}
+.item{background:white;border:1px solid #e0e6dc;border-radius:13px;padding:23px;margin-bottom:12px}
+.item h3{margin:0 0 12px;font-size:18px}
+.meta{color:#66776c;font-size:13px;line-height:1.8}
+.item a{color:#193b31;font-weight:700}
+.empty{border:1px dashed #b8c8ba;border-radius:14px;padding:38px 24px;text-align:center;background:#fff}
+.empty strong{display:block;font-size:19px;margin-bottom:12px}
+.empty p{color:#687a70;line-height:1.8}
+.note{font-size:12px;color:#7c8b80;line-height:1.8;margin-top:24px}
+@media(max-width:650px){main{padding-top:35px}.topics{grid-template-columns:repeat(2,1fr)}.topic{padding:16px;gap:9px}.topic.active{padding:15px}.topic svg{width:23px}.filters{grid-template-columns:1fr}header{padding:17px 20px}}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="./">✧ Hojokin Compass</a>
+<a class="back" href="./">← トップに戻る</a>
+</header>
+<main>
+<div class="eyebrow">SUPPORT FOR INDIVIDUALS</div>
+<h1>暮らしに役立つ支援を、<br>あなたの目線で。</h1>
+<p class="lead">制度名を知らなくても大丈夫。<br>関心のある分野とお住まいの地域から、支援制度を探せます。</p>
+
+<h2>どんな支援を探していますか？</h2>
+<div class="topics">
+<button class="topic" data-topic="住宅">
+<svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v11H3z"/><path d="M9 21v-8h6v8"/></svg>
+<span>住宅・住まい</span>
+</button>
+<button class="topic" data-topic="子育て">
+<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21v-3a7 7 0 0 1 14 0v3"/></svg>
+<span>子育て・出産</span>
+</button>
+<button class="topic" data-topic="教育">
+<svg viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5zM6 12v6c4 3 8 3 12 0v-6"/></svg>
+<span>教育・学び</span>
+</button>
+<button class="topic" data-topic="医療">
+<svg viewBox="0 0 24 24"><path d="M12 21s-9-5.5-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-9 12-9 12z"/><path d="M8 12h8m-4-4v8"/></svg>
+<span>医療・健康</span>
+</button>
+<button class="topic" data-topic="仕事">
+<svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 13h18"/></svg>
+<span>仕事・暮らし</span>
+</button>
+<button class="topic" data-topic="省エネ">
+<svg viewBox="0 0 24 24"><path d="M20 4C9 4 4 9 4 16a5 5 0 0 0 5 5c7 0 12-5 11-17z"/><path d="M4 21c3-6 7-9 12-12"/></svg>
+<span>環境・省エネ</span>
+</button>
+</div>
+
+<div class="panel">
+<div class="filters">
+<div>
+<label for="region">お住まいの地域</label>
+<select id="region"><option value="">全国・地域未指定</option></select>
+</div>
+<div>
+<label for="keyword">キーワード</label>
+<input id="keyword" placeholder="例：リフォーム、奨学金">
+</div>
+</div>
+</div>
+
+<div class="count" id="count">支援制度を読み込み中...</div>
+<div id="results"></div>
+<p class="note">掲載情報は公的機関の公開情報に基づきます。制度の利用可否・申請条件・募集状況は必ず公式情報でご確認ください。</p>
+</main>
+<script>
+const prefectures=[
+"北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県",
+"茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県",
+"新潟県","富山県","石川県","福井県","山梨県","長野県",
+"岐阜県","静岡県","愛知県","三重県",
+"滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県",
+"鳥取県","島根県","岡山県","広島県","山口県",
+"徳島県","香川県","愛媛県","高知県",
+"福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"
+];
+const region=document.getElementById("region");
+prefectures.forEach(p=>{
+const o=document.createElement("option");
+o.value=p;o.textContent=p;region.appendChild(o);
+});
+let data=[],topic="";
+const results=document.getElementById("results");
+const count=document.getElementById("count");
+function field(v){return String(v??"")}
+function render(){
+const r=region.value;
+const q=document.getElementById("keyword").value.trim().toLowerCase();
+const filtered=data.filter(x=>{
+const categories=Array.isArray(x.categories)?x.categories.join(" "):field(x.category);
+const area=field(x.area);
+const hay=[x.title,x.description,x.agency,categories].map(field).join(" ").toLowerCase();
+return (!topic||categories.includes(topic))
+&&(!r||area.includes(r)||area.includes("全国"))
+&&(!q||hay.includes(q));
+});
+count.textContent=filtered.length+"件の支援制度";
+results.replaceChildren();
+if(!filtered.length){
+const box=document.createElement("div");box.className="empty";
+const title=document.createElement("strong");
+title.textContent=data.length?"該当する制度がありません":"個人向けデータを準備しています";
+const msg=document.createElement("p");
+msg.textContent=data.length?"条件を変更してお試しください。":"現在、公的データの収集・確認を進めています。制度情報が整い次第、こちらに掲載します。";
+box.append(title,msg);results.appendChild(box);return;
+}
+filtered.forEach(x=>{
+const card=document.createElement("article");card.className="item";
+const h=document.createElement("h3");h.textContent=field(x.title);
+const p=document.createElement("p");p.className="meta";
+p.textContent=[x.area,x.agency,x.description].filter(Boolean).join(" / ");
+card.append(h,p);
+if(typeof x.source==="string"&&/^https:\/\//.test(x.source)){
+const a=document.createElement("a");
+a.href=x.source;a.target="_blank";a.rel="noopener noreferrer";
+a.textContent="公式情報を確認 →";card.appendChild(a);
+}
+results.appendChild(card);
+});
+}
+document.querySelectorAll(".topic").forEach(b=>{
+b.addEventListener("click",()=>{
+topic=topic===b.dataset.topic?"":b.dataset.topic;
+document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dataset.topic===topic));
+render();
+});
+});
+region.addEventListener("change",render);
+document.getElementById("keyword").addEventListener("input",render);
+fetch("./public/data/individual.json")
+.then(r=>{if(!r.ok)throw Error("not ready");return r.json()})
+.then(j=>{data=Array.isArray(j)?j:Array.isArray(j.subsidies)?j.subsidies:[];render()})
+.catch(()=>{data=[];render()});
+</script>
+</body>
+</html>
