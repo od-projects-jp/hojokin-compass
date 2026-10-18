@@ -65,6 +65,22 @@ jobs:
           assert report == expected, "Deadline report does not match curated records"
           print(f"{len(expected['programs'])} deadlines validated")
           PY
+      - name: Validate static directory and sitemap
+        run: |
+          python - <<'PY'
+          from html import escape
+          from pathlib import Path
+          from collect_individual import load_verified
+          from build_individual_directory import build_directory
+          records = load_verified()
+          html = Path("individual-directory.html").read_text(encoding="utf-8")
+          for item in records:
+              assert escape(item["title"]) in html, "Missing directory record: " + item["title"]
+          assert "個人向け支援制度一覧" in html
+          assert "individual-directory.html" in Path("sitemap.xml").read_text(encoding="utf-8")
+          assert len(records) == html.count('<article class="item">'), "Directory count mismatch"
+          print(f"Static directory validated: {len(records)} records")
+          PY
       - name: Validate browser JavaScript syntax
         run: |
           python - <<'PY'
