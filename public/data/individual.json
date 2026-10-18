@@ -1,7 +1,63 @@
 {
-  "generated_at": "2026-10-18T14:28:02.507628+00:00",
+  "generated_at": "2026-10-18T14:31:51.605238+00:00",
   "source_name": "東京都 2026年補助金一覧",
   "source_url": "https://www.opendata.metro.tokyo.lg.jp/zaimu/hojokin2026.csv",
-  "total": 0,
-  "subsidies": []
+  "total": 4,
+  "subsidies": [
+    {
+      "title": "018サポート",
+      "description": "東京都内に住む0歳から18歳までの子どもを対象に、月額5,000円（年間最大60,000円）を支給。所得制限はありません。既に受給中の場合、原則として再申請は不要です。",
+      "area": "東京都",
+      "agency": "東京都",
+      "target": "対象年齢に該当し、令和8年度中に東京都内に住所を有する、または有していた子ども。申請者は原則として子どもを監護し生計を同じくする父母等。",
+      "categories": [
+        "子育て"
+      ],
+      "source": "https://018support.metro.tokyo.lg.jp/",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-18"
+    },
+    {
+      "title": "令和8年度 家庭における蓄電池導入促進事業",
+      "description": "東京都内の住宅に対象となる蓄電池を設置する場合の助成制度。蓄電池パッケージは10万円/kWhを基本とし、経費上限やDR実証参加による加算などの条件があります。",
+      "area": "東京都",
+      "agency": "東京都・クール・ネット東京",
+      "target": "都内の住宅に対象機器を新規設置する機器所有者。機器の登録要件、設置時期、重複受給制限などがあります。",
+      "categories": [
+        "住宅",
+        "省エネ"
+      ],
+      "source": "https://www.tokyo-co2down.jp/subsidy/family_tikudenchi/r8/",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-18"
+    },
+    {
+      "title": "令和8年度 家庭における太陽光発電導入促進事業",
+      "description": "東京都内の住宅に対象となる太陽光発電システムを設置する場合の助成制度。新築住宅では発電出力や住宅の条件に応じて助成額が変わります。",
+      "area": "東京都",
+      "agency": "東京都・クール・ネット東京",
+      "target": "都内の住宅に対象の太陽光発電システムを導入する方。対象機器、申込時期、工事などの詳細条件があります。",
+      "categories": [
+        "住宅",
+        "省エネ"
+      ],
+      "source": "https://www.tokyo-co2down.jp/subsidy/fam_solar/r8/",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-18"
+    },
+    {
+      "title": "令和8年度 東京ゼロエミ住宅の新築に対する助成",
+      "description": "東京都内で東京ゼロエミ住宅の認証を受けた新築住宅を建てる場合の助成制度。戸建住宅は認証水準に応じて40万円、160万円、240万円の助成があります。",
+      "area": "東京都",
+      "agency": "東京都",
+      "target": "東京都内で対象となる新築住宅を建築する個人・事業者。東京ゼロエミ住宅の設計確認・認証などが必要です。",
+      "categories": [
+        "住宅",
+        "省エネ"
+      ],
+      "source": "https://www.kankyo.metro.tokyo.lg.jp/climate/home/tokyo_zeroemission_house/jyoseiseido",
+      "review_status": "公式情報確認済み",
+      "verified_at": "2026-10-18"
+    }
+  ]
 }
