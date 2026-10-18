@@ -185,15 +185,16 @@ render();
 });
 });
 region.addEventListener("change",()=>{refreshMunicipalities();render();showCoverage()});
-municipality.addEventListener("change",render);
+municipality.addEventListener("change",()=>{render();showCoverage()});
 let coverage=null;
 const coverageElement=document.getElementById("coverage");
 function showCoverage(){
  if(!coverage){coverageElement.textContent="掲載地域の情報を準備しています。";return;}
  const selected=region.value;
  const n=selected?Number(coverage.prefectures?.[selected]||0)+Number(coverage.nationwide||0):null;
+ const city=municipality.value;
  coverageElement.textContent=selected
- ? selected+"の掲載済み確認制度："+n+"件（未掲載の制度もあります）"
+ ? (city?"選択した地域の検索結果を表示中。都道府県・全国制度も含みます。":"")+selected+"の掲載済み確認制度："+n+"件（市区町村の選択により表示件数は変わります。未掲載の制度もあります）"
  : "掲載済み制度がある都道府県："+coverage.prefectures_with_records+"/47。全国の制度を網羅した件数ではありません。";
 }
 fetch("./public/data/individual_coverage.json",{cache:"no-store"})
