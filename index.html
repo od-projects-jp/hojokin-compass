@@ -14,13 +14,19 @@ body{margin:0;background:#f7f7f1;color:#193b31;font-family:"Helvetica Neue","Yu 
 header{padding:22px 6%;border-bottom:1px solid #e2e6da;display:flex;align-items:center;gap:12px}
 .logo{width:40px;height:40px;background:#193b31;color:#dceba8;border-radius:12px;display:grid;place-items:center;font-size:27px}
 .brand{font-size:19px;font-weight:800;letter-spacing:-.5px}
-main{max-width:1050px;margin:0 auto;padding:76px 24px 90px}
+main{max-width:1100px;margin:0 auto;padding:62px 24px 90px}
+.hero{background:linear-gradient(115deg,#e7f2e8,#f7f7f1 68%);border:1px solid #dae7dc;border-radius:26px;padding:38px 42px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero:after{content:"✳";position:absolute;right:24px;top:-66px;font-size:280px;color:#c9e1d0;opacity:.45;pointer-events:none}
+.hero>*{position:relative;z-index:1}.hero h1{max-width:730px}.hero .intro{margin-bottom:0;max-width:700px}
+.benefits{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.benefits span{font-size:12px;font-weight:700;color:#24543f;background:#fff;border:1px solid #dce7d8;border-radius:99px;padding:7px 13px}
+.section-title{font-size:19px;margin:24px 0 16px}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0 34px}.quick a{display:flex;align-items:center;gap:9px;background:white;border:1px solid #e0e7de;border-radius:12px;padding:15px 13px;color:#24543f;font-size:13px;font-weight:800;text-decoration:none}.quick a:hover{background:#eaf3e8;border-color:#82aa8d}.quick svg{width:22px;height:22px;flex-shrink:0;fill:none;stroke:#378062;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.area{background:#eff4e9;border-radius:18px;padding:24px 28px;margin-top:28px}.area h2{font-size:21px}.area p{color:#566d5f;font-size:13px;line-height:1.9}.area a{color:#1c5942;font-weight:800}.area small{display:block;color:#63786a;margin-top:12px}
 .eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;color:#64856d}
 h1{font-size:clamp(32px,5vw,56px);line-height:1.35;letter-spacing:-2px;margin:18px 0}
 .intro{color:#65746c;font-size:16px;line-height:1.9;margin-bottom:48px}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .card{background:#fff;border:1px solid #e1e6dc;border-radius:18px;padding:34px;text-decoration:none;color:#193b31;transition:.2s;box-shadow:0 5px 20px #193b3108}
-.card:hover{transform:translateY(-4px);border-color:#729681;box-shadow:0 12px 30px #193b3115}
+.card:hover{transform:translateY(-4px);border-color:#729681;box-shadow:0 12px 30px #193b3115}.card:first-child{background:linear-gradient(155deg,#fff,#f0f8ed)}.card:nth-child(2){background:linear-gradient(155deg,#fff,#eff4fc)}
 .symbol{width:60px;height:60px;border-radius:15px;background:#e9f0e4;display:grid;place-items:center;margin-bottom:26px}
 .symbol svg{width:30px;height:30px;stroke:#193b31;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 h2{font-size:25px;margin:0 0 12px}
@@ -28,7 +34,7 @@ h2{font-size:25px;margin:0 0 12px}
 .go{display:inline-block;margin-top:24px;font-weight:800;font-size:14px;border-bottom:2px solid #b0c777;padding-bottom:7px}
 .note{margin-top:34px;font-size:12px;color:#78867e;line-height:1.8}
 footer{padding:25px 6%;border-top:1px solid #e2e6da;color:#849087;font-size:12px}
-@media(max-width:650px){main{padding-top:48px}.cards{grid-template-columns:1fr}.card{padding:26px}.desc{min-height:0}}
+@media(max-width:650px){main{padding-top:28px}.hero{padding:26px 20px}.hero:after{font-size:190px;top:-30px;right:-30px}.cards{grid-template-columns:1fr}.quick{grid-template-columns:repeat(2,1fr)}.card{padding:26px}.desc{min-height:0}}
 </style>
 </head>
 <body>
@@ -37,9 +43,9 @@ footer{padding:25px 6%;border-top:1px solid #e2e6da;color:#849087;font-size:12px
 <div class="brand">Hojokin Compass</div>
 </header>
 <main>
-<div class="eyebrow">FIND THE SUPPORT THAT FITS YOU</div>
+<section class="hero"><div class="eyebrow">FIND THE SUPPORT THAT FITS YOU</div>
 <h1>あなたに合う支援制度を、<br>もっと簡単に。</h1>
-<p class="intro">補助金・助成金・給付金を、探す。その先へ。<br>まずは、あなたに合った入口を選んでください。</p>
+<p class="intro">知らなかった支援が、暮らしや事業の選択肢を広げる。<br>登録不要・無料で、公式情報をもとに探せます。</p><div class="benefits"><span>✓ 登録不要</span><span>✓ 完全無料</span><span>✓ 公式情報へのリンク</span></div></section><h2 class="section-title">あなたはどちらですか？</h2>
 <div class="cards">
 <a class="card" href="individual.html">
 <div class="symbol">
@@ -64,7 +70,7 @@ footer{padding:25px 6%;border-top:1px solid #e2e6da;color:#849087;font-size:12px
 <span class="go">補助金を検索する →</span>
 </a>
 </div>
-<p class="note"><a href="guide.html">はじめての方へ：支援制度の探し方と申請前の確認ポイント →</a></p>
+<h2 class="section-title">暮らしのテーマから探す</h2><nav class="quick" aria-label="個人向けの支援テーマ"><a href="individual.html"><svg viewBox="0 0 24 24"><path d="M3 10 12 3l9 7v11H3zM9 21v-8h6v8"/></svg>住宅・住まい</a><a href="individual.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg>子育て・出産</a><a href="individual.html"><svg viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5zM6 12v6c4 3 8 3 12 0v-6"/></svg>教育・学び</a><a href="individual.html"><svg viewBox="0 0 24 24"><path d="M12 21s-9-5-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 7-9 12-9 12z"/></svg>医療・健康</a></nav><section class="area"><h2>まずは関東の制度情報を充実させます</h2><p>全国共通の制度に加え、東京都・神奈川県・埼玉県の自治体制度を掲載中。千葉県・茨城県・栃木県・群馬県なども、公式情報を確認できたものから順次追加します。</p><a href="individual-directory.html">現在掲載中の個人向け制度を見る →</a><small>※ 現時点で関東全域を網羅しているわけではありません。申請条件は各制度の公式サイトでご確認ください。</small></section><p class="note"><a href="guide.html">はじめての方へ：支援制度の探し方と申請前の確認ポイント →</a></p>
 <p class="note">※ 個人・法人向け検索は登録不要・無料です。検索条件やお気に入りはブラウザ内に保存できます。掲載情報は必ず公的機関の最新情報をご確認ください。 <a href="privacy.html">プライバシーと保存データについて</a></p>
 </main>
 <footer>© Hojokin Compass　<a href="privacy.html">プライバシーについて</a></footer>
