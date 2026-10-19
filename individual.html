@@ -17,6 +17,8 @@ h1{font-size:clamp(30px,4vw,47px);line-height:1.4;margin:14px 0}
 .lead{color:#687a70;line-height:1.9;margin-bottom:38px}
 h2{font-size:19px;margin:30px 0 18px}
 .topics{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.topic:nth-child(6n+1){background:#f0f6e9}.topic:nth-child(6n+2){background:#fff1ee}.topic:nth-child(6n+3){background:#eff3fc}.topic:nth-child(6n+4){background:#edf8f6}.topic:nth-child(6n+5){background:#fff5e6}.topic:nth-child(6n+6){background:#f2f2e8}
+.topic:focus-visible{outline:3px solid #638f7b;outline-offset:3px}
 .topic{background:white;border:1px solid #e0e6dc;border-radius:14px;padding:22px;text-align:left;cursor:pointer;color:#193b31;font:inherit;display:flex;align-items:center;gap:14px;transition:.15s}
 .topic:hover{border-color:#8ca68e}
 .topic.active{background:#e8f0e2;border:2px solid #193b31;padding:21px}
@@ -27,7 +29,13 @@ h2{font-size:19px;margin:30px 0 18px}
 label{display:block;font-weight:700;font-size:13px;margin-bottom:8px}
 select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;background:white;font-size:15px;color:#193b31}
 .count{font-weight:800;font-size:19px;margin:28px 0 12px}
-.item{background:white;border:1px solid #e0e6dc;border-radius:13px;padding:23px;margin-bottom:12px}
+.item{background:white;border:1px solid #e0e6dc;border-radius:17px;padding:24px;margin-bottom:14px;box-shadow:0 6px 20px #193b3108}
+.item:hover{border-color:#91b59d;box-shadow:0 9px 24px #193b3110}
+.item-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.tag{display:inline-flex;align-items:center;padding:5px 10px;border-radius:99px;font-size:12px;font-weight:800;background:#e8f1e9;color:#245740}.tag.local{background:#f3ebd9;color:#76572c}.tag.category{background:#edf0fb;color:#3d5485}
+.item-summary{font-size:14px;color:#3f5549;line-height:1.85;margin:10px 0 14px}.item-details{background:#f8faf7;border-radius:11px;padding:12px 15px;margin:12px 0}.item-details p{margin:5px 0}
+.item-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px}.item-actions .favorite{margin:0}.official-link{display:inline-block;background:#193b31;color:#fff!important;border-radius:9px;padding:11px 16px;text-decoration:none;font-size:13px}.official-link:hover{background:#31614c}
+.hero-search{background:linear-gradient(120deg,#e8f4e9,#f7f7f1);border-radius:22px;padding:28px 30px;margin-bottom:30px}.hero-search .lead{margin-bottom:0}
+.city-hint{font-size:12px;color:#5e7465;line-height:1.7;margin:7px 0 0}
 .item h3{margin:0 0 12px;font-size:18px}
 .meta{color:#66776c;font-size:13px;line-height:1.8}
 .item a{color:#193b31;font-weight:700}
@@ -44,7 +52,7 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 .empty strong{display:block;font-size:19px;margin-bottom:12px}
 .empty p{color:#687a70;line-height:1.8}
 .note{font-size:12px;color:#7c8b80;line-height:1.8;margin-top:24px}
-@media(max-width:650px){main{padding-top:35px}.topics{grid-template-columns:repeat(2,1fr)}.topic{padding:16px;gap:9px}.topic.active{padding:15px}.topic svg{width:23px}.filters{grid-template-columns:1fr}header{padding:17px 20px}}
+@media(max-width:650px){main{padding-top:25px}.hero-search{padding:24px 19px}.topics{grid-template-columns:repeat(2,1fr)}.topic{padding:16px;gap:9px}.topic.active{padding:15px}.topic svg{width:23px}.filters{grid-template-columns:1fr}header{padding:17px 20px}}
 </style>
 </head>
 <body>
@@ -53,9 +61,9 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 <a class="back" href="./">← トップに戻る</a>
 </header>
 <main>
-<div class="eyebrow">SUPPORT FOR INDIVIDUALS</div>
+<div class="hero-search"><div class="eyebrow">SUPPORT FOR INDIVIDUALS</div>
 <h1>暮らしに役立つ支援を、<br>あなたの目線で。</h1>
-<p class="lead">制度名を知らなくても大丈夫。<br>関心のある分野とお住まいの地域から、支援制度を探せます。</p>
+<p class="lead">制度名を知らなくても大丈夫。<br>関心のある分野とお住まいの地域から、支援制度を探せます。</p></div>
 
 <h2>どんな支援を探していますか？</h2>
 <div class="topics">
@@ -93,7 +101,7 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 </div>
 <div>
 <label for="municipality">市区町村（該当する場合）</label>
-<select id="municipality" disabled><option value="">都道府県を選択してください</option></select>
+<select id="municipality" disabled><option value="">都道府県を選択してください</option></select><p class="city-hint">市区町村を選ばない場合は、全国・都道府県共通の制度のみ表示します。</p>
 </div>
 <div>
 <label for="keyword">キーワード</label>
@@ -113,7 +121,7 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 <div class="count" id="count">支援制度を読み込み中...</div>
 <div id="results"></div>
 <p class="note"><a href="privacy.html">プライバシーとブラウザ内の保存について</a></p>
-<p class="note">市区町村名が表示されている制度は、その自治体の住民等に対象が限定される場合があります。都道府県を選んでも、市区町村の申請資格は自動判定されません。</p>
+<p class="note">市区町村限定の制度は、該当する市区町村を選んだ場合に表示します。「すべての市区町村」を選ぶと対象外の制度も表示されるため、申請資格を必ずご確認ください。</p>
 <p class="note">掲載情報は公的機関の公開情報に基づきます。制度の利用可否・申請条件・募集状況は必ず公式情報でご確認ください。</p>
 </main>
 <script src="./privacy-storage.js"></script>
@@ -172,7 +180,8 @@ function refreshMunicipalities(){
  municipality.replaceChildren();
  const option=(value,label)=>{const o=document.createElement("option");o.value=value;o.textContent=label;municipality.append(o)};
  if(!pref){option("","都道府県を選択してください");municipality.disabled=true;return;}
- option("","市区町村を指定しない（自治体限定制度も表示）");
+ option("","市区町村を指定しない（全国・都道府県制度のみ）");
+ option("__all__","すべての市区町村の制度も見る（対象外を含む）");
  option("__other__","上記以外の市区町村（都道府県・全国制度のみ）");
  [...new Set(data.map(x=>localCity(field(x.area),pref)).filter(Boolean))].sort().forEach(city=>option(city,city));
  municipality.disabled=false;
@@ -191,7 +200,7 @@ const area=field(x.area);
 const hay=[x.title,x.description,x.agency,x.target,categories].map(field).join(" ").toLowerCase();
 return (!topic||categories.includes(topic))
 &&(!r||area.includes(r)||area.includes("全国"))
-&&(!city||area==="全国"||area===r||(city!=="__other__"&&area===r+" "+city))
+&&(!r||area==="全国"||area===r||city==="__all__"||(city!=="__other__"&&city&&area===r+" "+city))
 &&(!q||hay.includes(q));
 });
 count.textContent=filtered.length+"件の支援制度";
@@ -207,15 +216,23 @@ box.append(title,msg);results.appendChild(box);return;
 filtered.forEach(x=>{
 const card=document.createElement("article");card.className="item";
 const h=document.createElement("h3");h.textContent=field(x.title);
-const p=document.createElement("p");p.className="meta";
-p.textContent=[x.area,x.agency,x.description].filter(Boolean).join(" / ");
+const tags=document.createElement("div");tags.className="item-tags";
+ const tag=(label,extra="")=>{const e=document.createElement("span");e.className="tag "+extra;e.textContent=label;tags.appendChild(e)};
+ tag(field(x.area)||"対象地域を確認",field(x.area)==="全国"?"":"local");
+ const categoryLabel=Array.isArray(x.categories)?x.categories[0]:x.category;
+ if(categoryLabel)tag(field(categoryLabel),"category");
+ const p=document.createElement("p");p.className="item-summary";
+ p.textContent=field(x.description)||"支援内容は公式情報をご確認ください。";
 const kind=document.createElement("p");kind.className="meta";
 kind.textContent=x.support_type?"支援の種類："+field(x.support_type):"";
 const eligibility=document.createElement("p");eligibility.className="meta";
 eligibility.textContent=x.target?"対象者："+field(x.target):"対象者：公式情報で確認してください";
 const verified=document.createElement("p");verified.className="meta";
 verified.textContent=x.verified_at?"情報確認日："+field(x.verified_at):"情報確認日は未登録です";
-card.append(h,p,kind,eligibility,verified);
+const details=document.createElement("div");details.className="item-details";
+ const agency=document.createElement("p");agency.className="meta";agency.textContent="実施主体："+(field(x.agency)||"公式情報で確認");
+ details.append(agency,kind,eligibility,verified);
+ card.append(tags,h,p,details);
 const fav=document.createElement("button");
 fav.type="button";fav.className="favorite";
 const key=favoriteKey(x);
@@ -228,7 +245,7 @@ fav.addEventListener("click",()=>{
  else if(favorites.length<500)favorites.push(key);
  saveFavorites();render();
 });
-card.appendChild(fav);
+const actions=document.createElement("div");actions.className="item-actions";actions.appendChild(fav);
 if(typeof x.application_deadline==="string"&&/^\\d{4}-\\d{2}-\\d{2}$/.test(x.application_deadline)){
  const today=new Date();today.setHours(0,0,0,0);
  const end=new Date(x.application_deadline+"T00:00:00");
@@ -242,9 +259,9 @@ if(typeof x.application_deadline==="string"&&/^\\d{4}-\\d{2}-\\d{2}$/.test(x.app
 if(typeof x.source==="string"&&/^https:\/\//.test(x.source)){
 const a=document.createElement("a");
 a.href=x.source;a.target="_blank";a.rel="noopener noreferrer";
-a.textContent="公式情報を確認 →";card.appendChild(a);
+a.textContent="公式情報を見る ↗";a.className="official-link";actions.prepend(a);
 }
-results.appendChild(card);
+card.appendChild(actions);results.appendChild(card);
 });
 }
 document.querySelectorAll(".topic").forEach(b=>{
