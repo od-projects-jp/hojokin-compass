@@ -216,15 +216,23 @@ box.append(title,msg);results.appendChild(box);return;
 filtered.forEach(x=>{
 const card=document.createElement("article");card.className="item";
 const h=document.createElement("h3");h.textContent=field(x.title);
-const p=document.createElement("p");p.className="meta";
-p.textContent=[x.area,x.agency,x.description].filter(Boolean).join(" / ");
+const tags=document.createElement("div");tags.className="item-tags";
+ const tag=(label,extra="")=>{const e=document.createElement("span");e.className="tag "+extra;e.textContent=label;tags.appendChild(e)};
+ tag(field(x.area)||"対象地域を確認",field(x.area)==="全国"?"":"local");
+ const categoryLabel=Array.isArray(x.categories)?x.categories[0]:x.category;
+ if(categoryLabel)tag(field(categoryLabel),"category");
+ const p=document.createElement("p");p.className="item-summary";
+ p.textContent=field(x.description)||"支援内容は公式情報をご確認ください。";
 const kind=document.createElement("p");kind.className="meta";
 kind.textContent=x.support_type?"支援の種類："+field(x.support_type):"";
 const eligibility=document.createElement("p");eligibility.className="meta";
 eligibility.textContent=x.target?"対象者："+field(x.target):"対象者：公式情報で確認してください";
 const verified=document.createElement("p");verified.className="meta";
 verified.textContent=x.verified_at?"情報確認日："+field(x.verified_at):"情報確認日は未登録です";
-card.append(h,p,kind,eligibility,verified);
+const details=document.createElement("div");details.className="item-details";
+ const agency=document.createElement("p");agency.className="meta";agency.textContent="実施主体："+(field(x.agency)||"公式情報で確認");
+ details.append(agency,kind,eligibility,verified);
+ card.append(tags,h,p,details);
 const fav=document.createElement("button");
 fav.type="button";fav.className="favorite";
 const key=favoriteKey(x);
@@ -237,7 +245,7 @@ fav.addEventListener("click",()=>{
  else if(favorites.length<500)favorites.push(key);
  saveFavorites();render();
 });
-card.appendChild(fav);
+const actions=document.createElement("div");actions.className="item-actions";actions.appendChild(fav);
 if(typeof x.application_deadline==="string"&&/^\\d{4}-\\d{2}-\\d{2}$/.test(x.application_deadline)){
  const today=new Date();today.setHours(0,0,0,0);
  const end=new Date(x.application_deadline+"T00:00:00");
@@ -251,9 +259,9 @@ if(typeof x.application_deadline==="string"&&/^\\d{4}-\\d{2}-\\d{2}$/.test(x.app
 if(typeof x.source==="string"&&/^https:\/\//.test(x.source)){
 const a=document.createElement("a");
 a.href=x.source;a.target="_blank";a.rel="noopener noreferrer";
-a.textContent="公式情報を確認 →";card.appendChild(a);
+a.textContent="公式情報を見る ↗";a.className="official-link";actions.prepend(a);
 }
-results.appendChild(card);
+card.appendChild(actions);results.appendChild(card);
 });
 }
 document.querySelectorAll(".topic").forEach(b=>{
