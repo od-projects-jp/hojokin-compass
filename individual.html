@@ -68,6 +68,28 @@ body{background:#fbfaf7}
 .search-heading{font-size:20px;font-weight:800;margin:0 0 16px}.search-lead{font-size:13px;color:#5b7567;margin:0 0 19px}
 .search-jump{display:inline-flex;margin-top:18px;background:#193e35;color:white;border-radius:99px;padding:12px 20px;text-decoration:none;font-weight:800;font-size:14px}
 @media(max-width:650px){.hero-search{padding:25px 21px}.hero-search:after{font-size:160px;right:0;bottom:-30px}.topics{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.topic{min-height:138px;padding:15px}.topic.active{padding:14px}.topic svg{width:49px;height:49px;padding:9px}.topic span{font-size:14px}.panel{padding:19px}}
+
+/* CCO refinement: more results above the fold without losing friendly illustrations */
+main{max-width:1060px;padding-top:25px;padding-bottom:55px}
+.hero-search{padding:25px 32px;border-radius:20px;margin-bottom:22px}
+.hero-search h1{font-size:clamp(28px,3.6vw,39px);margin:8px 0}
+.hero-search .lead{font-size:14px;line-height:1.65}
+.hero-search:after{font-size:185px;bottom:-48px}
+.search-jump{margin-top:13px;padding:10px 17px;font-size:12px}
+h2{margin:23px 0 12px;font-size:18px}
+.topics{gap:11px}.topic{min-height:115px;border-radius:16px;padding:15px 18px;gap:7px}
+.topic svg{width:46px;height:46px;padding:9px;border-radius:13px}
+.topic span{font-size:14px}.topic:after{font-size:11px}
+.topic.active{padding:14px 17px}
+.panel{margin-top:19px;padding:20px 23px;border-radius:17px}
+.search-heading{font-size:18px;margin-bottom:5px}.search-lead{margin-bottom:13px;font-size:12px}
+.filters{gap:12px}select,input{padding:11px 12px}
+.count{margin-top:19px;font-size:18px}
+.item{padding:18px 20px;margin-bottom:10px;border-radius:13px}
+.item h3{font-size:16px;margin-bottom:6px}.item-summary{margin:7px 0 9px;line-height:1.7}
+.item-details{padding:9px 12px;margin:9px 0}.item-details p{margin:3px 0}
+.item-actions{margin-top:10px}.privacy-tools{margin:11px 0}
+@media(max-width:650px){main{padding-top:16px}.hero-search{padding:20px}.hero-search:after{font-size:120px}.topics{gap:9px}.topic{min-height:108px;padding:12px}.topic.active{padding:11px}.topic svg{width:42px;height:42px}.topic span{font-size:13px}.panel{padding:17px}}
 </style>
 </head>
 <body>
