@@ -53,6 +53,21 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 .empty p{color:#687a70;line-height:1.8}
 .note{font-size:12px;color:#7c8b80;line-height:1.8;margin-top:24px}
 @media(max-width:650px){main{padding-top:25px}.hero-search{padding:24px 19px}.topics{grid-template-columns:repeat(2,1fr)}.topic{padding:16px;gap:9px}.topic.active{padding:15px}.topic svg{width:23px}.filters{grid-template-columns:1fr}header{padding:17px 20px}}
+
+/* CCO: illustrated category tiles and a task-oriented search journey */
+body{background:#fbfaf7}
+.hero-search{position:relative;background:#e8f4ed;overflow:hidden;padding:38px 42px;border-radius:28px}
+.hero-search:after{content:"⌂";position:absolute;right:45px;bottom:-64px;color:#c1e0ca;font-size:260px;font-weight:800;line-height:1;pointer-events:none}
+.hero-search>*{position:relative;z-index:1}.hero-search h1{max-width:700px}
+.topics{grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.topic{min-height:162px;flex-direction:column;align-items:flex-start;justify-content:center;border-radius:23px;padding:23px;gap:13px;box-shadow:0 5px 15px #183e3310;position:relative}
+.topic svg{width:62px;height:62px;stroke-width:1.45;background:#ffffffa8;padding:12px;border-radius:19px}
+.topic span{font-size:17px}.topic:after{content:"選んで探す →";font-size:12px;font-weight:700;color:#637b6b}
+.topic.active{padding:22px;background:#dcefdc}
+.panel{border-radius:22px;box-shadow:0 6px 22px #193b310a;padding:28px}
+.search-heading{font-size:20px;font-weight:800;margin:0 0 16px}.search-lead{font-size:13px;color:#5b7567;margin:0 0 19px}
+.search-jump{display:inline-flex;margin-top:18px;background:#193e35;color:white;border-radius:99px;padding:12px 20px;text-decoration:none;font-weight:800;font-size:14px}
+@media(max-width:650px){.hero-search{padding:25px 21px}.hero-search:after{font-size:160px;right:0;bottom:-30px}.topics{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.topic{min-height:138px;padding:15px}.topic.active{padding:14px}.topic svg{width:49px;height:49px;padding:9px}.topic span{font-size:14px}.panel{padding:19px}}
 </style>
 </head>
 <body>
@@ -63,7 +78,7 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 <main>
 <div class="hero-search"><div class="eyebrow">SUPPORT FOR INDIVIDUALS</div>
 <h1>暮らしに役立つ支援を、<br>あなたの目線で。</h1>
-<p class="lead">制度名を知らなくても大丈夫。<br>関心のある分野とお住まいの地域から、支援制度を探せます。</p></div>
+<p class="lead">制度名を知らなくても大丈夫。<br>関心のある分野とお住まいの地域から、支援制度を探せます。</p><a class="search-jump" href="#search-panel">地域を選んで探す ↓</a></div>
 
 <h2>どんな支援を探していますか？</h2>
 <div class="topics">
@@ -93,7 +108,7 @@ select,input{width:100%;padding:13px;border:1px solid #cad7cb;border-radius:8px;
 </button>
 </div>
 
-<div class="panel">
+<div class="panel" id="search-panel"><p class="search-heading">お住まいの地域から絞り込む</p><p class="search-lead">カテゴリを選んだら、地域やキーワードであなたに近い制度を探せます。</p>
 <div class="filters">
 <div>
 <label for="region">お住まいの地域</label>
@@ -167,7 +182,9 @@ if(!localPrefs.available){
 }
 region.value=initialFilters.region&&prefectures.includes(initialFilters.region)?initialFilters.region:"";
 document.getElementById("keyword").value=initialFilters.keyword||"";
-topic=initialFilters.topic||"";
+const urlTopic=new URLSearchParams(window.location.search).get("topic");
+const allowedTopics=["住宅","子育て","教育","医療","仕事","省エネ"];
+topic=allowedTopics.includes(urlTopic)?urlTopic:(initialFilters.topic||"");
 document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dataset.topic===topic));
 updateSavedButton();
 const municipality=document.getElementById("municipality");
@@ -269,6 +286,7 @@ b.addEventListener("click",()=>{
 topic=topic===b.dataset.topic?"":b.dataset.topic;
 document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dataset.topic===topic));
 saveFilters();render();
+ document.getElementById("search-panel").scrollIntoView({behavior:"smooth",block:"start"});
 });
 });
 region.addEventListener("change",()=>{refreshMunicipalities();saveFilters();render();showCoverage()});
