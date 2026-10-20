@@ -12,6 +12,7 @@ with sync_playwright() as p:
         page.set_default_timeout(8000)
         print(f"Testing viewport {width}",flush=True)
         page.goto(BASE, wait_until="networkidle")
+        assert page.locator("body").evaluate("(e) => getComputedStyle(e).fontFamily").find("Noto Sans JP") >= 0
         toggle = page.locator("#prefectureToggle")
         print("Opening selector",flush=True)
         toggle.click()
@@ -32,6 +33,10 @@ with sync_playwright() as p:
         assert "7都道府県" in page.locator("#selectedPrefectures").inner_text()
         page.locator("#selectAllPrefectures").click()
         assert page.locator("#prefectureChoices input:checked").count() == 47
+        page.locator("#clearPrefectures").click()
+        page.locator("#prefectureChoices label").filter(has_text="千葉県").click()
+        assert page.locator("#coverageCaution").is_visible()
+        assert "未掲載" in page.locator("#coverageCaution").inner_text()
         page.locator("#clearPrefectures").click()
         assert page.locator("#prefectureChoices input:checked").count() == 0
 

@@ -5,9 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>個人向け支援制度 | Hojokin Compass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f7f7f1;color:#193b31;font-family:"Helvetica Neue","Yu Gothic",Meiryo,sans-serif}
+body{margin:0;background:#f7f7f1;color:#193b31;font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}
 header{background:white;border-bottom:1px solid #e0e6dc;padding:19px max(24px,calc((100% - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:15px}
 .brand{font-weight:800;font-size:18px;color:#193b31;text-decoration:none}
 .back{font-size:13px;color:#587064;text-decoration:none}
@@ -155,6 +158,26 @@ h2{margin:23px 0 12px;font-size:18px}
 #search-panel{margin-top:22px;background:#f9faf8}
 #search-panel .search-heading{font-size:16px}
 @media(max-width:550px){.hero-search{padding:19px}.hero-locator-title{font-size:15px;flex-wrap:wrap}.facet-heading{font-size:16px;flex-wrap:wrap}.facet-heading small{font-size:11px}.topics{grid-template-columns:repeat(2,minmax(0,1fr))}.topic{min-height:75px;padding:9px}.topic.active{padding:8px}.topic span{font-size:12px}.topic svg{width:34px;height:34px;padding:6px}}
+
+/* Editorial typography system: quiet body, intentional headings, fewer AI-template cues */
+:root{--type-body:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;--type-display:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif}
+body{font-family:var(--type-body);font-weight:400;letter-spacing:.005em}
+h1,h2,h3{letter-spacing:-.035em;line-height:1.42}
+h1{font-weight:600}
+button,input,select,textarea{font:inherit}
+button,a{touch-action:manipulation}
+:focus-visible{outline:3px solid #2c7855;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+.hero-search{background:#f0f3ee;border-radius:16px}
+.hero-search h1{font-family:var(--type-display);font-weight:600;letter-spacing:-.05em}
+.topic{border-radius:12px;box-shadow:none}
+.topic svg{border-radius:9px}
+.prefecture-toggle,.prefecture-menu,.result-preview-head{border-radius:9px}
+.item{border-radius:12px}
+
+.coverage-caution{background:#fff8e9;color:#685022;border-left:3px solid #c89b4a;padding:10px 14px;border-radius:3px;margin:0 0 14px;font-size:12px;line-height:1.7}
+.coverage-caution[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -195,7 +218,7 @@ h2{margin:23px 0 12px;font-size:18px}
 </button>
 </div>
 
-<section class="result-preview" id="result-preview" aria-label="検索結果">
+<section class="result-preview" id="result-preview" aria-label="検索結果"><p class="coverage-caution" id="coverageCaution" role="note" hidden></p>
 <div class="result-preview-head"><div class="count" id="count" role="status" aria-live="polite">支援制度を読み込み中...</div>
 <div class="preview-actions"><a href="#search-panel">詳細条件を指定する ↓</a><button id="resetTopic" type="button">カテゴリ解除</button></div></div>
 <div id="results"></div><button id="showMore" type="button" hidden>検索結果をすべて見る ↓</button>
@@ -437,6 +460,12 @@ municipality.addEventListener("change",()=>{showAllResults=false;saveFilters();r
 let coverage=null;
 const coverageElement=document.getElementById("coverage");
 function showCoverage(){
+ const caution=document.getElementById("coverageCaution");
+ if(coverage){
+  const unlisted=selectedRegions.filter(p=>Number(coverage.prefectures?.[p]||0)===0);
+  caution.hidden=!unlisted.length;
+  caution.textContent=unlisted.length?"掲載状況："+unlisted.join("・")+"の自治体独自制度は現在未掲載です。全国共通制度は検索できますが、この地域の制度が存在しないという意味ではありません。":"";
+ }
  if(!coverage){coverageElement.textContent="掲載地域の情報を準備しています。";return;}
  const selected=selectedRegions.join("・");
  const n=selectedRegions.length?selectedRegions.reduce((sum,p)=>sum+Number(coverage.prefectures?.[p]||0),Number(coverage.nationwide||0)):null;
