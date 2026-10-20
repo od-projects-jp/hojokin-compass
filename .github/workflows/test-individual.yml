@@ -130,6 +130,22 @@ jobs:
           assert 'municipality.disabled=selectedRegions.length!==1' in html
           print("Direct multi-region selector checks passed")
           PY
+      - name: Guard prefecture menu visibility and bulk selection
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html=Path("individual.html").read_text(encoding="utf-8")
+          css=html.split("</style>")[0]
+          assert re.search(r'\.hero-search\s*\{[^}]*overflow\s*:\s*visible',css), "Hero must not clip menu"
+          for selector in ['id="prefectureToggle"','id="prefectureMenu"','id="selectKanto"','id="selectAllPrefectures"','id="clearPrefectures"']:
+              assert selector in html,selector
+          assert 'prefectureMenu.hidden=!open' in html
+          assert 'setSelectedPrefectures([...prefectures])' in html
+          assert 'selectedRegions=region.value?[region.value]:[]' in html
+          assert 'syncPrefectureChoices();' in html
+          print("Visible menu, bulk controls, and filter synchronization validated")
+          PY
       - name: Guard against tracking scripts and personal-data collection
         run: node tests/privacy-guardrails.test.js
       - name: Test browser-only storage and privacy controls
