@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="事業に合う補助金を、迷わず探す。検索・保存・比較ができる補助金情報サービス。">
 <title>Hojokin Compass | 事業に合う補助金を、迷わず。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --green:#183e33;--ink:#20372e;--muted:#6a786f;
@@ -16,7 +19,7 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--bg);color:var(--ink);
-  font-family:Arial,"Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
   line-height:1.65;-webkit-font-smoothing:antialiased
 }
 button,input,select{font:inherit}
@@ -296,6 +299,19 @@ footer{border-top:1px solid var(--line);background:white;padding:30px 0}
 .result-head{margin-bottom:11px}.result-head h2{font-size:20px}
 @media(max-width:750px){.layout{grid-template-columns:1fr}.filters{position:static}}
 .b2b-jump{display:inline-flex;margin-top:13px;padding:10px 15px;border:1px solid #9abda6;border-radius:99px;background:#eff7f0;color:#194d38;font-size:12px;font-weight:800;text-decoration:none}.b2b-jump:hover{background:#deefdf}#resultsArea{scroll-margin-top:12px}
+
+/* Editorial typography system: quiet body, intentional headings, fewer AI-template cues */
+:root{--type-body:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;--type-display:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif}
+body{font-family:var(--type-body);font-weight:400;letter-spacing:.005em}
+h1,h2,h3{letter-spacing:-.035em;line-height:1.42}
+h1{font-weight:600}
+button,input,select,textarea{font:inherit}
+button,a{touch-action:manipulation}
+:focus-visible{outline:3px solid #2c7855;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+.intro h1,.hero h1{font-family:var(--type-display);font-weight:600;letter-spacing:-.055em}
+.card{border-radius:12px}
 </style>
 </head>
 <body>
