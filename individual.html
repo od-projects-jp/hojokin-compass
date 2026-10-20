@@ -90,6 +90,23 @@ h2{margin:23px 0 12px;font-size:18px}
 .item-details{padding:9px 12px;margin:9px 0}.item-details p{margin:3px 0}
 .item-actions{margin-top:10px}.privacy-tools{margin:11px 0}
 @media(max-width:650px){main{padding-top:16px}.hero-search{padding:20px}.hero-search:after{font-size:120px}.topics{gap:9px}.topic{min-height:108px;padding:12px}.topic.active{padding:11px}.topic svg{width:42px;height:42px}.topic span{font-size:13px}.panel{padding:17px}}
+
+/* CTAO/CCO: one continuous filter -> category -> immediate result journey */
+main{max-width:1100px}
+#search-panel{margin-top:15px;margin-bottom:22px;background:#fff}
+#search-panel .filters{grid-template-columns:repeat(3,minmax(0,1fr))}
+#search-panel .search-lead{margin-bottom:12px}
+.topics{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.topic{min-height:94px;display:grid;grid-template-columns:48px 1fr;grid-template-rows:auto auto;column-gap:11px;align-content:center;padding:13px 15px}
+.topic svg{grid-row:1/3;width:45px;height:45px}.topic span{font-size:14px}.topic:after{font-size:11px}
+.topic.active{padding:12px 14px}
+.instant-results{margin-top:17px;scroll-margin-top:15px}
+.result-heading{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:#eaf3e9;border-radius:13px;padding:13px 18px;margin-bottom:12px}
+.result-heading .count{margin:0;font-size:20px;color:#1b563f}
+.refine-link{font-size:12px;font-weight:800;color:#275c46;text-decoration:underline;text-underline-offset:3px}
+.privacy-tools{margin-top:22px}
+@media(max-width:750px){#search-panel .filters{grid-template-columns:1fr 1fr}.topic{min-height:90px}}
+@media(max-width:550px){#search-panel .filters{grid-template-columns:1fr}.topic{grid-template-columns:39px 1fr;padding:10px;min-height:78px;gap:7px}.topic.active{padding:9px}.topic svg{width:37px;height:37px;padding:6px}.topic span{font-size:12px}.topic:after{font-size:10px}.result-heading .count{font-size:17px}}
 </style>
 </head>
 <body>
@@ -101,6 +118,23 @@ h2{margin:23px 0 12px;font-size:18px}
 <div class="hero-search"><div class="eyebrow">SUPPORT FOR INDIVIDUALS</div>
 <h1>暮らしに役立つ支援を、<br>あなたの目線で。</h1>
 <p class="lead">制度名を知らなくても大丈夫。<br>関心のある分野とお住まいの地域から、支援制度を探せます。</p><a class="search-jump" href="#search-panel">地域を選んで探す ↓</a></div>
+
+<div class="panel" id="search-panel"><p class="search-heading">お住まいの地域から絞り込む</p><p class="search-lead">カテゴリを選んだら、地域やキーワードであなたに近い制度を探せます。</p>
+<div class="filters">
+<div>
+<label for="region">お住まいの地域</label>
+<select id="region"><option value="">全国・地域未指定</option></select>
+</div>
+<div>
+<label for="municipality">市区町村（該当する場合）</label>
+<select id="municipality" disabled><option value="">都道府県を選択してください</option></select><p class="city-hint">市区町村を選ばない場合は、全国・都道府県共通の制度のみ表示します。</p>
+</div>
+<div>
+<label for="keyword">キーワード</label>
+<input id="keyword" placeholder="例：リフォーム、奨学金">
+</div>
+</div>
+</div>
 
 <h2>どんな支援を探していますか？</h2>
 <div class="topics">
@@ -129,23 +163,8 @@ h2{margin:23px 0 12px;font-size:18px}
 <span>環境・省エネ</span>
 </button>
 </div>
+<section class="instant-results" id="result-section" aria-label="検索結果"><div class="result-heading"><div class="count" id="count" role="status" aria-live="polite">支援制度を読み込み中...</div><a href="#search-panel" class="refine-link">地域・条件を変更する ↗</a></div><div id="results"></div></section>
 
-<div class="panel" id="search-panel"><p class="search-heading">お住まいの地域から絞り込む</p><p class="search-lead">カテゴリを選んだら、地域やキーワードであなたに近い制度を探せます。</p>
-<div class="filters">
-<div>
-<label for="region">お住まいの地域</label>
-<select id="region"><option value="">全国・地域未指定</option></select>
-</div>
-<div>
-<label for="municipality">市区町村（該当する場合）</label>
-<select id="municipality" disabled><option value="">都道府県を選択してください</option></select><p class="city-hint">市区町村を選ばない場合は、全国・都道府県共通の制度のみ表示します。</p>
-</div>
-<div>
-<label for="keyword">キーワード</label>
-<input id="keyword" placeholder="例：リフォーム、奨学金">
-</div>
-</div>
-</div>
 
 <div class="privacy-tools" aria-label="ブラウザ内の保存機能">
 <button id="savedOnly" type="button" aria-pressed="false">♡ お気に入りのみ表示（0件）</button>
@@ -155,8 +174,7 @@ h2{margin:23px 0 12px;font-size:18px}
 <p id="privacyHint" class="privacy-hint" role="status">登録不要・無料。検索条件とお気に入りは、このブラウザ内にのみ保存します。共用端末では保存内容にご注意ください。</p>
 <p class="note">すべての確認済み制度を地域別に見る場合は、<a href="individual-directory.html">支援制度一覧ページ</a>をご利用ください。</p>
 <p class="note" id="coverage" aria-live="polite">地域別の掲載状況を確認しています...</p>
-<div class="count" id="count">支援制度を読み込み中...</div>
-<div id="results"></div>
+
 <p class="note"><a href="privacy.html">プライバシーとブラウザ内の保存について</a></p>
 <p class="note">市区町村限定の制度は、該当する市区町村を選んだ場合に表示します。「すべての市区町村」を選ぶと対象外の制度も表示されるため、申請資格を必ずご確認ください。</p>
 <p class="note">掲載情報は公的機関の公開情報に基づきます。制度の利用可否・申請条件・募集状況は必ず公式情報でご確認ください。</p>
@@ -207,7 +225,7 @@ document.getElementById("keyword").value=initialFilters.keyword||"";
 const urlTopic=new URLSearchParams(window.location.search).get("topic");
 const allowedTopics=["住宅","子育て","教育","医療","仕事","省エネ"];
 topic=allowedTopics.includes(urlTopic)?urlTopic:(initialFilters.topic||"");
-document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dataset.topic===topic));
+document.querySelectorAll(".topic").forEach(x=>{x.classList.toggle("active",x.dataset.topic===topic);x.setAttribute("aria-pressed",String(x.dataset.topic===topic));});
 updateSavedButton();
 const municipality=document.getElementById("municipality");
 function localCity(area,pref){
@@ -242,7 +260,7 @@ return (!topic||categories.includes(topic))
 &&(!r||area==="全国"||area===r||city==="__all__"||(city!=="__other__"&&city&&area===r+" "+city))
 &&(!q||hay.includes(q));
 });
-count.textContent=filtered.length+"件の支援制度";
+count.textContent=filtered.length+"件見つかりました"+(topic?"｜"+topic+"の支援":"");
 results.replaceChildren();
 if(!filtered.length){
 const box=document.createElement("div");box.className="empty";
@@ -308,7 +326,7 @@ b.addEventListener("click",()=>{
 topic=topic===b.dataset.topic?"":b.dataset.topic;
 document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dataset.topic===topic));
 saveFilters();render();
- document.getElementById("search-panel").scrollIntoView({behavior:"smooth",block:"start"});
+ document.getElementById("result-section").scrollIntoView({behavior:"smooth",block:"start"});
 });
 });
 region.addEventListener("change",()=>{refreshMunicipalities();saveFilters();render();showCoverage()});
@@ -335,7 +353,7 @@ document.getElementById("savedOnly").addEventListener("click",()=>{
 document.getElementById("resetFilters").addEventListener("click",()=>{
  region.value="";municipality.value="";document.getElementById("keyword").value="";
  topic="";savedOnly=false;
- document.querySelectorAll(".topic").forEach(x=>x.classList.remove("active"));
+ document.querySelectorAll(".topic").forEach(x=>{x.classList.remove("active");x.setAttribute("aria-pressed","false");});
  refreshMunicipalities();updateSavedButton();saveFilters();render();showCoverage();
 });
 document.getElementById("clearLocal").addEventListener("click",()=>{
