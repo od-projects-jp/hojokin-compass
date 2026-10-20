@@ -121,6 +121,18 @@ h2{margin:23px 0 12px;font-size:18px}
 .prefecture-menu-foot{border-top:1px solid #e3e9e4;padding-top:12px;font-size:12px}
 .prefecture-menu-foot button{border:0;background:#193e35;color:#fff;padding:11px 17px;border-radius:9px;font-weight:800;cursor:pointer}
 @media(max-width:550px){.hero-locator{max-width:none}.prefecture-menu{width:calc(100vw - 48px);padding:13px}.prefecture-choices{grid-template-columns:repeat(3,minmax(0,1fr));max-height:235px}.prefecture-choice{font-size:11px;padding:8px 4px}}
+
+/* Critical visibility fix: dropdown must escape hero and sit above subsequent sections */
+.hero-search{overflow:visible;isolation:isolate;z-index:12}
+.hero-search:after{z-index:0;opacity:.6}
+.hero-search .hero-locator{z-index:30}
+.prefecture-menu{top:calc(100% + 6px);z-index:100;max-width:calc(100vw - 36px)}
+.prefecture-presets{display:flex;flex-wrap:wrap;gap:7px;margin:13px 0 6px}
+.prefecture-presets button{border:1px solid #8cbba0;background:#e9f4eb;border-radius:9px;color:#205c42;padding:9px 12px;font-size:12px;font-weight:800;cursor:pointer}
+.prefecture-presets button:hover,.prefecture-presets button:focus-visible{background:#cce8d4}
+.prefecture-choice:focus-within{outline:2px solid #286f50;outline-offset:1px}
+.prefecture-menu-foot button:focus-visible,.prefecture-toggle:focus-visible{outline:3px solid #2b7853;outline-offset:2px}
+@media(max-width:550px){.prefecture-menu{left:0;max-width:calc(100vw - 42px)}}
 </style>
 </head>
 <body>
@@ -131,7 +143,7 @@ h2{margin:23px 0 12px;font-size:18px}
 <main>
 <div class="hero-search"><div class="eyebrow">SUPPORT FOR INDIVIDUALS</div>
 <h1>暮らしに役立つ支援を、<br>あなたの目線で。</h1>
-<p class="lead">制度名を知らなくても大丈夫。<br>関心のある分野とお住まいの地域から、支援制度を探せます。</p><div class="hero-locator"><label class="hero-locator-title" for="prefectureToggle">お住まい・関心のある地域を選ぶ</label><button id="prefectureToggle" class="prefecture-toggle" type="button" aria-expanded="false" aria-controls="prefectureMenu">全国から探す <span aria-hidden="true">⌄</span></button><div id="prefectureMenu" class="prefecture-menu" hidden><div class="prefecture-menu-top"><strong>都道府県を選択（複数可）</strong><button type="button" id="clearPrefectures">すべて解除</button></div><div id="prefectureChoices" class="prefecture-choices" role="group" aria-label="都道府県の複数選択"></div><div class="prefecture-menu-foot"><span id="selectedPrefectures">全国の制度を表示</span><button type="button" id="closePrefectures">結果を見る ↓</button></div></div><p class="hero-locator-note">複数選択すると各都道府県の共通制度と全国制度をまとめて検索します。市区町村限定制度は個別指定が必要です。</p></div></div>
+<p class="lead">制度名を知らなくても大丈夫。<br>関心のある分野とお住まいの地域から、支援制度を探せます。</p><div class="hero-locator"><label class="hero-locator-title" for="prefectureToggle">お住まい・関心のある地域を選ぶ</label><button id="prefectureToggle" class="prefecture-toggle" type="button" aria-expanded="false" aria-controls="prefectureMenu">全国から探す <span aria-hidden="true">⌄</span></button><div id="prefectureMenu" class="prefecture-menu" hidden><div class="prefecture-menu-top"><strong>都道府県を選択（複数可）</strong><button type="button" id="clearPrefectures">選択解除</button></div><div class="prefecture-presets"><button type="button" id="selectKanto">関東7都県</button><button type="button" id="selectAllPrefectures">47都道府県すべて</button></div><div id="prefectureChoices" class="prefecture-choices" role="group" aria-label="都道府県の複数選択"></div><div class="prefecture-menu-foot"><span id="selectedPrefectures">全国の制度を表示</span><button type="button" id="closePrefectures">結果を見る ↓</button></div></div><p class="hero-locator-note">複数選択すると各都道府県の共通制度と全国制度をまとめて検索します。市区町村限定制度は個別指定が必要です。</p></div></div>
 
 <h2>どんな支援を探していますか？</h2>
 <div class="topics">
@@ -293,6 +305,11 @@ prefectureToggle.addEventListener("click",()=>setPrefectureMenu(prefectureMenu.h
 document.getElementById("closePrefectures").addEventListener("click",()=>{
  setPrefectureMenu(false);document.getElementById("result-preview").scrollIntoView({behavior:"smooth",block:"start"});
 });
+function setSelectedPrefectures(values){
+ selectedRegions=values;region.value=values.length===1?values[0]:"";refreshMunicipalities();syncPrefectureChoices();showAllResults=false;saveFilters();render();showCoverage();
+}
+document.getElementById("selectKanto").addEventListener("click",()=>setSelectedPrefectures(["茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県"]));
+document.getElementById("selectAllPrefectures").addEventListener("click",()=>setSelectedPrefectures([...prefectures]));
 document.getElementById("clearPrefectures").addEventListener("click",()=>{
  selectedRegions=[];region.value="";refreshMunicipalities();syncPrefectureChoices();showAllResults=false;saveFilters();render();showCoverage();
 });
@@ -390,7 +407,7 @@ document.getElementById("result-preview").scrollIntoView({behavior:"smooth",bloc
 });
 document.getElementById("showMore").addEventListener("click",()=>{showAllResults=true;render()});
 document.getElementById("resetTopic").addEventListener("click",()=>{topic="";showAllResults=false;document.querySelectorAll(".topic").forEach(x=>{x.classList.remove("active");x.setAttribute("aria-pressed","false")});saveFilters();render()});
-region.addEventListener("change",()=>{showAllResults=false;refreshMunicipalities();saveFilters();render();showCoverage()});
+region.addEventListener("change",()=>{selectedRegions=region.value?[region.value]:[];showAllResults=false;refreshMunicipalities();syncPrefectureChoices();saveFilters();render();showCoverage()});
 municipality.addEventListener("change",()=>{showAllResults=false;saveFilters();render();showCoverage()});
 let coverage=null;
 const coverageElement=document.getElementById("coverage");
@@ -430,7 +447,7 @@ fetch("./public/data/individual.json",{cache:"no-store"})
 .then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()})
 .then(j=>{
  data=Array.isArray(j)?j:Array.isArray(j.subsidies)?j.subsidies:[];
- refreshMunicipalities();
+ refreshMunicipalities();syncPrefectureChoices();
  if(initialFilters.municipality&&[...municipality.options].some(o=>o.value===initialFilters.municipality)){
   municipality.value=initialFilters.municipality;
  }
