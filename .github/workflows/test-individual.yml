@@ -112,7 +112,7 @@ jobs:
           from pathlib import Path
           html = Path("individual.html").read_text(encoding="utf-8")
           assert 'city==="__all__"' in html
-          assert 'city&&area===r+" "+city' in html
+          assert 'city&&city!=="__other__"&&area===p+" "+city' in html
           assert "自治体限定制度も表示" not in html
           assert 'className="item-tags"' in html
           assert 'className="official-link"' in html
