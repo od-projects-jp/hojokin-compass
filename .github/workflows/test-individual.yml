@@ -119,6 +119,17 @@ jobs:
           assert 'className="item-details"' in html
           print("City eligibility default and readable cards validated")
           PY
+      - name: Verify direct multi-region search controls
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html=Path("individual.html").read_text()
+          for required in ['id="prefectureToggle"','id="prefectureMenu"','id="prefectureChoices"','selectedRegions=Array.isArray(initialFilters.regions)','regions:selectedRegions','regions.some(p=>area===p','id="closePrefectures"','setPrefectureMenu(false)','aria-expanded']:
+              assert required in html,required
+          assert 'area.startsWith(p+" ")' in html
+          assert 'municipality.disabled=selectedRegions.length!==1' in html
+          print("Direct multi-region selector checks passed")
+          PY
       - name: Guard against tracking scripts and personal-data collection
         run: node tests/privacy-guardrails.test.js
       - name: Test browser-only storage and privacy controls
