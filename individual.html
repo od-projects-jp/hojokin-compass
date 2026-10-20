@@ -103,6 +103,24 @@ h2{margin:23px 0 12px;font-size:18px}
 .panel{margin-top:14px}.search-heading{margin-bottom:4px}
 .topic[aria-pressed="true"]{box-shadow:0 0 0 2px #193e35 inset}
 @media(max-width:650px){.result-preview{padding:14px}.result-preview .count{font-size:19px}}
+
+/* CCO/CDO: direct multi-prefecture selector, no detour to a distant form */
+.hero-locator{position:relative;max-width:460px;margin-top:17px;z-index:5}
+.hero-locator-title{display:block;font-size:13px;font-weight:800;margin-bottom:8px;color:#214b39}
+.prefecture-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 17px;background:white;border:2px solid #8ebda3;border-radius:12px;font-size:15px;font-weight:800;color:#1d4837;text-align:left;cursor:pointer}
+.prefecture-toggle:hover,.prefecture-toggle:focus-visible{border-color:#246c4a;outline-offset:2px}
+.hero-locator-note{font-size:11px;line-height:1.6;color:#4b6b58;margin:7px 0 0}
+.prefecture-menu{position:absolute;top:calc(100% - 30px);left:0;width:min(580px,calc(100vw - 50px));background:#fff;border:1px solid #c9ddcf;border-radius:17px;box-shadow:0 18px 48px #183e3329;padding:18px;z-index:20}
+.prefecture-menu[hidden]{display:none}
+.prefecture-menu-top,.prefecture-menu-foot{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.prefecture-menu-top strong{font-size:14px}.prefecture-menu-top button{border:0;background:transparent;color:#356a51;text-decoration:underline;cursor:pointer}
+.prefecture-choices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;max-height:260px;overflow-y:auto;margin:13px 0;padding:3px}
+.prefecture-choice{display:flex;gap:6px;align-items:center;font-size:12px;padding:9px 7px;border-radius:8px;cursor:pointer;background:#f5f8f5}
+.prefecture-choice:has(input:checked){background:#dcefe2;color:#164b35;font-weight:800}
+.prefecture-choice input{accent-color:#276d4b}
+.prefecture-menu-foot{border-top:1px solid #e3e9e4;padding-top:12px;font-size:12px}
+.prefecture-menu-foot button{border:0;background:#193e35;color:#fff;padding:11px 17px;border-radius:9px;font-weight:800;cursor:pointer}
+@media(max-width:550px){.hero-locator{max-width:none}.prefecture-menu{width:calc(100vw - 48px);padding:13px}.prefecture-choices{grid-template-columns:repeat(3,minmax(0,1fr));max-height:235px}.prefecture-choice{font-size:11px;padding:8px 4px}}
 </style>
 </head>
 <body>
@@ -113,7 +131,7 @@ h2{margin:23px 0 12px;font-size:18px}
 <main>
 <div class="hero-search"><div class="eyebrow">SUPPORT FOR INDIVIDUALS</div>
 <h1>暮らしに役立つ支援を、<br>あなたの目線で。</h1>
-<p class="lead">制度名を知らなくても大丈夫。<br>関心のある分野とお住まいの地域から、支援制度を探せます。</p><a class="search-jump" href="#search-panel">地域を選んで探す ↓</a></div>
+<p class="lead">制度名を知らなくても大丈夫。<br>関心のある分野とお住まいの地域から、支援制度を探せます。</p><div class="hero-locator"><label class="hero-locator-title" for="prefectureToggle">お住まい・関心のある地域を選ぶ</label><button id="prefectureToggle" class="prefecture-toggle" type="button" aria-expanded="false" aria-controls="prefectureMenu">全国から探す <span aria-hidden="true">⌄</span></button><div id="prefectureMenu" class="prefecture-menu" hidden><div class="prefecture-menu-top"><strong>都道府県を選択（複数可）</strong><button type="button" id="clearPrefectures">すべて解除</button></div><div id="prefectureChoices" class="prefecture-choices" role="group" aria-label="都道府県の複数選択"></div><div class="prefecture-menu-foot"><span id="selectedPrefectures">全国の制度を表示</span><button type="button" id="closePrefectures">結果を見る ↓</button></div></div><p class="hero-locator-note">複数選択すると各都道府県の共通制度と全国制度をまとめて検索します。市区町村限定制度は個別指定が必要です。</p></div></div>
 
 <h2>どんな支援を探していますか？</h2>
 <div class="topics">
@@ -148,7 +166,7 @@ h2{margin:23px 0 12px;font-size:18px}
 <div class="preview-actions"><a href="#search-panel">地域・キーワードで絞る ↓</a><button id="resetTopic" type="button">カテゴリ解除</button></div></div>
 <div id="results"></div><button id="showMore" type="button" hidden>検索結果をすべて見る ↓</button>
 </section>
-<div class="panel" id="search-panel"><p class="search-heading">お住まいの地域から絞り込む</p><p class="search-lead">カテゴリを選んだら、地域やキーワードであなたに近い制度を探せます。</p>
+<div class="panel" id="search-panel"><p class="search-heading">お住まいの地域から絞り込む</p><p class="search-lead">都道府県を1つ選んだ場合は、市区町村まで指定できます。キーワードでも絞り込めます。</p>
 <div class="filters">
 <div>
 <label for="region">お住まいの地域</label>
@@ -187,7 +205,7 @@ let savedOnly=initialFilters.savedOnly===true;
 const favoriteKey=x=>String(x.source||"")+"|"+String(x.title||"");
 function saveFilters(){
  localPrefs.write(localPrefs.KEYS.individualFilters,{
-  region:region.value,municipality:municipality.value,
+  region:region.value,municipality:municipality.value,regions:selectedRegions,
   keyword:document.getElementById("keyword").value.slice(0,120),topic,savedOnly
  });
 }
@@ -216,11 +234,13 @@ const o=document.createElement("option");
 o.value=p;o.textContent=p;region.appendChild(o);
 });
 let data=[],topic="";
+let selectedRegions=Array.isArray(initialFilters.regions)?initialFilters.regions.filter(p=>prefectures.includes(p)):[];
 let showAllResults=false;
 if(!localPrefs.available){
  document.getElementById("privacyHint").textContent="このブラウザでは保存が無効です。検索・お気に入りはこのページを開いている間のみ利用できます。";
 }
-region.value=initialFilters.region&&prefectures.includes(initialFilters.region)?initialFilters.region:"";
+region.value=selectedRegions.length===1?selectedRegions[0]:(selectedRegions.length? "":(initialFilters.region&&prefectures.includes(initialFilters.region)?initialFilters.region:""));
+if(!selectedRegions.length&&region.value)selectedRegions=[region.value];
 document.getElementById("keyword").value=initialFilters.keyword||"";
 const urlTopic=new URLSearchParams(window.location.search).get("topic");
 const allowedTopics=["住宅","子育て","教育","医療","仕事","省エネ"];
@@ -243,12 +263,49 @@ function refreshMunicipalities(){
  [...new Set(data.map(x=>localCity(field(x.area),pref)).filter(Boolean))].sort().forEach(city=>option(city,city));
  municipality.disabled=false;
 }
+const prefectureToggle=document.getElementById("prefectureToggle");
+const prefectureMenu=document.getElementById("prefectureMenu");
+const prefectureChoices=document.getElementById("prefectureChoices");
+prefectures.forEach(p=>{
+ const label=document.createElement("label");label.className="prefecture-choice";
+ const checkbox=document.createElement("input");checkbox.type="checkbox";checkbox.value=p;checkbox.checked=selectedRegions.includes(p);
+ const name=document.createElement("span");name.textContent=p;label.append(checkbox,name);prefectureChoices.append(label);
+ checkbox.addEventListener("change",()=>{
+  selectedRegions=Array.from(prefectureChoices.querySelectorAll("input:checked"),x=>x.value);
+  region.value=selectedRegions.length===1?selectedRegions[0]:"";
+  refreshMunicipalities();showAllResults=false;syncPrefectureChoices();saveFilters();render();showCoverage();
+ });
+});
+function syncPrefectureChoices(){
+ prefectureChoices.querySelectorAll("input").forEach(x=>x.checked=selectedRegions.includes(x.value));
+ const label=selectedRegions.length?selectedRegions.length<=2?selectedRegions.join("・"):selectedRegions.slice(0,2).join("・")+" ほか"+(selectedRegions.length-2)+"県":"全国から探す";
+ prefectureToggle.firstChild.textContent=label+" ";
+ document.getElementById("selectedPrefectures").textContent=selectedRegions.length?selectedRegions.length+"都道府県を選択中":"全国の制度を表示";
+ municipality.disabled=selectedRegions.length!==1;
+ if(selectedRegions.length!==1){municipality.value="";municipality.title="市区町村検索は都道府県を1つ選んでください";}
+ else municipality.title="";
+}
+function setPrefectureMenu(open){
+ prefectureMenu.hidden=!open;prefectureToggle.setAttribute("aria-expanded",String(open));
+ if(!open)prefectureToggle.focus();
+}
+prefectureToggle.addEventListener("click",()=>setPrefectureMenu(prefectureMenu.hidden));
+document.getElementById("closePrefectures").addEventListener("click",()=>{
+ setPrefectureMenu(false);document.getElementById("result-preview").scrollIntoView({behavior:"smooth",block:"start"});
+});
+document.getElementById("clearPrefectures").addEventListener("click",()=>{
+ selectedRegions=[];region.value="";refreshMunicipalities();syncPrefectureChoices();showAllResults=false;saveFilters();render();showCoverage();
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!prefectureMenu.hidden)setPrefectureMenu(false)});
+document.addEventListener("click",e=>{if(!prefectureMenu.hidden&&!e.target.closest(".hero-locator"))setPrefectureMenu(false)});
+syncPrefectureChoices();
 const results=document.getElementById("results");
 const count=document.getElementById("count");
 function field(v){return String(v??"")}
 function render(){
-const r=region.value;
-const city=municipality.value;
+const regions=selectedRegions;
+const r=regions.length===1?regions[0]:"";
+const city=regions.length===1?municipality.value:"";
 const q=document.getElementById("keyword").value.trim().toLowerCase();
 const filtered=data.filter(x=>{
 if(savedOnly&&!favorites.includes(favoriteKey(x)))return false;
@@ -256,8 +313,7 @@ const categories=Array.isArray(x.categories)?x.categories.join(" "):field(x.cate
 const area=field(x.area);
 const hay=[x.title,x.description,x.agency,x.target,categories].map(field).join(" ").toLowerCase();
 return (!topic||categories.includes(topic))
-&&(!r||area.includes(r)||area.includes("全国"))
-&&(!r||area==="全国"||area===r||city==="__all__"||(city!=="__other__"&&city&&area===r+" "+city))
+&&(!regions.length||area==="全国"||regions.some(p=>area===p||(regions.length===1&&city==="__all__"&&area.startsWith(p+" "))||(regions.length===1&&city&&city!=="__other__"&&area===p+" "+city)))
 &&(!q||hay.includes(q));
 });
 count.textContent=filtered.length+"件の支援制度が見つかりました";
@@ -340,9 +396,9 @@ let coverage=null;
 const coverageElement=document.getElementById("coverage");
 function showCoverage(){
  if(!coverage){coverageElement.textContent="掲載地域の情報を準備しています。";return;}
- const selected=region.value;
- const n=selected?Number(coverage.prefectures?.[selected]||0)+Number(coverage.nationwide||0):null;
- const city=municipality.value;
+ const selected=selectedRegions.join("・");
+ const n=selectedRegions.length?selectedRegions.reduce((sum,p)=>sum+Number(coverage.prefectures?.[p]||0),Number(coverage.nationwide||0)):null;
+ const city=selectedRegions.length===1?municipality.value:"";
  coverageElement.textContent=selected
  ? (city?"選択した地域の検索結果を表示中。都道府県・全国制度も含みます。":"")+selected+"の掲載済み確認制度："+n+"件（市区町村の選択により表示件数は変わります。未掲載の制度もあります）"
  : "全国共通の掲載制度："+coverage.nationwide+"件。自治体独自の制度を掲載している都道府県："+coverage.prefectures_with_records+"／47（未掲載地域の自治体制度は検索できません）。";
@@ -356,18 +412,18 @@ document.getElementById("savedOnly").addEventListener("click",()=>{
  savedOnly=!savedOnly;updateSavedButton();saveFilters();render();
 });
 document.getElementById("resetFilters").addEventListener("click",()=>{
- region.value="";municipality.value="";document.getElementById("keyword").value="";
+ region.value="";selectedRegions=[];municipality.value="";document.getElementById("keyword").value="";
  topic="";savedOnly=false;
  document.querySelectorAll(".topic").forEach(x=>x.classList.remove("active"));
- refreshMunicipalities();updateSavedButton();saveFilters();render();showCoverage();
+ refreshMunicipalities();syncPrefectureChoices();updateSavedButton();saveFilters();render();showCoverage();
 });
 document.getElementById("clearLocal").addEventListener("click",()=>{
  if(!window.confirm("このブラウザに保存した検索条件とお気に入りを削除しますか？"))return;
  localPrefs.clear();
  favorites=[];savedOnly=false;topic="";
- region.value="";document.getElementById("keyword").value="";
+ region.value="";selectedRegions=[];document.getElementById("keyword").value="";
  document.querySelectorAll(".topic").forEach(x=>x.classList.remove("active"));
- refreshMunicipalities();updateSavedButton();render();showCoverage();
+ refreshMunicipalities();syncPrefectureChoices();updateSavedButton();render();showCoverage();
  document.getElementById("privacyHint").textContent="ブラウザ内の保存データを削除しました。";
 });
 fetch("./public/data/individual.json",{cache:"no-store"})
