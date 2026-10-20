@@ -15,7 +15,7 @@ with sync_playwright() as p:
         assert page.locator("#businessAreaChoices input").count()==47
         page.locator("#businessKanto").click()
         assert page.locator("#businessAreaChoices input:checked").count()==7
-        assert "7件" in page.locator("#businessAreaToggle").inner_text()
+        assert "ほか5件" in page.locator("#businessAreaToggle").inner_text()
         page.locator("#businessAreaDone").click()
         assert not page.locator("#businessAreaMenu").is_visible()
         page.locator("#businessTopics .topic[data-keyword='創業']").click()
