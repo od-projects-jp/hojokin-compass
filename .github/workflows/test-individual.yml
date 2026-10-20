@@ -20,6 +20,18 @@ jobs:
           python-version: "3.11"
       - name: Run offline tests
         run: python -m unittest discover -s tests -v
+      - name: Validate immediate search feedback UX
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html = Path("individual.html").read_text(encoding="utf-8")
+          assert html.index('id="result-preview"') < html.index('id="search-panel"')
+          assert html.index('id="result-preview"') > html.index('class="topics"')
+          for required in ('id="showMore"', 'id="resetTopic"', 'filtered.slice(0,3)', 'scrollIntoView({behavior:"smooth",block:"start"})', 'aria-live="polite"'):
+              assert required in html, required
+          assert 'google-site-verification' in Path("index.html").read_text(encoding="utf-8")
+          print("Immediate results, progressive disclosure and verification validated")
+          PY
       - name: Validate curated JSON
         run: python -c "import collect_individual; print(len(collect_individual.load_verified()), 'verified records')"
       - name: Validate published dataset and coverage
