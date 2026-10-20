@@ -90,6 +90,19 @@ h2{margin:23px 0 12px;font-size:18px}
 .item-details{padding:9px 12px;margin:9px 0}.item-details p{margin:3px 0}
 .item-actions{margin-top:10px}.privacy-tools{margin:11px 0}
 @media(max-width:650px){main{padding-top:16px}.hero-search{padding:20px}.hero-search:after{font-size:120px}.topics{gap:9px}.topic{min-height:108px;padding:12px}.topic.active{padding:11px}.topic svg{width:42px;height:42px}.topic span{font-size:13px}.panel{padding:17px}}
+
+/* Search-first interaction: results and clear feedback immediately below category choices */
+.result-preview{margin:15px 0 18px;background:#fff;border:1px solid #dce7dd;border-radius:17px;padding:18px 20px;scroll-margin-top:14px;box-shadow:0 5px 20px #193b3108}
+.result-preview-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.result-preview .count{margin:0;font-size:22px}.result-preview .count strong{color:#1c6a49}
+.result-preview .item{margin-top:12px}
+.preview-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.preview-actions button,.preview-actions a{font:inherit;font-size:12px;font-weight:800;color:#18543b;border:1px solid #a6c9af;border-radius:99px;background:#f0f7ef;padding:9px 14px;cursor:pointer;text-decoration:none}
+#showMore{display:block;margin:13px auto 2px;border:0;border-radius:99px;background:#193e35;color:#fff;padding:12px 24px;font-weight:800;cursor:pointer}
+#showMore[hidden]{display:none}
+.panel{margin-top:14px}.search-heading{margin-bottom:4px}
+.topic[aria-pressed="true"]{box-shadow:0 0 0 2px #193e35 inset}
+@media(max-width:650px){.result-preview{padding:14px}.result-preview .count{font-size:19px}}
 </style>
 </head>
 <body>
@@ -130,6 +143,11 @@ h2{margin:23px 0 12px;font-size:18px}
 </button>
 </div>
 
+<section class="result-preview" id="result-preview" aria-label="検索結果">
+<div class="result-preview-head"><div class="count" id="count" role="status" aria-live="polite">支援制度を読み込み中...</div>
+<div class="preview-actions"><a href="#search-panel">地域・キーワードで絞る ↓</a><button id="resetTopic" type="button">カテゴリ解除</button></div></div>
+<div id="results"></div><button id="showMore" type="button" hidden>検索結果をすべて見る ↓</button>
+</section>
 <div class="panel" id="search-panel"><p class="search-heading">お住まいの地域から絞り込む</p><p class="search-lead">カテゴリを選んだら、地域やキーワードであなたに近い制度を探せます。</p>
 <div class="filters">
 <div>
@@ -155,8 +173,7 @@ h2{margin:23px 0 12px;font-size:18px}
 <p id="privacyHint" class="privacy-hint" role="status">登録不要・無料。検索条件とお気に入りは、このブラウザ内にのみ保存します。共用端末では保存内容にご注意ください。</p>
 <p class="note">すべての確認済み制度を地域別に見る場合は、<a href="individual-directory.html">支援制度一覧ページ</a>をご利用ください。</p>
 <p class="note" id="coverage" aria-live="polite">地域別の掲載状況を確認しています...</p>
-<div class="count" id="count">支援制度を読み込み中...</div>
-<div id="results"></div>
+
 <p class="note"><a href="privacy.html">プライバシーとブラウザ内の保存について</a></p>
 <p class="note">市区町村限定の制度は、該当する市区町村を選んだ場合に表示します。「すべての市区町村」を選ぶと対象外の制度も表示されるため、申請資格を必ずご確認ください。</p>
 <p class="note">掲載情報は公的機関の公開情報に基づきます。制度の利用可否・申請条件・募集状況は必ず公式情報でご確認ください。</p>
@@ -199,6 +216,7 @@ const o=document.createElement("option");
 o.value=p;o.textContent=p;region.appendChild(o);
 });
 let data=[],topic="";
+let showAllResults=false;
 if(!localPrefs.available){
  document.getElementById("privacyHint").textContent="このブラウザでは保存が無効です。検索・お気に入りはこのページを開いている間のみ利用できます。";
 }
@@ -207,7 +225,7 @@ document.getElementById("keyword").value=initialFilters.keyword||"";
 const urlTopic=new URLSearchParams(window.location.search).get("topic");
 const allowedTopics=["住宅","子育て","教育","医療","仕事","省エネ"];
 topic=allowedTopics.includes(urlTopic)?urlTopic:(initialFilters.topic||"");
-document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dataset.topic===topic));
+document.querySelectorAll(".topic").forEach(x=>{x.classList.toggle("active",x.dataset.topic===topic);x.setAttribute("aria-pressed",String(x.dataset.topic===topic))});
 updateSavedButton();
 const municipality=document.getElementById("municipality");
 function localCity(area,pref){
@@ -242,7 +260,10 @@ return (!topic||categories.includes(topic))
 &&(!r||area==="全国"||area===r||city==="__all__"||(city!=="__other__"&&city&&area===r+" "+city))
 &&(!q||hay.includes(q));
 });
-count.textContent=filtered.length+"件の支援制度";
+count.textContent=filtered.length+"件の支援制度が見つかりました";
+const showMore=document.getElementById("showMore");
+showMore.hidden=showAllResults||filtered.length<=3;
+showMore.textContent="残り"+Math.max(0,filtered.length-3)+"件も見る ↓";
 results.replaceChildren();
 if(!filtered.length){
 const box=document.createElement("div");box.className="empty";
@@ -252,7 +273,7 @@ const msg=document.createElement("p");
 msg.textContent=data.length?"条件を変更してお試しください。":"現在、公的データの収集・確認を進めています。制度情報が整い次第、こちらに掲載します。";
 box.append(title,msg);results.appendChild(box);return;
 }
-filtered.forEach(x=>{
+(showAllResults?filtered:filtered.slice(0,3)).forEach(x=>{
 const card=document.createElement("article");card.className="item";
 const h=document.createElement("h3");h.textContent=field(x.title);
 const tags=document.createElement("div");tags.className="item-tags";
@@ -306,13 +327,15 @@ card.appendChild(actions);results.appendChild(card);
 document.querySelectorAll(".topic").forEach(b=>{
 b.addEventListener("click",()=>{
 topic=topic===b.dataset.topic?"":b.dataset.topic;
-document.querySelectorAll(".topic").forEach(x=>x.classList.toggle("active",x.dataset.topic===topic));
-saveFilters();render();
- document.getElementById("search-panel").scrollIntoView({behavior:"smooth",block:"start"});
+document.querySelectorAll(".topic").forEach(x=>{x.classList.toggle("active",x.dataset.topic===topic);x.setAttribute("aria-pressed",String(x.dataset.topic===topic))});
+showAllResults=false;saveFilters();render();
+document.getElementById("result-preview").scrollIntoView({behavior:"smooth",block:"start"});
 });
 });
-region.addEventListener("change",()=>{refreshMunicipalities();saveFilters();render();showCoverage()});
-municipality.addEventListener("change",()=>{saveFilters();render();showCoverage()});
+document.getElementById("showMore").addEventListener("click",()=>{showAllResults=true;render()});
+document.getElementById("resetTopic").addEventListener("click",()=>{topic="";showAllResults=false;document.querySelectorAll(".topic").forEach(x=>{x.classList.remove("active");x.setAttribute("aria-pressed","false")});saveFilters();render()});
+region.addEventListener("change",()=>{showAllResults=false;refreshMunicipalities();saveFilters();render();showCoverage()});
+municipality.addEventListener("change",()=>{showAllResults=false;saveFilters();render();showCoverage()});
 let coverage=null;
 const coverageElement=document.getElementById("coverage");
 function showCoverage(){
@@ -328,7 +351,7 @@ fetch("./public/data/individual_coverage.json",{cache:"no-store"})
  .then(r=>{if(!r.ok)throw Error("coverage unavailable");return r.json()})
  .then(j=>{coverage=j;showCoverage()})
  .catch(()=>{coverageElement.textContent="地域別掲載状況は準備中です。"});
-document.getElementById("keyword").addEventListener("input",()=>{saveFilters();render()});
+document.getElementById("keyword").addEventListener("input",()=>{showAllResults=false;saveFilters();render()});
 document.getElementById("savedOnly").addEventListener("click",()=>{
  savedOnly=!savedOnly;updateSavedButton();saveFilters();render();
 });
