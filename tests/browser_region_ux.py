@@ -49,7 +49,13 @@ with sync_playwright() as p:
         page.locator("#closePrefectures").click()
         print("Testing category and results",flush=True)
         page.locator(".topic[data-topic='住宅']").click()
+        assert page.locator(".topic[data-topic='住宅']").get_attribute("aria-pressed") == "true"
+        page.locator(".topic[data-topic='子育て']").click()
+        assert page.locator(".topic[data-topic='住宅']").get_attribute("aria-pressed") == "true"
+        assert page.locator(".topic[data-topic='子育て']").get_attribute("aria-pressed") == "true"
         assert "件の支援制度が見つかりました" in page.locator("#count").inner_text()
+        page.locator("#resetTopic").click()
+        assert page.locator(".topic[aria-pressed='true']").count() == 0
         assert not errors, f"browser JavaScript errors at {width}px: {errors}"
         print(f"Passed viewport {width}",flush=True)
         page.close()
