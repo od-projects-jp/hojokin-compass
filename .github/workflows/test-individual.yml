@@ -107,6 +107,21 @@ jobs:
           assert 'className="item-details"' in html
           print("City eligibility default and readable cards validated")
           PY
+      - name: Check instant result journey and direct CTA destinations
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          i=Path("individual.html").read_text()
+          h=Path("index.html").read_text()
+          b=Path("search.html").read_text()
+          assert i.index('id="search-panel"') < i.index('class="topics"') < i.index('id="result-section"') < i.index('class="privacy-tools"')
+          assert '件見つかりました' in i
+          assert 'getElementById("result-section").scrollIntoView' in i
+          assert 'class="refine-link"' in i
+          assert '個人向けを検索する' in h and '法人向けを検索する' in h
+          assert 'id="quickCount"' in b and '$("count").scrollIntoView' in b
+          print("CTA and immediate result journey checks passed")
+          PY
       - name: Guard against tracking scripts and personal-data collection
         run: node tests/privacy-guardrails.test.js
       - name: Test browser-only storage and privacy controls
