@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'individual.html'
+      - 'search.html'
+      - 'tests/browser_business_ux.py'
       - 'privacy-storage.js'
       - 'tests/browser_region_ux.py'
       - '.github/workflows/browser-ux.yml'
@@ -24,3 +26,4 @@ jobs:
         run: |
           python -m http.server 8765 --bind 127.0.0.1 >/tmp/hojokin-http.log 2>&1 &
           python tests/browser_region_ux.py
+          python tests/browser_business_ux.py
