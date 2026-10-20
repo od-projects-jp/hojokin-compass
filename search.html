@@ -295,6 +295,12 @@ footer{border-top:1px solid var(--line);background:white;padding:30px 0}
 .stats{padding-top:11px}.actions{padding:9px 19px}
 .result-head{margin-bottom:11px}.result-head h2{font-size:20px}
 @media(max-width:750px){.layout{grid-template-columns:1fr}.filters{position:static}}
+
+/* CTO/CCO: immediate count near search, meaningful destination */
+.quick-result{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#e7f2e9;border-radius:12px;padding:12px 17px;margin-top:15px;color:#205740;font-weight:800;font-size:15px}
+.quick-result a{background:#193e35;color:white;padding:9px 16px;border-radius:9px;text-decoration:none;font-size:12px;white-space:nowrap}
+#count{scroll-margin-top:15px}
+@media(max-width:600px){.quick-result{font-size:13px;padding:10px}.quick-result a{padding:9px 11px}}
 </style>
 </head>
 <body>
@@ -333,6 +339,7 @@ footer{border-top:1px solid var(--line);background:white;padding:30px 0}
       <button class="topic" data-keyword="人材">人材・雇用 ↗</button>
     </div>
 
+    <div class="quick-result" id="quickResult" role="status" aria-live="polite"><span id="quickCount">条件を選んで補助金を探す</span><a href="#count">検索結果を見る ↓</a></div>
     <div class="source">
       <span>収録 <b id="total">読み込み中</b></span>
       <span>出典 <b>Jグランツ公開データ</b></span>
@@ -708,7 +715,8 @@ function render() {
   target.replaceChildren(frag);
 
   $("count").textContent =
-    filtered.length.toLocaleString("ja-JP")+" 件の補助金";
+    filtered.length.toLocaleString("ja-JP")+"件の補助金が見つかりました";
+  $("quickCount").textContent = filtered.length.toLocaleString("ja-JP")+"件見つかりました";
 
   if (!filtered.length) {
     target.append(node("div","empty",
@@ -813,7 +821,7 @@ function closeComparison() {
 $("searchForm").addEventListener("submit",e => {
   e.preventDefault();
   apply();
-  $("resultsArea").scrollIntoView({behavior:"smooth"});
+  $("count").scrollIntoView({behavior:"smooth",block:"start"});
 });
 
 document.querySelectorAll("[data-keyword]").forEach(b => {
