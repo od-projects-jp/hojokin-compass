@@ -1,14 +1,17 @@
 {
-  "checked_at": "2026-11-01T20:51:58.295876+00:00",
+  "checked_at": "2026-11-02T20:58:14.533025+00:00",
   "source_count": 1,
-  "success_count": 0,
-  "candidate_count_this_run": 0,
-  "high_priority_count_this_run": 0,
+  "success_count": 1,
+  "candidate_count_this_run": 119,
+  "high_priority_count_this_run": 35,
   "sources": [
     {
       "source_id": "koganei",
-      "status": "error",
-      "error": "HTTP Error 403: Forbidden"
+      "status": "ok",
+      "candidate_count": 119,
+      "high_priority_count": 35,
+      "possible_business_only_count": 15,
+      "output": "public/data/individual_candidates/koganei.json"
     }
   ],
   "notice": "候補数であり、公開済み・申請可能な制度数ではありません。"
